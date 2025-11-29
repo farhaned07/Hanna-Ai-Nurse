@@ -2,7 +2,7 @@ import { Phone, Activity, Pill, Bell, FileHeart, ShieldCheck } from 'lucide-reac
 
 export const HERO_CONTENT = {
   headline: "ป้องกันไม่ให้พ่อแม่คุณเข้า ICU อีกครั้ง",
-  subheadline: "ด้วยราคาแค่ 66 บาท/วัน",
+  subheadline: "ด้วยราคาแค่ 100 บาท/วัน",
   socialProof: "ตอนนี้มี 28,417 คนจองสิทธิ์กลุ่มแรกแล้ว",
   urgency: "เหลืออีกไม่ถึง 2,000 ที่นั่ง",
   qrText: "สแกน QR เพื่อจองสิทธิ์กลุ่มแรกทันที",
