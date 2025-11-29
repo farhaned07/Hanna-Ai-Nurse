@@ -32,8 +32,8 @@ const Pricing: React.FC = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: plan.highlight ? -30 : -5 }}
               className={`relative rounded-[2rem] p-8 transition-colors duration-300 flex flex-col h-full ${plan.highlight
-                  ? 'bg-white shadow-2xl shadow-hana-main/20 border-2 border-hana-main md:-translate-y-6 z-10 mt-6 md:mt-0'
-                  : 'bg-white border border-hana-soft hover:border-hana-main/30'
+                ? 'bg-white shadow-2xl shadow-hana-main/20 border-2 border-hana-main md:-translate-y-6 z-10 mt-6 md:mt-0'
+                : 'bg-white border border-hana-soft hover:border-hana-main/30'
                 }`}
             >
               {plan.highlight && (
@@ -60,12 +60,16 @@ const Pricing: React.FC = () => {
                 ))}
               </ul>
 
-              <button className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg ${plan.highlight
+              <a
+                href="https://line.me/R/ti/p/@hanna"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg block text-center ${plan.highlight
                   ? 'bg-hana-main text-white hover:bg-[#7A33FF] shadow-hana-main/30'
                   : 'bg-white text-hana-dark border border-hana-main/20 hover:bg-hana-soft shadow-hana-main/10'
-                }`}>
+                  }`}>
                 เลือกแผน {plan.name}
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>
