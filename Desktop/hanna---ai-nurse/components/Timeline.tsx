@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TIMELINE_STEPS, TIMELINE_CLOSING } from '../constants';
+import { TIMELINE_STEPS, TIMELINE_CLOSING, TIMELINE_DISCLAIMER } from '../constants';
 import { ArrowRight, AlertTriangle } from 'lucide-react';
 
 const Timeline: React.FC = () => {
@@ -83,6 +83,9 @@ const Timeline: React.FC = () => {
         >
           <p className="text-xl md:text-2xl font-medium text-hana-dark leading-relaxed">
             {TIMELINE_CLOSING}
+          </p>
+          <p className="text-sm text-hana-dark/60 mt-6 italic">
+            {TIMELINE_DISCLAIMER}
           </p>
         </motion.div>
       </div>

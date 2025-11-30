@@ -20,21 +20,11 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center lg:text-left flex flex-col items-center lg:items-start"
         >
-          {/* Social Proof Avatars */}
-          <div className="flex items-center gap-4 mb-8 bg-white/60 backdrop-blur-sm p-2 rounded-full lg:bg-transparent lg:p-0">
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                  <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 12}`} alt="User" />
-                </div>
-              ))}
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white bg-hana-soft text-hana-main flex items-center justify-center text-[10px] md:text-xs font-bold">
-                +28k
-              </div>
-            </div>
+          {/* Social Proof Badge */}
+          <div className="flex items-center gap-4 mb-8 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full lg:bg-transparent lg:p-0 inline-flex">
             <div className="text-xs md:text-sm font-medium text-hana-dark/80">
               <p className="leading-tight">
-                ตอนนี้มี <LiveCounter defaultCount={28417} type="socialProof" className="font-bold text-hana-main" /> คนจองสิทธิ์กลุ่มแรกแล้ว
+                {HERO_CONTENT.socialProof}
               </p>
             </div>
           </div>
