@@ -2,10 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
-import Solution from './components/Solution';
-import WhyLine from './components/WhyLine';
+import HowItWorks from './components/HowItWorks';
+import WhyVoice from './components/WhyVoice';
+import FeaturesGrid from './components/FeaturesGrid';
 import TrustCredibility from './components/TrustCredibility';
 import Pricing from './components/Pricing';
+import FAQ from './components/FAQ';
+import GetStarted from './components/GetStarted';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
@@ -24,12 +27,16 @@ const LandingPage: React.FC = () => {
         </span>
       </nav>
 
+      {/* MVP Section Order */}
       <Hero />
       <Problem />
-      <Solution />
-      <WhyLine />
+      <HowItWorks />
+      <WhyVoice />
+      <FeaturesGrid />
       <TrustCredibility />
       <Pricing />
+      <FAQ />
+      <GetStarted />
       <FinalCTA />
       <Footer />
 
