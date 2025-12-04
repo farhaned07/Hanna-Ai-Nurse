@@ -1,14 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './components/Hero';
-import Timeline from './components/Timeline';
+import Problem from './components/Problem';
+import Solution from './components/Solution';
+import WhyLine from './components/WhyLine';
+import TrustCredibility from './components/TrustCredibility';
 import Pricing from './components/Pricing';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
-import StickyCTA from './components/StickyCTA';
-import TrustBadges from './components/TrustBadges';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
+import SafetyDetail from './components/SafetyDetail';
+import AudienceDetail from './components/AudienceDetail';
+import StickyMobileCTA from './components/StickyMobileCTA';
 
 const LandingPage: React.FC = () => {
   return (
@@ -21,12 +25,16 @@ const LandingPage: React.FC = () => {
       </nav>
 
       <Hero />
-      <TrustBadges />
-      <Timeline />
+      <Problem />
+      <Solution />
+      <WhyLine />
+      <TrustCredibility />
       <Pricing />
       <FinalCTA />
       <Footer />
-      <StickyCTA />
+
+      {/* Mobile Sticky CTA */}
+      <StickyMobileCTA />
     </div>
   );
 };
@@ -38,6 +46,8 @@ const App: React.FC = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/safety" element={<SafetyDetail />} />
+        <Route path="/audience" element={<AudienceDetail />} />
       </Routes>
     </Router>
   );

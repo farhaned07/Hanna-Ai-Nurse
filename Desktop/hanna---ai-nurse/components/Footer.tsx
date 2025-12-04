@@ -37,6 +37,19 @@ const Footer: React.FC = () => {
                         <span className="w-1 h-1 rounded-full bg-hana-green"></span>
                         LINE: @hanna
                     </a>
+                </div>
+
+                {/* Column 3: Legal & Info Links */}
+                <div className="flex flex-col gap-3">
+                    <h4 className="font-bold text-hana-dark mb-1">ข้อมูลเพิ่มเติม</h4>
+                    <Link to="/safety" className="hover:text-hana-main transition-colors flex items-center gap-2 text-hana-dark/80">
+                        <span className="w-1 h-1 rounded-full bg-hana-dark/30"></span>
+                        ระบบความปลอดภัย
+                    </Link>
+                    <Link to="/audience" className="hover:text-hana-main transition-colors flex items-center gap-2 text-hana-dark/80">
+                        <span className="w-1 h-1 rounded-full bg-hana-dark/30"></span>
+                        ฮันนาเหมาะกับใคร
+                    </Link>
                     <Link to="/terms" className="hover:text-hana-main transition-colors flex items-center gap-2 text-hana-dark/80">
                         <span className="w-1 h-1 rounded-full bg-hana-dark/30"></span>
                         {FOOTER_LINKS.terms}
@@ -47,7 +60,7 @@ const Footer: React.FC = () => {
                     </Link>
                 </div>
 
-                {/* Column 3: Small QR (New addition) */}
+                {/* Column 4: Small QR */}
                 <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-2 bg-hana-soft p-4 rounded-2xl border border-hana-main/10">
                     <div className="bg-white p-1.5 rounded-xl border-2 border-hana-main shadow-sm shrink-0">
                         <img

@@ -1,94 +1,102 @@
 import React from 'react';
-import { Sparkles, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ArrowRight, Sparkles } from 'lucide-react';
+import { FINAL_CTA_CONTENT } from '../constants';
 
 const FinalCTA: React.FC = () => {
   return (
-    <section className="relative py-8 px-4 md:px-8 bg-white">
+    <section className="py-20 px-4 md:px-8 bg-white">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="max-w-7xl mx-auto rounded-[3rem] bg-hana-soft overflow-hidden relative text-center py-24 px-6 md:px-12 shadow-2xl shadow-hana-main/10 border border-hana-main/10"
+        className="max-w-6xl mx-auto rounded-[3rem] bg-[#F4F1FF] overflow-hidden relative text-center py-20 px-6 md:px-12"
       >
-
-        {/* Abstract shapes with breathing animation */}
-        <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.4, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-0 w-64 h-64 bg-hana-main/10 blur-[80px] rounded-full -translate-x-1/2 -translate-y-1/2"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-0 right-0 w-80 h-80 bg-hana-main/10 blur-[80px] rounded-full translate-x-1/3 translate-y-1/3"
-        />
+        {/* Abstract shapes */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-hana-main/5 rounded-full blur-[80px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-hana-main/5 rounded-full blur-[80px]" />
+        </div>
 
         <div className="relative z-10 flex flex-col items-center">
+
+          {/* Icon Badge */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mb-8 p-3 bg-white rounded-2xl inline-flex items-center justify-center shadow-md shadow-hana-main/10"
+            className="mb-8 bg-white p-4 rounded-2xl shadow-sm shadow-hana-main/10 inline-flex"
           >
             <Sparkles className="text-hana-main w-8 h-8" />
           </motion.div>
 
           <motion.h2
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-3xl md:text-6xl font-bold mb-6 text-hana-dark tracking-tight"
+            className="text-3xl md:text-5xl font-bold text-hana-dark mb-6 tracking-tight"
           >
-            เหลือสิทธิ์ส่วนลด <span className="text-hana-main">50% ตลอดชีพ</span>
+            เริ่มดูแลสุขภาพให้ดีขึ้น <span className="text-hana-main">ตั้งแต่วันนี้</span>
           </motion.h2>
 
           <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl font-light text-hana-dark/70 mb-12 max-w-2xl"
+            transition={{ delay: 0.1 }}
+            className="text-xl md:text-2xl text-hana-dark/70 mb-12 font-medium"
           >
-            อีกไม่ถึง <span className="font-bold text-white bg-hana-main px-2 rounded">2,000</span> ที่นั่ง เริ่มดูแลคนที่คุณรักได้ทันที วันนี้
+            ให้ฮันนาช่วยดูแลคุณทุกวัน
           </motion.p>
 
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-white p-8 rounded-3xl border border-hana-main/20 shadow-xl shadow-hana-main/5"
+            transition={{ delay: 0.2 }}
+            className="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-hana-main/10 flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-3xl mx-auto"
           >
-            <div className="bg-white p-4 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-300 relative border-4 border-hana-main">
-              <div className="absolute top-0 right-0 bg-hana-green w-8 h-8 rounded-bl-xl z-10 flex items-center justify-center">
-                <span className="text-white text-[10px] font-bold">LINE</span>
+            {/* QR Code Section */}
+            <div className="relative group">
+              <div className="bg-white p-4 rounded-3xl border-4 border-hana-main shadow-lg transform group-hover:rotate-2 transition-transform duration-300">
+                <div className="absolute -top-3 -right-3 bg-[#06C755] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-md animate-bounce">
+                  LINE
+                </div>
+                <img
+                  src="https://qr-official.line.me/gs/M_519fiets_BW.png?oat_content=qr"
+                  alt="Scan to join Hanna"
+                  className="w-40 h-40 object-contain"
+                />
               </div>
-              <img
-                src="https://qr-official.line.me/gs/M_519fiets_BW.png?oat_content=qr"
-                alt="Scan CTA"
-                className="w-[180px] h-[180px] object-contain"
-              />
             </div>
 
-            <div className="text-center md:text-left text-hana-dark">
-              <p className="text-lg text-hana-dark/60 mb-1">สแกนเลยค่ะ</p>
-              <p className="text-3xl font-bold mb-4">@hanna</p>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            {/* Text Content */}
+            <div className="text-center md:text-left">
+              <p className="text-hana-dark/60 font-medium mb-2">สแกนเลยค่ะ</p>
+              <h3 className="text-3xl font-bold text-hana-dark mb-6">@hanna</h3>
+
+              <a
                 href="https://line.me/R/ti/p/@hanna"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-hana-main text-white px-6 py-3 rounded-xl font-bold hover:bg-[#7A33FF] transition-colors shadow-lg shadow-hana-main/20"
+                className="bg-hana-main hover:bg-[#7A33FF] text-white py-3 px-8 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-hana-main/20 w-full md:w-auto"
               >
-                แอดไลน์เลย <ArrowRight size={18} />
-              </motion.a>
+                แอดไลน์เลย <ArrowRight size={20} />
+              </a>
             </div>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="mt-10 text-hana-dark/50 font-medium text-sm md:text-base"
+          >
+            ทดลองใช้ฟรี 7 วัน • ไม่ต้องใส่บัตร • ยกเลิกได้ตลอด
+          </motion.p>
+
         </div>
       </motion.div>
     </section>
