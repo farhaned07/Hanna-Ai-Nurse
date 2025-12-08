@@ -38,8 +38,8 @@ const Pricing: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className={`relative bg-white rounded-3xl p-8 flex flex-col hover:-translate-y-1 transition-all duration-300 ${plan.highlight
-                  ? 'border-2 border-hana-main shadow-xl scale-105 z-10'
-                  : 'border border-gray-100 shadow-lg hover:shadow-xl'
+                ? 'border-2 border-hana-main shadow-xl scale-105 z-10'
+                : 'border border-gray-100 shadow-lg hover:shadow-xl'
                 }`}
             >
               {plan.badge && (
@@ -93,12 +93,12 @@ const Pricing: React.FC = () => {
 
               {/* CTA Button */}
               <a
-                href="https://line.me/R/ti/p/@hanna"
+                href="https://lin.ee/2k1oG3l"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg block text-center active:scale-95 ${plan.highlight
-                    ? 'bg-hana-main text-white hover:bg-[#7A33FF] shadow-hana-main/30'
-                    : 'bg-white text-hana-dark border border-hana-main/20 hover:bg-hana-soft shadow-hana-main/10'
+                  ? 'bg-hana-main text-white hover:bg-[#7A33FF] shadow-hana-main/30'
+                  : 'bg-white text-hana-dark border border-hana-main/20 hover:bg-hana-soft shadow-hana-main/10'
                   }`}
               >
                 {plan.cta}

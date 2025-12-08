@@ -121,7 +121,7 @@ const HowItWorks: React.FC = () => {
                     className="text-center mt-12"
                 >
                     <a
-                        href="https://line.me/R/ti/p/@hanna"
+                        href="https://lin.ee/2k1oG3l"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-hana-main hover:bg-[#7A33FF] text-white py-4 px-8 rounded-xl font-bold text-lg transition-all shadow-lg shadow-hana-main/20 active:scale-95"

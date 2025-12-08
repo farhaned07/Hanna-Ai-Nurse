@@ -21,8 +21,8 @@ const StickyCTA: React.FC = () => {
 
   return (
     <div className="fixed bottom-6 left-4 right-4 z-50 md:hidden">
-      <a 
-        href="https://line.me/R/ti/p/@hanna"
+      <a
+        href="https://lin.ee/2k1oG3l"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-between bg-hana-main text-white p-4 rounded-xl shadow-lg shadow-hana-main/40 backdrop-blur-md border border-white/10"

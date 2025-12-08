@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
                         <span className="w-1 h-1 rounded-full bg-hana-dark/30"></span>
                         {FOOTER_LINKS.email}
                     </a>
-                    <a href="https://line.me/R/ti/p/@hanna" target="_blank" rel="noopener noreferrer" className="hover:text-hana-main transition-colors flex items-center gap-2 font-medium text-hana-dark/80">
+                    <a href="https://lin.ee/2k1oG3l" target="_blank" rel="noopener noreferrer" className="hover:text-hana-main transition-colors flex items-center gap-2 font-medium text-hana-dark/80">
                         <span className="w-1 h-1 rounded-full bg-hana-green"></span>
                         LINE: @hanna
                     </a>
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col">
                         <p className="text-xs text-hana-dark/50 mb-0.5">สอบถามเพิ่มเติม</p>
                         <p className="font-bold text-hana-dark text-sm">LINE ID: @hanna</p>
-                        <a href="https://line.me/R/ti/p/@hanna" className="text-[10px] text-hana-main font-semibold mt-1 flex items-center gap-1 hover:underline">
+                        <a href="https://lin.ee/2k1oG3l" className="text-[10px] text-hana-main font-semibold mt-1 flex items-center gap-1 hover:underline">
                             คลิกเพื่อแอดไลน์
                         </a>
                     </div>

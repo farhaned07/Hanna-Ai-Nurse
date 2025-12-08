@@ -27,7 +27,7 @@ const StickyMobileCTA: React.FC = () => {
                 >
                     <div className="bg-white/95 backdrop-blur-lg border-t border-gray-200 shadow-[0_-10px_30px_-5px_rgba(0,0,0,0.1)] px-4 py-3">
                         <a
-                            href="https://line.me/R/ti/p/@hanna"
+                            href="https://lin.ee/2k1oG3l"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-[#06C755] hover:bg-[#05b54c] active:scale-95 text-white py-3 px-6 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-500/20 w-full"

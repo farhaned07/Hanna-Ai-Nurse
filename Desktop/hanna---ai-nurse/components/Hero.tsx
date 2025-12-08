@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
 
             {/* CTA Button */}
             <a
-              href="https://line.me/R/ti/p/@hanna"
+              href="https://lin.ee/2k1oG3l"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#06C755] hover:bg-[#05b54c] text-white py-3 rounded-xl font-bold text-base md:text-lg flex items-center justify-center gap-2 transition-colors shadow-lg shadow-green-500/20 w-full"

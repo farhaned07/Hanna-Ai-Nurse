@@ -409,7 +409,7 @@ export const FOOTER_MVP = {
     social: {
         facebook: "#",
         tiktok: "#",
-        line: "https://line.me/R/ti/p/@hanna"
+        line: "https://lin.ee/2k1oG3l"
     },
     copyright: "© 2024 Hanna AI Nurse",
     rights: "All rights reserved.",

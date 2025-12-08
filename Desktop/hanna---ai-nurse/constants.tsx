@@ -1,4 +1,50 @@
-import { Phone, Activity, Pill, Bell, FileHeart, ShieldCheck, CheckCircle, XCircle, Clock, Heart, UserCheck, Smartphone } from 'lucide-react';
+import { Phone, Activity, Pill, Bell, FileHeart, ShieldCheck, CheckCircle, XCircle, Clock, Heart, UserCheck, Smartphone, Sun, Coffee, Moon, AlertCircle } from 'lucide-react';
+
+// Timeline constants for daily care routine
+export const TIMELINE_STEPS = [
+  {
+    time: "07:00",
+    title: "ทักทายตอนเช้า",
+    description: "ฮันนาทักมาถามสุขภาพเมื่อคืน นอนหลับดีไหม มีอาการผิดปกติอะไรไหม",
+    icon: <Sun className="w-5 h-5" />,
+    action: null
+  },
+  {
+    time: "08:00",
+    title: "เตือนกินยาเช้า",
+    description: "แจ้งเตือนยาที่ต้องกิน พร้อมบอกชื่อยา จำนวน และวิธีกิน",
+    icon: <Pill className="w-5 h-5" />,
+    action: null
+  },
+  {
+    time: "12:00",
+    title: "เช็คอิน กลางวัน",
+    description: "ถามอาการระหว่างวัน มีเหนื่อย เวียนศีรษะ หรืออาการอื่นไหม",
+    icon: <Coffee className="w-5 h-5" />,
+    action: {
+      text: "พบความผิดปกติ → แจ้งพยาบาล",
+      subText: "ระบบจะส่งข้อมูลให้พยาบาลตรวจสอบทันที"
+    }
+  },
+  {
+    time: "18:00",
+    title: "เตือนกินยาเย็น",
+    description: "เตือนยามื้อเย็นตามรายการที่ตั้งไว้",
+    icon: <Pill className="w-5 h-5" />,
+    action: null
+  },
+  {
+    time: "21:00",
+    title: "สรุปสุขภาพประจำวัน",
+    description: "สรุปอาการ ยาที่กิน และข้อสังเกตประจำวัน ส่งให้ครอบครัวได้",
+    icon: <Moon className="w-5 h-5" />,
+    action: null
+  }
+];
+
+export const TIMELINE_CLOSING = "\"ทุกวันที่มีฮันนาดูแล คือวันที่คุณไม่ต้องจัดการทุกอย่างคนเดียว\"";
+
+export const TIMELINE_DISCLAIMER = "* เวลาดูแลปรับได้ตามความต้องการของแต่ละคน";
 
 export const HERO_CONTENT = {
   headline: "ฮันนา — พยาบาล AI ที่คอยดูแลคุณทุกวัน",

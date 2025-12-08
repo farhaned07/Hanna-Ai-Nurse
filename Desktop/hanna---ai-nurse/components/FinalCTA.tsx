@@ -67,7 +67,7 @@ const FinalCTA: React.FC = () => {
 
               {/* Alternative CTA Button */}
               <a
-                href="https://line.me/R/ti/p/@hanna"
+                href="https://lin.ee/2k1oG3l"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-hana-main hover:bg-[#7A33FF] text-white py-3 px-8 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-hana-main/20 w-full md:w-auto active:scale-95"
