@@ -6,7 +6,7 @@ const Privacy: React.FC = () => {
     return (
         <div className="min-h-screen bg-white py-12 px-4 md:px-8">
             <div className="max-w-3xl mx-auto">
-                <Link to="/" className="inline-flex items-center gap-2 text-hana-main font-bold mb-8 hover:gap-3 transition-all">
+                <Link to="/" className="inline-flex items-center gap-2 text-hana-primary font-bold mb-8 hover:gap-3 transition-all">
                     <ArrowLeft size={20} />
                     กลับสู่หน้าหลัก
                 </Link>
