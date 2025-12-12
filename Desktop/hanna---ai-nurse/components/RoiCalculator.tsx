@@ -119,7 +119,7 @@ const RoiCalculator: React.FC = () => {
                                     <p className="text-3xl md:text-4xl font-bold text-hana-accent text-gradient-primary">
                                         {formatMillions(netSavings)}
                                     </p>
-                                    <p className="text-xs font-bold text-emerald-500 bg-emerald-50 inline-block px-2 py-0.5 rounded-full mt-1">
+                                    <p className="text-xs font-bold text-hana-primary bg-hana-primary/10 inline-block px-2 py-0.5 rounded-full mt-1">
                                         {roi}x ROI
                                     </p>
                                 </div>

@@ -23,9 +23,18 @@ const FinalCTAB2B: React.FC = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-400 text-xs font-bold uppercase tracking-widest font-sans">
-                        <span>PDPA Compliant</span>
-                        <span>Thai Medical Council</span>
-                        <span>LINE Partner</span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-hana-primary"></span>
+                            PDPA Compliant
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-hana-primary"></span>
+                            Thai Medical Council
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-hana-primary"></span>
+                            LINE Partner
+                        </span>
                     </div>
                 </FadeIn>
             </div>
