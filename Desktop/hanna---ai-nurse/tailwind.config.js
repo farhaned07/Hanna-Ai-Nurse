@@ -8,8 +8,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                'hana-primary': 'var(--hana-primary)', // Formerly Green, now Hanna Blue
-                'hana-accent': 'var(--hana-accent)', // Deep Teal Accent
+                'hana-primary': '#6d9dad', // Formerly Green, now Hanna Blue
+                'hana-accent': '#0d465f', // Deep Teal Accent
                 'navy': '#0F172A',
                 'slate-body': '#334155',
                 'cool-gray': '#F8FAFC',

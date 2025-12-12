@@ -30,7 +30,7 @@ const LandingPageB2B: React.FC = () => {
 
                     <button
                         onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
-                        className="bg-hana-primary hover:bg-[#25a062] text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-all hover:scale-105 shadow-md">
+                        className="bg-hana-primary hover:bg-hana-accent text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-bold transition-all hover:scale-105 shadow-md">
                         Book Demo
                     </button>
                 </div>

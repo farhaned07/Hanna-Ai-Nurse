@@ -4,14 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --hana-primary: #6d9dad;
-    /* Hanna Blue */
-    --hana-accent: #0d465f;
-    /* Deep Teal */
-  }
-}
+
 
 @layer utilities {
   .glass {

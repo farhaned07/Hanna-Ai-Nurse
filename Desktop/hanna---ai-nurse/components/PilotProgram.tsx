@@ -61,7 +61,7 @@ const PilotProgram: React.FC = () => {
                             </div>
 
                             <div className="mt-12 space-y-6">
-                                <button className="w-full bg-hana-primary text-white hover:bg-[#25a062] py-5 rounded-xl font-bold text-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 font-sans">
+                                <button className="w-full bg-hana-primary text-white hover:bg-hana-accent py-5 rounded-xl font-bold text-xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-3 font-sans">
                                     {PILOT_B2B.cta}
                                     <ArrowRight className="w-6 h-6" />
                                 </button>

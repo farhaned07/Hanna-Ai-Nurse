@@ -39,7 +39,7 @@ const HeroB2B: React.FC = () => {
                             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                                 <button
                                     onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
-                                    className="flex items-center justify-center gap-2 bg-hana-primary text-white px-8 py-4 rounded-lg text-base font-semibold transition-all hover:bg-[#25a062] hover:shadow-hover shadow-sm active:scale-95 group w-full sm:w-auto font-body">
+                                    className="flex items-center justify-center gap-2 bg-hana-primary text-white px-8 py-4 rounded-lg text-base font-semibold transition-all hover:bg-hana-accent hover:shadow-hover shadow-sm active:scale-95 group w-full sm:w-auto font-body">
                                     {HERO_B2B.ctaPrimary}
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
