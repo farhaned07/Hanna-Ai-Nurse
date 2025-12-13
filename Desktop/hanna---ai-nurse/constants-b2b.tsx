@@ -9,14 +9,14 @@ import {
 // ============================================
 export const HERO_B2B = {
     headline: "Reduce Insurance Claims by 30%+ Through AI-Powered Patient Monitoring",
-    subheadline: "Daily voice check-ins via LINE catch chronic disease complications before they become ER visits. One nurse supervises 100-200 patients.",
+    subheadline: "Daily voice check-ins via LINE catch chronic disease complications before they become ER visits. Hanna’s licensed nurse team supervises 100–200 patients per nurse.",
     ctaPrimary: "Book a Demo",
     ctaSecondary: "View Pilot Proposal",
     socialProof: [
         "Launching Q1 2026",
         "Backed by Clinical Research",
         "PDPA Compliant",
-        "Built for Thai Insurers"
+        "Designed for Insurer-Led Care Programs"
     ]
 };
 
@@ -61,7 +61,7 @@ export const PROBLEM_B2B = {
 // ============================================
 export const SOLUTION_B2B = {
     headline: "Hanna Fills the 361-Day Gap",
-    subheadline: "Voice-first AI + licensed nurse supervision = scalable, affordable, continuous care",
+    subheadline: "Voice-first AI + Hanna-managed licensed nurse supervision = scalable, continuous care at insurer scale",
     steps: [
         {
             title: "Daily Voice Check-in",
@@ -78,13 +78,13 @@ export const SOLUTION_B2B = {
         {
             title: "Nurse Supervision",
             time: "08:30-10:30 AM",
-            description: "Licensed nurse reviews flagged cases. Yellow flags → Document/Schedule follow-up. Red flags → Call patient.",
+            description: "Hanna-managed licensed nurse reviews flagged cases. Yellow flags → Document/Schedule follow-up. Red flags → Call patient.",
             icon: <UserCheck className="w-6 h-6 text-hana-primary" />
         },
         {
             title: "Early Intervention",
             time: "Ongoing",
-            description: "Medication adjusted before ER needed. ฿250K hospitalization prevented. Patient stays healthy.",
+            description: "Care escalation coordinated with licensed physicians before ER is needed. ฿250K hospitalization prevented. Patient stays healthy.",
             icon: <Heart className="w-6 h-6 text-hana-primary" />
         }
     ]
@@ -121,8 +121,8 @@ export const TECHNOLOGY_B2B = {
         {
             title: "Clinical Supervision",
             items: [
-                "Every interaction reviewed by licensed nurses",
-                "Real-time escalation protocols",
+                "Flagged interactions reviewed by Hanna-managed licensed nurses",
+                "Real-time escalation protocols to physicians and emergency services",
                 "Integration with doctor workflows",
                 "Thai Medical Council compliant"
             ],
@@ -149,7 +149,7 @@ export const AUDIENCE_B2B = [
         id: "insurers",
         label: "Health Insurers",
         challenge: "Rising claims costs, aging population, chronic disease epidemic",
-        solution: "Reduce claims by catching problems early. Pay only ฿100-150/member/month, save ฿50K-200K per prevented complication.",
+        solution: "Reduce claims by catching problems early. Pricing from ฿599/member/month for a fully managed AI-plus-nurse clinical service, saving ฿50K–200K per prevented complication.",
         fit: "10,000+ chronic disease members, claims data access, 90-day pilot commitment",
         icon: <Building className="w-5 h-5" />
     },
@@ -180,7 +180,7 @@ export const PILOT_B2B = {
         "90-day proof-of-concept",
         "50-100 high-risk patients",
         "Full platform setup (no IT required)",
-        "Licensed nurse team provided",
+        "Hanna-managed licensed nurse supervision included",
         "Real-time dashboard access",
         "Weekly outcome reporting",
         "Claims data integration"
@@ -199,7 +199,7 @@ export const PILOT_B2B = {
 };
 
 // ============================================
-// TEAM
+// TEAM (Unused but kept for structure)
 // ============================================
 export const TEAM_B2B = {
     headline: "Built by Healthcare + AI Experts",
@@ -230,7 +230,7 @@ export const FAQ_B2B = {
     insurers: [
         {
             q: "How is this different from call center monitoring?",
-            a: "Call centers cost ฿300-500/patient/month and reach patients weekly or monthly. Hanna costs ฿100-150/month and monitors daily via voice AI, with nurses reviewing only flagged cases."
+            a: "Hanna costs from ฿599/month as a fully managed AI-plus-nurse service and monitors patients daily, with nurses reviewing only flagged cases."
         },
         {
             q: "What if patients don't use LINE?",
@@ -238,7 +238,7 @@ export const FAQ_B2B = {
         },
         {
             q: "How do you ensure clinical accuracy?",
-            a: "Every interaction is supervised by licensed Thai nurses. AI flags patterns, humans make medical decisions. We never change medications without doctor authorization."
+            a: "All risk-flagged interactions are supervised by licensed Thai nurses within Hanna’s clinical operations. AI flags patterns, humans make medical decisions. We never change medications without doctor authorization."
         },
         {
             q: "What's the patient adoption rate?",
@@ -252,7 +252,7 @@ export const FAQ_B2B = {
     clinics: [
         {
             q: "Do we need to hire more nurses?",
-            a: "No. Your existing nurses use Hanna to extend their capacity. One nurse can supervise 100-200 patients through intelligent triage."
+            a: "No. Hanna can operate with its own licensed nurse team, or integrate with your existing nurses if preferred."
         },
         {
             q: "What if a patient has an emergency?",
@@ -289,5 +289,5 @@ export const FOOTER_B2B = {
         linkedin: "#",
         email: "farhan@hanna.care"
     },
-    legal: "© 2026 Hanna. Hanna is a healthcare technology platform. We are not a licensed healthcare provider. All medical decisions are made by licensed physicians and nurses."
+    legal: "© 2026 Hanna. Hanna is a managed healthcare technology and clinical support platform. We are not a licensed healthcare provider. All medical decisions are made by licensed physicians and nurses."
 };

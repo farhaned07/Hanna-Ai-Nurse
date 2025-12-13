@@ -13,7 +13,7 @@ const SocialProofB2B: React.FC = () => {
     const items = [
         { icon: CheckCircle, text: "PDPA Compliant" },
         { icon: Beaker, text: "Clinical Research Backed" },
-        { icon: Building2, text: "Built for Thai Insurers" },
+        { icon: Building2, text: "Designed for Insurer-Led Care Programs" },
     ];
 
     return (

@@ -5,12 +5,12 @@ import FadeIn from './animations/FadeIn';
 const RoiCalculator: React.FC = () => {
     // Inputs
     const [patientCount, setPatientCount] = useState(1000);
-    const [hospitalizationRate, setHospitalizationRate] = useState(15); // %
+    const [hospitalizationRate, setHospitalizationRate] = useState(25); // % (High Risk focus)
     const [avgCost, setAvgCost] = useState(250000); // THB
 
     // Constants
-    const REDUCTION_RATE = 0.35; // 35%
-    const HANNA_PRICE_PER_MONTH = 150;
+    const REDUCTION_RATE = 0.45; // 45% (Higher efficacy with nurse loop)
+    const HANNA_PRICE_PER_MONTH = 599;
 
     // Derived Values
     const annualHannaCost = patientCount * HANNA_PRICE_PER_MONTH * 12;
@@ -128,6 +128,10 @@ const RoiCalculator: React.FC = () => {
                     </FadeIn>
                 </div>
 
+            </div>
+
+            <div className="text-center mt-8 px-6 text-white/60 text-xs font-body max-w-2xl mx-auto italic">
+                Hanna is contracted as a per-member, per-month managed clinical service; savings reflect reduced avoidable utilization, not software automation alone.
             </div>
 
         </section >
