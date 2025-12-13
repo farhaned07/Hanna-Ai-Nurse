@@ -16,7 +16,7 @@ export const HERO_B2B = {
         "Launching Q1 2026",
         "Backed by Clinical Research",
         "PDPA Compliant",
-        "Designed for Insurer-Led Care Programs"
+        "Designed in collaboration with Thai insurers"
     ]
 };
 

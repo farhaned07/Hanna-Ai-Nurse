@@ -52,7 +52,7 @@ const HeroB2B: React.FC = () => {
 
                         <FadeIn delay={0.5}>
                             <div className="flex items-center justify-center lg:justify-start gap-4 text-sm text-slate-body pt-8 font-medium font-body">
-                                <p>Trusted by leading Thai Insurers</p>
+                                <p>Designed in collaboration with Thai insurers</p>
                             </div>
                         </FadeIn>
                     </div>
