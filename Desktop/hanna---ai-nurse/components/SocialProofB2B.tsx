@@ -11,9 +11,9 @@ const SocialProofB2B: React.FC = () => {
     // Background: Cool Gray (#F8FAFC)
 
     const items = [
-        { icon: CheckCircle, text: "Production-Ready Safety Net" },
-        { icon: Beaker, text: "Deterministic Risk Protocols" },
-        { icon: Building2, text: "Built for Thai Medical Council Compliance" },
+        { icon: CheckCircle, text: "Production-ready safety net" },
+        { icon: Building2, text: "Built for Thai Medical Council compliance" },
+        { icon: Beaker, text: "Deterministic risk protocols" },
     ];
 
     return (
