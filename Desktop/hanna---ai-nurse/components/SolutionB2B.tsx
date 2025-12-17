@@ -88,9 +88,7 @@ const TiltCard: React.FC<{ step: any; index: number }> = ({ step, index }) => {
                 </div>
 
                 <div style={{ transform: "translateZ(20px)" }}>
-                    <span className="text-xs font-bold text-hana-primary/60 uppercase tracking-widest mb-3 block">
-                        Step 0{index + 1}
-                    </span>
+
                     <h3 className="text-xl font-bold text-hana-accent mb-4 font-sans leading-tight">
                         {step.title}
                     </h3>

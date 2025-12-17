@@ -8,9 +8,12 @@ const FinalCTAB2B: React.FC = () => {
         <section className="py-24 bg-white border-t border-slate-200">
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <FadeIn direction="up">
-                    <h2 className="text-5xl lg:text-7xl font-bold text-hana-accent tracking-tight mb-8 font-sans">
+                    <h2 className="text-5xl lg:text-7xl font-bold text-hana-accent tracking-tight mb-6 font-sans">
                         {FINAL_CTA_B2B.headline}
                     </h2>
+                    <p className="text-xl text-slate-500 font-body mb-10 max-w-2xl mx-auto">
+                        {FINAL_CTA_B2B.subheadline}
+                    </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
                         <button

@@ -9,13 +9,13 @@ import {
 // ============================================
 export const HERO_B2B = {
     headline: "Contain Chronic Disease Risk. Reduce Claims by 30%.",
-    subheadline: "The First 'Nurse Force-Multiplier' for Insurers. Our OneBrain™ engine filters 95% of noise, allowing your nurses to intercept the critical 5% of risks that cause expensive hospitalizations.",
+    subheadline: "The First 'Nurse Force-Multiplier' for Insurers. Our proprietary risk engine filters 95% of noise, allowing your nurses to intercept the critical 5% of risks that cause expensive hospitalizations.",
     ctaPrimary: "Calculate Your Savings",
     ctaSecondary: "View Safety Protocol",
     socialProof: [
-        "Production-Ready with 4-Tier Safety Net",
+        "Production-Ready Safety Net",
         "Built for Thai Medical Council Compliance",
-        "Zero-Hallucination Risk Protocol"
+        "Deterministic Risk Protocols"
     ]
 };
 
@@ -59,23 +59,23 @@ export const PROBLEM_B2B = {
 // SOLUTION SECTION
 // ============================================
 export const SOLUTION_B2B = {
-    headline: "A 4-Tier Safety Net for Your Bottom Line",
+    headline: "A Multi-Layer Safety Net",
     subheadline: "We turn 'Passive Payer' into 'Active Partner' without adding headcount.",
     steps: [
         {
-            title: "Tier 0 (Automated)",
+            title: "Phase 1 (Automated)",
             time: "08:00 AM",
             description: "Daily checks via LINE (Vitals, Meds, Symptoms). Frictionless & cost near-zero.",
             icon: <MessageCircle className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Tier 2 (Intelligence)",
+            title: "Phase 2 (Analysis)",
             time: "Real-time",
-            description: "OneBrain™ scores risk (0-10). We filter the noise so you don't pay for false alarms.",
+            description: "Proprietary risk engine scores vitals (0-10). We filter the noise so you don't pay for false alarms.",
             icon: <Activity className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Tier 3 (Intervention)",
+            title: "Phase 3 (Intervention)",
             time: "Exception-Only",
             description: "Nurses focus ONLY on high-risk exceptions. 1 Nurse monitors 200+ lives.",
             icon: <UserCheck className="w-6 h-6 text-hana-primary" />
@@ -97,7 +97,7 @@ export const IMPACT_B2B = {
     disclaimer: "Based on 30-40% reduction in hospitalization rates and reduced cost-to-serve.",
     caseStudy: {
         title: "Thai Pilot Cohort launching Q1 2026",
-        subtitle: "Zero Alert Fatigue achieved."
+        subtitle: "Clinical workflow optimised."
     }
 };
 
@@ -118,11 +118,11 @@ export const TECHNOLOGY_B2B = {
             icon: <FileHeart className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Zero-Hallucination",
+            title: "Deterministic Logic",
             items: [
-                "OneBrain™ rules-based engine",
+                "Rules-based scoring engine",
                 "No 'black box' liabilities",
-                "Deterministic risk scoring",
+                "Transparent risk criteria",
                 "Medical Council compliant"
             ],
             icon: <ShieldCheck className="w-10 h-10 text-hana-primary" />
@@ -176,7 +176,7 @@ export const AUDIENCE_B2B = [
 export const PILOT_B2B = {
     headline: "Prove the ROI in 90 Days",
     features: [
-        "Deploy the 4-Tier Safety Net",
+        "Deploy the Multi-Layer Safety Net",
         "Includes OneBrain™ Intelligence Engine",
         "Full Nurse Dashboard Access",
         "LINE Patient Front-End (Tier 0)",
@@ -232,11 +232,11 @@ export const FAQ_B2B = {
         },
         {
             q: "Is this a chatbot?",
-            a: "No. Hanna is a Clinical Safety Net. The chat is just the interface; the value is the OneBrain™ risk engine that filters noise for your team."
+            a: "No. Hanna is a Clinical Safety Net. The chat is just the interface; the value is the risk engine that filters noise for your team."
         },
         {
             q: "What about hallucinations?",
-            a: "OneBrain™ uses a deterministic, rules-based scoring engine for all risk assessments. AI is used only for engagement, never for diagnosis."
+            a: "Our engine uses deterministic, rules-based scoring for all risk assessments. AI is used only for engagement, never for diagnosis."
         },
         {
             q: "How does it reduce claims?",
@@ -259,9 +259,9 @@ export const FAQ_B2B = {
 // ============================================
 export const FINAL_CTA_B2B = {
     headline: "Stop the Severity Creep.",
-    subheadline: "See how OneBrain™ turns 10 nurses into 100. Schedule a briefing.",
+    subheadline: "See how our risk engine turns 10 nurses into 100. Schedule a briefing.",
     ctaPrimary: "See the Model",
-    ctaSecondary: "Download OneBrain Specs",
+    ctaSecondary: "Download Specs",
     email: "farhan@hanna.care"
 };
 
