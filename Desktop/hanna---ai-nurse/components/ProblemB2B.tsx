@@ -13,9 +13,9 @@ const ProblemB2B: React.FC = () => {
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <FadeIn>
-                        <span className="text-hana-primary font-bold tracking-wider uppercase text-sm mb-4 block">The Challenge</span>
+                        <span className="text-hana-primary font-bold tracking-wider uppercase text-sm mb-4 block">The Nurse Scaling Paradox</span>
                         <h2 className="text-4xl lg:text-5xl font-bold text-hana-accent mb-6 font-sans tracking-tight">
-                            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hana-primary to-hana-accent">361-Day</span> Data Gap
+                            {PROBLEM_B2B.headline}
                         </h2>
                         <p className="text-lg text-slate-600 font-body leading-relaxed max-w-2xl mx-auto">
                             Traditional care management is blind 99% of the time. Hanna sees what others miss.

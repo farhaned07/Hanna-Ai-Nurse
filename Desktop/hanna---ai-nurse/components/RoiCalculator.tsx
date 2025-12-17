@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AlertCircle } from 'lucide-react';
+import { IMPACT_B2B } from '../constants-b2b';
 import FadeIn from './animations/FadeIn';
 
 const RoiCalculator: React.FC = () => {
@@ -131,7 +132,7 @@ const RoiCalculator: React.FC = () => {
             </div>
 
             <div className="text-center mt-8 px-6 text-white/60 text-xs font-body max-w-2xl mx-auto italic">
-                Hanna is contracted as a per-member, per-month managed clinical service; savings reflect reduced avoidable utilization, not software automation alone.
+                {IMPACT_B2B.disclaimer}
             </div>
 
         </section >

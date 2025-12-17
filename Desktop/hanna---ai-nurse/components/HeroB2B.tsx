@@ -19,13 +19,13 @@ const HeroB2B: React.FC = () => {
                         <FadeIn delay={0.1}>
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-hana-primary text-hana-primary text-xs font-bold uppercase tracking-widest shadow-sm">
                                 <span className="w-2 h-2 rounded-full bg-hana-primary animate-pulse"></span>
-                                Now Live in Thailand
+                                Production-Ready Q4 2025
                             </div>
                         </FadeIn>
 
                         <FadeIn delay={0.2}>
-                            <h1 className="text-5xl lg:text-[56px] font-bold leading-[1.1] tracking-tight text-hana-accent font-sans">
-                                Reduce Claims by <span className="text-hana-primary">30%+</span>
+                            <h1 className="text-4xl lg:text-[52px] font-bold leading-[1.1] tracking-tight text-hana-accent font-sans">
+                                {HERO_B2B.headline}
                             </h1>
                         </FadeIn>
 

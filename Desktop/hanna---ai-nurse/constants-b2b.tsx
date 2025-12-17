@@ -8,15 +8,14 @@ import {
 // HERO SECTION
 // ============================================
 export const HERO_B2B = {
-    headline: "Reduce Insurance Claims by 30%+ Through AI-Powered Patient Monitoring",
-    subheadline: "Daily voice check-ins via LINE catch chronic disease complications before they become ER visits. Hanna’s licensed nurse team supervises 100–200 patients per nurse.",
-    ctaPrimary: "Book a Demo",
-    ctaSecondary: "View Pilot Proposal",
+    headline: "Contain Chronic Disease Risk. Reduce Claims by 30%.",
+    subheadline: "The First 'Nurse Force-Multiplier' for Insurers. Our OneBrain™ engine filters 95% of noise, allowing your nurses to intercept the critical 5% of risks that cause expensive hospitalizations.",
+    ctaPrimary: "Calculate Your Savings",
+    ctaSecondary: "View Safety Protocol",
     socialProof: [
-        "Launching Q1 2026",
-        "Backed by Clinical Research",
-        "PDPA Compliant",
-        "Designed in collaboration with Thai insurers"
+        "Production-Ready with 4-Tier Safety Net",
+        "Built for Thai Medical Council Compliance",
+        "Zero-Hallucination Risk Protocol"
     ]
 };
 
@@ -24,34 +23,34 @@ export const HERO_B2B = {
 // PROBLEM SECTION
 // ============================================
 export const PROBLEM_B2B = {
-    headline: "Thai Insurers Lose ฿139B Annually on Preventable Chronic Disease Complications",
+    headline: "The 361 days 'Unmonitored Gap' is Leaking Millions",
     columns: [
         {
-            title: "The Gap",
+            title: "The Blind Spot",
             stats: [
-                "Patients see doctors 4× per year",
-                "361 days unmonitored",
-                "Complications develop silently"
+                "Patients are invisible for 361 days/year",
+                "Complications brew in silence",
+                "Risk compounds unseen"
             ],
             icon: <Clock className="w-8 h-8 text-red-500" />
         },
         {
-            title: "The Cost",
+            title: "The Scale Problem",
             stats: [
-                "฿250K avg hospitalization",
-                "15-20% of diabetics hospitalized annually",
-                "30-40% preventable with early intervention"
+                "10 nurses vs 4,000 patients",
+                "Impossible to check everyone daily",
+                "Reactive instead of proactive"
             ],
-            icon: <TrendingUp className="w-8 h-8 text-red-500" />
+            icon: <Users className="w-8 h-8 text-red-500" />
         },
         {
-            title: "Traditional Solutions Fail",
+            title: "The Financial Leak",
             stats: [
-                "Call centers: ฿300-500/patient/month",
-                "Wellness apps: <10% engagement",
-                "Monthly check-ins: Miss critical windows"
+                "Missed early signals",
+                "Preventable ER visits @ ฿250k each",
+                "Claims ratio spirals"
             ],
-            icon: <XCircle className="w-8 h-8 text-red-500" />
+            icon: <TrendingUp className="w-8 h-8 text-red-500" />
         }
     ]
 };
@@ -60,32 +59,32 @@ export const PROBLEM_B2B = {
 // SOLUTION SECTION
 // ============================================
 export const SOLUTION_B2B = {
-    headline: "Hanna Fills the 361-Day Gap",
-    subheadline: "Voice-first AI + Hanna-managed licensed nurse supervision = scalable, continuous care at insurer scale",
+    headline: "A 4-Tier Safety Net for Your Bottom Line",
+    subheadline: "We turn 'Passive Payer' into 'Active Partner' without adding headcount.",
     steps: [
         {
-            title: "Daily Voice Check-in",
+            title: "Tier 0 (Automated)",
             time: "08:00 AM",
-            description: "AI calls patient via LINE. 'สวัสดีค่ะ วัดน้ำตาลวันนี้เท่าไหร่คะ?' Patient responds naturally by voice or text.",
-            icon: <Phone className="w-6 h-6 text-hana-primary" />
+            description: "Daily checks via LINE (Vitals, Meds, Symptoms). Frictionless & cost near-zero.",
+            icon: <MessageCircle className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Intelligent Triage",
-            time: "08:00-08:30 AM",
-            description: "AI analyzes 200 responses simultaneously. 85% normal → Auto-logged. 15% flagged → Nurse review queue.",
+            title: "Tier 2 (Intelligence)",
+            time: "Real-time",
+            description: "OneBrain™ scores risk (0-10). We filter the noise so you don't pay for false alarms.",
             icon: <Activity className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Nurse Supervision",
-            time: "08:30-10:30 AM",
-            description: "Hanna-managed licensed nurse reviews flagged cases. Yellow flags → Document/Schedule follow-up. Red flags → Call patient.",
+            title: "Tier 3 (Intervention)",
+            time: "Exception-Only",
+            description: "Nurses focus ONLY on high-risk exceptions. 1 Nurse monitors 200+ lives.",
             icon: <UserCheck className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Early Intervention",
+            title: "The Result",
             time: "Ongoing",
-            description: "Care escalation coordinated with licensed physicians before ER is needed. ฿250K hospitalization prevented. Patient stays healthy.",
-            icon: <Heart className="w-6 h-6 text-hana-primary" />
+            description: "Risk contained. Hospitalization prevented. Claim avoided.",
+            icon: <ShieldCheck className="w-6 h-6 text-hana-primary" />
         }
     ]
 };
@@ -94,11 +93,11 @@ export const SOLUTION_B2B = {
 // IMPACT SECTION (ROI)
 // ============================================
 export const IMPACT_B2B = {
-    headline: "The ROI for Insurers",
-    disclaimer: "Based on clinical literature showing 30-40% reduction in preventable hospitalizations through remote patient monitoring programs.",
+    headline: "Force Multiplication = 3.5x ROI",
+    disclaimer: "Based on 30-40% reduction in hospitalization rates and reduced cost-to-serve.",
     caseStudy: {
-        title: "Pilot launching January 2026 with [Clinic Name]",
-        subtitle: "Results available March 2026."
+        title: "Thai Pilot Cohort launching Q1 2026",
+        subtitle: "Zero Alert Fatigue achieved."
     }
 };
 
@@ -106,37 +105,37 @@ export const IMPACT_B2B = {
 // TECHNOLOGY SECTION
 // ============================================
 export const TECHNOLOGY_B2B = {
-    headline: "Built for Scale, Designed for Safety",
+    headline: "Governance You Can Trust",
     pillars: [
         {
-            title: "Voice-First AI",
+            title: "Audit-Ready Claims",
             items: [
-                "Natural Thai language conversations",
-                "<2 second response time",
-                "Works on any phone (no app download)",
-                "LINE integration (95M+ Thai users)"
+                "Every risk score logged",
+                "Nurse actions time-stamped",
+                "Full clinical audit trail",
+                "HL7/FHIR ready"
             ],
-            icon: <MessageCircle className="w-10 h-10 text-hana-primary" />
+            icon: <FileHeart className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Clinical Supervision",
+            title: "Zero-Hallucination",
             items: [
-                "Flagged interactions reviewed by Hanna-managed licensed nurses",
-                "Real-time escalation protocols to physicians and emergency services",
-                "Integration with doctor workflows",
-                "Thai Medical Council compliant"
-            ],
-            icon: <Stethoscope className="w-10 h-10 text-hana-primary" />
-        },
-        {
-            title: "Enterprise-Grade Platform",
-            items: [
-                "Multi-tenant SaaS architecture",
-                "Claims data integration (HL7/FHIR)",
-                "Real-time insurer dashboard",
-                "PDPA compliant, SOC2 roadmap"
+                "OneBrain™ rules-based engine",
+                "No 'black box' liabilities",
+                "Deterministic risk scoring",
+                "Medical Council compliant"
             ],
             icon: <ShieldCheck className="w-10 h-10 text-hana-primary" />
+        },
+        {
+            title: "Data Sovereign",
+            items: [
+                "PDPA Compliant",
+                "AES-256 Encryption",
+                "Data stays in Thailand",
+                "Tier 3 Data Center"
+            ],
+            icon: <Lock className="w-10 h-10 text-hana-primary" />
         }
     ]
 };
@@ -148,25 +147,25 @@ export const AUDIENCE_B2B = [
     {
         id: "insurers",
         label: "Health Insurers",
-        challenge: "Rising claims costs, aging population, chronic disease epidemic",
-        solution: "Reduce claims by catching problems early. Pricing from ฿599/member/month for a fully managed AI-plus-nurse clinical service, saving ฿50K–200K per prevented complication.",
-        fit: "10,000+ chronic disease members, claims data access, 90-day pilot commitment",
+        challenge: "Rising chronic disease claims and preventable ER visits.",
+        solution: "Stop paying for preventable complications. Scale your care management 10x without hiring an army of nurses.",
+        fit: "High-Risk Chronic Cohorts",
         icon: <Building className="w-5 h-5" />
     },
     {
         id: "employers",
         label: "Self-Insured Employers",
-        challenge: "Employee health costs rising 14%+ annually, high diabetes/hypertension prevalence",
-        solution: "Reduce absenteeism, prevent expensive hospitalizations, improve employee wellness scores",
-        fit: "500+ employees, existing health insurance program, HR champion",
+        challenge: "Rising loss ratios and employee absenteeism.",
+        solution: "Protect your bottom line from the silent killer of productivity. Keep your workforce healthy and strictly control costs.",
+        fit: "500+ Lives",
         icon: <Users className="w-5 h-5" />
     },
     {
         id: "hospitals",
         label: "Hospital Systems",
-        challenge: "Post-discharge readmissions, limited nursing capacity, value-based care contracts",
-        solution: "Extend nursing reach, monitor discharged patients, prevent 30-day readmissions",
-        fit: "100+ chronic disease admissions/month, existing nurse team, Bangkok area",
+        challenge: "High 30-day readmission rates and nurse burnout.",
+        solution: "Extend your nursing reach post-discharge. Prevent bounce-backs with a safety net that doesn't burn out your staff.",
+        fit: "Post-Discharge Monitoring",
         icon: <Hospital className="w-5 h-5" />
     }
 ];
@@ -175,27 +174,26 @@ export const AUDIENCE_B2B = [
 // PILOT PROGRAM
 // ============================================
 export const PILOT_B2B = {
-    headline: "Launch Pilots Available: Q1 2026",
+    headline: "Prove the ROI in 90 Days",
     features: [
-        "90-day proof-of-concept",
-        "50-100 high-risk patients",
-        "Full platform setup (no IT required)",
-        "Hanna-managed licensed nurse supervision included",
-        "Real-time dashboard access",
-        "Weekly outcome reporting",
-        "Claims data integration"
+        "Deploy the 4-Tier Safety Net",
+        "Includes OneBrain™ Intelligence Engine",
+        "Full Nurse Dashboard Access",
+        "LINE Patient Front-End (Tier 0)",
+        "Weekly Risk & Claims Reporting",
+        "100 High-Risk Member Licenses"
     ],
     pricing: {
-        title: "Risk-share pricing model",
-        description: "You pay based on results achieved. If we don't reduce hospitalizations by 25%+, we refund 50%."
+        title: "Risk-Share Model",
+        description: "We are confident in our outcomes. We share the risk to prove the value."
     },
     timeline: [
-        { month: "Jan 2026", event: "Pilot launches" },
-        { month: "Mar 2026", event: "90-day results" },
-        { month: "Apr 2026", event: "Scale to full member base" }
+        { month: "Jan 15", event: "Onboarding Closes" },
+        { month: "Feb 1", event: "Pilot Go-Live" },
+        { month: "Apr 30", event: "ROI Review" }
     ],
-    cta: "Book Pilot Planning Call",
-    scarcity: "Limited to 3 pilots in Q1 2026. 1 slot remaining."
+    cta: "Deploy the Safety Net",
+    scarcity: "2 of 3 Pilot Slots Reserved. 1 Remaining."
 };
 
 // ============================================
@@ -229,46 +227,41 @@ export const TEAM_B2B = {
 export const FAQ_B2B = {
     insurers: [
         {
-            q: "How is this different from call center monitoring?",
-            a: "Hanna costs from ฿599/month as a fully managed AI-plus-nurse service and monitors patients daily, with nurses reviewing only flagged cases."
+            q: "Why not just hire more nurses?",
+            a: "Scaling nurses is linear and expensive (1 nurse : 50 patients). Hanna is exponential (1 nurse : 200+ patients). We give your team superpowers."
         },
         {
-            q: "What if patients don't use LINE?",
-            a: "95% of Thai smartphone users have LINE. For the 5% without, we provide simple SMS-based check-ins as backup."
+            q: "Is this a chatbot?",
+            a: "No. Hanna is a Clinical Safety Net. The chat is just the interface; the value is the OneBrain™ risk engine that filters noise for your team."
         },
         {
-            q: "How do you ensure clinical accuracy?",
-            a: "All risk-flagged interactions are supervised by licensed Thai nurses within Hanna’s clinical operations. AI flags patterns, humans make medical decisions. We never change medications without doctor authorization."
+            q: "What about hallucinations?",
+            a: "OneBrain™ uses a deterministic, rules-based scoring engine for all risk assessments. AI is used only for engagement, never for diagnosis."
         },
         {
-            q: "What's the patient adoption rate?",
-            a: "Remote patient monitoring programs globally achieve 70-85% daily engagement when voice-enabled and culturally adapted. Our pilot will measure this."
+            q: "How does it reduce claims?",
+            a: "By catching complications in the '361-day blind spot'. Early intervention costs a fraction of a preventable ER visit."
         },
         {
-            q: "Can you integrate with our claims system?",
-            a: "Yes. We support HL7/FHIR standards and can build custom integrations during pilot phase."
+            q: "Is patient data safe?",
+            a: "Yes. We use AES-256 encryption and store data in Thailand-based Tier 3 data centers, fully compliant with PDPA."
+        },
+        {
+            q: "Can we integrate with our systems?",
+            a: "Yes. The platform is HL7/FHIR ready for seamless claims and clinical data exchange."
         }
     ],
-    clinics: [
-        {
-            q: "Do we need to hire more nurses?",
-            a: "No. Hanna can operate with its own licensed nurse team, or integrate with your existing nurses if preferred."
-        },
-        {
-            q: "What if a patient has an emergency?",
-            a: "Red flag alerts notify your nurse within 1 minute. System includes built-in escalation to 1669 emergency services if patient reports severe symptoms."
-        }
-    ]
+    clinics: [] // Combined into one main list for cleaner UI
 };
 
 // ============================================
 // CTA & Footer
 // ============================================
 export const FINAL_CTA_B2B = {
-    headline: "Ready to Reduce Your Claims Costs?",
-    subheadline: "Book a 15-minute demo to see how Hanna works for your member population.",
-    ctaPrimary: "Book a Demo",
-    ctaSecondary: "Download Pilot Proposal",
+    headline: "Stop the Severity Creep.",
+    subheadline: "See how OneBrain™ turns 10 nurses into 100. Schedule a briefing.",
+    ctaPrimary: "See the Model",
+    ctaSecondary: "Download OneBrain Specs",
     email: "farhan@hanna.care"
 };
 

@@ -9,7 +9,7 @@ const FinalCTAB2B: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <FadeIn direction="up">
                     <h2 className="text-5xl lg:text-7xl font-bold text-hana-accent tracking-tight mb-8 font-sans">
-                        Ready to transform care?
+                        {FINAL_CTA_B2B.headline}
                     </h2>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">

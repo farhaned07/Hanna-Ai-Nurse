@@ -14,7 +14,7 @@ const Technology: React.FC = () => {
                             {TECHNOLOGY_B2B.headline}
                         </h2>
                         <p className="text-lg text-slate-body font-body">
-                            Enterprise-grade infrastructure designed for scale and security.
+                            Audit-ready infrastructure designed for clinical risk management.
                         </p>
                     </FadeIn>
                 </div>
