@@ -8,9 +8,12 @@ const FooterB2B: React.FC = () => {
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
                 <div className="grid md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
-                        <span className="text-2xl font-bold tracking-tight text-white flex items-center gap-1 mb-6 font-sans">
-                            hanna<span className="text-hana-primary">.</span>
-                        </span>
+                        <div className="flex items-center gap-3 mb-6">
+                            <img src="/hanna-logo.png" alt="Hanna" className="h-8 w-auto" />
+                            <span className="text-2xl font-bold tracking-tight text-white flex items-center gap-1 font-sans">
+                                hanna<span className="text-hana-primary">.</span>
+                            </span>
+                        </div>
                         <p className="max-w-xs text-sm leading-relaxed mb-8 font-body text-slate-400">
                             Empowering insurers and hospitals with AI-driven nurse supervision.
                         </p>

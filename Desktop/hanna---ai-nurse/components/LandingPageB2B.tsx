@@ -18,9 +18,12 @@ const LandingPageB2B: React.FC = () => {
             {/* Floating Navbar */}
             <nav className="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-6">
                 <div className="bg-white/70 backdrop-blur-xl border border-white/40 rounded-full shadow-lg shadow-black/5 px-6 py-3 md:px-8 flex items-center gap-12 max-w-5xl w-full justify-between transition-all duration-300">
-                    <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-1">
-                        hanna<span className="text-hana-primary">.</span>
-                    </span>
+                    <div className="flex items-center gap-2">
+                        <img src="/hanna-logo.png" alt="Hanna" className="h-8 w-auto brightness-0" />
+                        <span className="text-xl md:text-2xl font-bold tracking-tight text-slate-900 flex items-center gap-1">
+                            hanna<span className="text-hana-primary">.</span>
+                        </span>
+                    </div>
 
                     <div className="hidden md:flex items-center gap-8">
                         <button onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Platform</button>
