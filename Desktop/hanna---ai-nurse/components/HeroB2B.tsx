@@ -1,11 +1,11 @@
 import React from 'react';
 import { HERO_B2B } from '../constants-b2b';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight, FileText, X, Check } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 
 const HeroB2B: React.FC = () => {
     return (
-        <section className="relative pt-40 pb-24 lg:pt-48 lg:pb-24 overflow-hidden bg-white selection:bg-hana-primary/20">
+        <section className="relative pt-48 pb-32 lg:pt-56 lg:pb-32 overflow-hidden bg-white selection:bg-hana-primary/20">
             {/* Background Decorations (Subtle DLS aligned) */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
                 <div className="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] bg-hana-primary/5 rounded-full blur-[100px] animate-blob"></div>
@@ -30,20 +30,34 @@ const HeroB2B: React.FC = () => {
                         </FadeIn>
 
                         <FadeIn delay={0.3}>
-                            <p className="text-lg text-slate-body leading-relaxed max-w-xl mx-auto lg:mx-0 font-body">
-                                {HERO_B2B.subheadline}
-                            </p>
+                            <div className="space-y-4">
+                                <p className="text-lg text-slate-body leading-relaxed max-w-xl mx-auto lg:mx-0 font-body">
+                                    {HERO_B2B.subheadline}
+                                </p>
+
+                                {/* Negative constraints as value */}
+                                <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2">
+                                    {HERO_B2B.heroBullets.map((bullet, i) => (
+                                        <div key={i} className="flex items-center gap-1.5 text-sm text-slate-500 font-medium">
+                                            <X className="w-4 h-4 text-red-500/70" />
+                                            {bullet}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </FadeIn>
 
                         <FadeIn delay={0.4}>
                             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
                                 <button
-                                    onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
+                                    onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
                                     className="flex items-center justify-center gap-2 bg-hana-primary text-white px-8 py-4 rounded-lg text-base font-semibold transition-all hover:bg-hana-accent hover:shadow-hover shadow-sm active:scale-95 group w-full sm:w-auto font-body">
                                     {HERO_B2B.ctaPrimary}
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
-                                <button className="flex items-center justify-center gap-2 bg-transparent border-2 border-hana-accent text-hana-accent px-8 py-4 rounded-lg text-base font-semibold transition-all hover:bg-hana-accent hover:text-white w-full sm:w-auto font-body">
+                                <button
+                                    onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="flex items-center justify-center gap-2 bg-transparent border-2 border-hana-accent text-hana-accent px-8 py-4 rounded-lg text-base font-semibold transition-all hover:bg-hana-accent hover:text-white w-full sm:w-auto font-body">
                                     <FileText className="w-5 h-5" />
                                     {HERO_B2B.ctaSecondary}
                                 </button>
@@ -51,8 +65,13 @@ const HeroB2B: React.FC = () => {
                         </FadeIn>
 
                         <FadeIn delay={0.5}>
-                            <div className="flex items-center justify-center lg:justify-start gap-4 text-sm text-slate-body pt-8 font-medium font-body">
-                                <p>Designed in collaboration with Thai insurers</p>
+                            <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-sm text-slate-body pt-8 font-medium font-body border-t border-slate-100 mt-8">
+                                {HERO_B2B.socialProof.map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2">
+                                        <Check className="w-4 h-4 text-hana-primary" />
+                                        {item}
+                                    </div>
+                                ))}
                             </div>
                         </FadeIn>
                     </div>

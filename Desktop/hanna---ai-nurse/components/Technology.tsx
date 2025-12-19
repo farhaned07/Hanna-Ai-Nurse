@@ -14,30 +14,30 @@ const Technology: React.FC = () => {
                             {TECHNOLOGY_B2B.headline}
                         </h2>
                         <p className="text-lg text-slate-body font-body">
-                            Audit-ready infrastructure designed for clinical risk management.
+                            {TECHNOLOGY_B2B.subheadline}
                         </p>
                     </FadeIn>
                 </div>
 
-                {/* 3 Pillars Grid */}
-                <div className="grid md:grid-cols-3 gap-8">
+                {/* 4 Pillars Grid (Updated to support 4 items as per new constants) */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {TECHNOLOGY_B2B.pillars.map((pillar, index) => (
-                        <FadeIn key={index} delay={index * 0.2}>
-                            <div className="h-full border border-slate-200 rounded-lg p-8 hover:shadow-hover transition-shadow duration-300">
+                        <FadeIn key={index} delay={index * 0.1}>
+                            <div className="h-full border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 bg-slate-50/30">
                                 {/* Icon */}
-                                <div className="w-12 h-12 mb-6 text-hana-accent">
+                                <div className="w-12 h-12 mb-6 text-hana-accent bg-white rounded-xl shadow-sm flex items-center justify-center border border-slate-100">
                                     {React.cloneElement(pillar.icon as React.ReactElement, {
-                                        className: 'w-12 h-12 stroke-[1.5]'
+                                        className: 'w-6 h-6 stroke-[1.5]'
                                     })}
                                 </div>
 
-                                <h3 className="text-2xl font-bold mb-6 font-sans text-hana-accent">{pillar.title}</h3>
+                                <h3 className="text-xl font-bold mb-4 font-sans text-hana-accent">{pillar.title}</h3>
 
-                                <ul className="space-y-4">
+                                <ul className="space-y-3">
                                     {pillar.items.map((item, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <CheckCircle className="w-5 h-5 text-hana-primary shrink-0 mt-0.5" />
-                                            <span className="text-slate-body font-body text-sm leading-relaxed">
+                                            <CheckCircle className="w-4 h-4 text-hana-primary shrink-0 mt-0.5" />
+                                            <span className="text-slate-600 font-body text-sm leading-relaxed">
                                                 {item}
                                             </span>
                                         </li>
@@ -46,6 +46,15 @@ const Technology: React.FC = () => {
                             </div>
                         </FadeIn>
                     ))}
+                </div>
+
+                {/* Footer Quote */}
+                <div className="text-center mt-16">
+                    <FadeIn delay={0.5}>
+                        <p className="text-xl md:text-2xl font-bold text-hana-primary font-sans">
+                            {TECHNOLOGY_B2B.footer}
+                        </p>
+                    </FadeIn>
                 </div>
             </div>
         </section>

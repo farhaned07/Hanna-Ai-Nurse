@@ -1,15 +1,15 @@
 import React from 'react';
 import HeroB2B from './HeroB2B';
-import SocialProofB2B from './SocialProofB2B';
 import ProblemB2B from './ProblemB2B';
 import SolutionB2B from './SolutionB2B';
+import ImpactB2B from './ImpactB2B';
 import RoiCalculator from './RoiCalculator';
 import Technology from './Technology';
+import ComparisonB2B from './ComparisonB2B';
+import EconomicsB2B from './EconomicsB2B';
 import WhoItsFor from './WhoItsFor';
-import PilotProgram from './PilotProgram';
-
+import ClosingB2B from './ClosingB2B';
 import FAQB2B from './FAQB2B';
-import FinalCTAB2B from './FinalCTAB2B';
 import FooterB2B from './FooterB2B';
 
 const LandingPageB2B: React.FC = () => {
@@ -23,9 +23,10 @@ const LandingPageB2B: React.FC = () => {
                     </span>
 
                     <div className="hidden md:flex items-center gap-8">
-                        <button onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Problem</button>
-                        <button onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Solution</button>
+                        <button onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Platform</button>
+                        <button onClick={() => document.getElementById('impact')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Impact</button>
                         <button onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">ROI</button>
+                        <button onClick={() => document.getElementById('economics')?.scrollIntoView({ behavior: 'smooth' })} className="text-slate-600 hover:text-slate-900 font-medium text-sm transition-colors">Economics</button>
                     </div>
 
                     <button
@@ -38,16 +39,16 @@ const LandingPageB2B: React.FC = () => {
 
             <main>
                 <HeroB2B />
-                <SocialProofB2B />
-                <div id="problem"><ProblemB2B /></div>
-                <div id="solution"><SolutionB2B /></div>
-                <div id="roi"><RoiCalculator /></div>
+                <ProblemB2B />
+                <SolutionB2B />
+                <div id="impact"><ImpactB2B /></div>
+                <RoiCalculator />
                 <Technology />
+                <ComparisonB2B />
+                <div id="economics"><EconomicsB2B /></div>
                 <WhoItsFor />
-                <PilotProgram />
-
                 <FAQB2B />
-                <FinalCTAB2B />
+                <ClosingB2B />
             </main>
 
             <FooterB2B />

@@ -1,141 +1,207 @@
 import {
     Phone, Activity, Pill, Bell, FileHeart, ShieldCheck, CheckCircle, XCircle,
     Clock, Heart, UserCheck, Smartphone, MessageCircle, BarChart3, AlertTriangle,
-    Users, Hospital, Building, TrendingUp, Lock, Stethoscope, ArrowRight
+    Users, Hospital, Building, TrendingUp, Lock, Stethoscope, ArrowRight,
+    Search, Database, Brain, Zap, DollarSign, Layout
 } from 'lucide-react';
 
 // ============================================
 // HERO SECTION
 // ============================================
 export const HERO_B2B = {
-    headline: "Contain chronic disease risk. Reduce claims by 30%.",
-    subheadline: "A nurse force-multiplier for insurers. Our risk engine filters routine data, allowing nurses to focus on clinically significant risks that drive costly hospitalizations.",
-    ctaPrimary: "Calculate your savings",
-    ctaSecondary: "View safety protocol",
+    headline: "Claim Prevention Infrastructure",
+    subheadline: "Stop avoidable claims before they exist. Hanna is infrastructure insurers use to intercept, deflect, and resolve health events upstream, before they become claims.",
+    heroBullets: [
+        "Hanna is not telemedicine.",
+        "Not a chatbot.",
+        "Not a care app."
+    ],
+    ctaPrimary: "See the infrastructure",
+    ctaSecondary: "View ROI Model",
     socialProof: [
-        "Production-ready safety net",
-        "Built for Thai Medical Council compliance",
-        "Deterministic risk protocols"
+        "Voice-first intake",
+        "Real-time risk classification",
+        "Immediate care routing"
     ]
 };
 
 // ============================================
-// PROBLEM SECTION
+// PROBLEM SECTION (Sub-Hero)
 // ============================================
 export const PROBLEM_B2B = {
-    headline: "The unmonitored gap leaks millions",
-    columns: [
+    headline: "Claims are not a healthcare problem.",
+    subheadline: "They are a systems timing problem.",
+    context: "Most claims originate from:",
+    points: [
         {
-            title: "The blind spot",
-            stats: [
-                "Patients are unseen for most of the year",
-                "Complications develop quietly between visits"
-            ],
-            icon: <Clock className="w-8 h-8 text-red-500" />
+            title: "Late intervention",
+            icon: <Clock className="w-6 h-6 text-red-500" />
         },
         {
-            title: "The scale constraint",
-            stats: [
-                "Daily outreach does not scale with human staffing",
-                "Nurse capacity is finite"
-            ],
-            icon: <Users className="w-8 h-8 text-red-500" />
+            title: "Ineffective routing",
+            icon: <AlertTriangle className="w-6 h-6 text-red-500" />
         },
         {
-            title: "The financial impact",
-            stats: [
-                "Missed early signals lead to preventable emergency admissions",
-                "Often exceeding ฿250,000 per event"
-            ],
-            icon: <TrendingUp className="w-8 h-8 text-red-500" />
+            title: "ER default behavior",
+            icon: <Hospital className="w-6 h-6 text-red-500" />
+        },
+        {
+            title: "Fragmented access",
+            icon: <Layout className="w-6 h-6 text-red-500" />
+        },
+        {
+            title: "Zero accountability before escalation",
+            icon: <XCircle className="w-6 h-6 text-red-500" />
         }
-    ]
+    ],
+    summary: "Hanna closes the gap before cost is created."
 };
 
 // ============================================
-// SOLUTION SECTION
+// SOLUTION SECTION (What Hanna Actually Does)
 // ============================================
 export const SOLUTION_B2B = {
-    headline: "A layered risk management workflow",
-    subheadline: "We turn 'Passive Payer' into 'Active Partner' without adding headcount.",
+    headline: "Hanna sits before the claim lifecycle.",
+    subheadline: "When a member experiences a symptom, concern, or uncertainty, Hanna becomes the first point of clinical intelligence.",
     steps: [
         {
-            title: "Phase 1 — Monitoring",
-            time: "Daily",
-            description: "Daily check-ins via LINE capture vitals and medication adherence without requiring app downloads.",
-            icon: <MessageCircle className="w-6 h-6 text-hana-primary" />
+            title: "Voice-first intake",
+            description: "(no app friction)",
+            icon: <Phone className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Phase 2 — Analysis",
-            time: "Real-time",
-            description: "A deterministic risk engine scores incoming data, filtering routine information and flagging clinically relevant patterns.",
+            title: "Real-time risk classification",
+            description: "",
             icon: <Activity className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Phase 3 — Intervention",
-            time: "Exception-Only",
-            description: "Licensed nurses review exceptions only, extending effective coverage to approximately 200 patients per nurse.",
-            icon: <UserCheck className="w-6 h-6 text-hana-primary" />
+            title: "Immediate care routing",
+            description: "(self-care, GP, specialist, emergency)",
+            icon: <ArrowRight className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Outcome",
-            time: "Result",
-            description: "Risk contained before hospitalization.",
+            title: "Early resolution or escalation",
+            description: "with context",
             icon: <ShieldCheck className="w-6 h-6 text-hana-primary" />
+        },
+        {
+            title: "Continuous follow-up",
+            description: "until closure",
+            icon: <MessageCircle className="w-6 h-6 text-hana-primary" />
         }
+    ],
+    outcome: [
+        "No claim.",
+        "No leakage.",
+        "No unnecessary utilization."
     ]
 };
 
 // ============================================
-// IMPACT SECTION (ROI)
+// IMPACT SECTION (ROI & Why This Matters)
 // ============================================
 export const IMPACT_B2B = {
-    headline: "Force multiplication with measurable ROI",
-    disclaimer: "Based on published clinical literature and early pilot benchmarks. Results vary by population and condition.",
-    caseStudy: {
-        title: "Indicative outcomes",
-        subtitle: "Reduced preventable hospitalizations. Lower cost per maintained member. Scalable nursing coverage."
+    headline: "Why This Matters to Insurers",
+    subheadline: "Every claim prevented is permanent margin.",
+    comparison: {
+        traditional: {
+            label: "Traditional models optimize after utilization:",
+            items: [
+                "Network discounts",
+                "Claims processing",
+                "Fraud detection",
+                "Post-care analytics"
+            ]
+        },
+        hanna: {
+            label: "Hanna operates before utilization exists.",
+            highlight: "That is where structural savings live."
+        }
+    },
+    strategy: {
+        headline: "Claim Prevention, Not Cost Containment",
+        text: "Cost containment negotiates prices. Claim prevention removes events.",
+        reductions: [
+            "Avoidable ER visits",
+            "Redundant diagnostics",
+            "Specialist over-referral",
+            "Late-stage interventions",
+            "Chronic escalation from unmanaged early symptoms"
+        ],
+        quote: "This is not behavior nudging. This is clinical interception."
     }
 };
 
 // ============================================
-// TECHNOLOGY SECTION
+// TECHNOLOGY SECTION (Infrastructure)
 // ============================================
 export const TECHNOLOGY_B2B = {
-    headline: "Built for scale. Designed for audit.",
+    headline: "Infrastructure, Not a Feature",
+    subheadline: "Hanna integrates as a system layer, not a product add-on.",
     pillars: [
         {
-            title: "Clinical logic",
-            items: [
-                "Deterministic, rules-based scoring",
-                "Transparent risk criteria",
-                "Auditable decision paths"
-            ],
+            title: "Universal",
+            items: ["Works across plans, providers, and channels"],
+            icon: <Layout className="w-10 h-10 text-hana-primary" />
+        },
+        {
+            title: "Neutral",
+            items: ["Neutral to insurer brand and benefit design"],
             icon: <ShieldCheck className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Clinical oversight",
-            items: [
-                "Nurse-supervised workflows",
-                "Physician escalation when required",
-                "Thai Medical Council–aligned protocols"
-            ],
-            icon: <Stethoscope className="w-10 h-10 text-hana-primary" />
+            title: "Compatible",
+            items: ["Compatible with existing TPAs and claims systems"],
+            icon: <Database className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Enterprise platform",
-            items: [
-                "PDPA-compliant data handling",
-                "Local data residency",
-                "Standards-based integration (HL7 / FHIR)"
-            ],
-            icon: <Lock className="w-10 h-10 text-hana-primary" />
+            title: "Scalable",
+            items: ["Designed for population-scale economics"],
+            icon: <TrendingUp className="w-10 h-10 text-hana-primary" />
         }
+    ],
+    footer: "Members interact with care. Insurers interact with outcomes."
+};
+
+// ============================================
+// COMPARISON SECTION (Why Hanna Wins)
+// ============================================
+export const COMPARISON_B2B = {
+    headline: "Why Hanna Wins Where Others Fail",
+    columns: [
+        { header: "Others", accessor: "others" },
+        { header: "Hanna", accessor: "hanna" }
+    ],
+    rows: [
+        { others: "App-first", hanna: "Voice-first" },
+        { others: "Engagement-driven", hanna: "Event-driven" },
+        { others: "Post-claim analytics", hanna: "Pre-claim interception" },
+        { others: "Member UX focus", hanna: "Insurer economics focus" },
+        { others: "Point solutions", hanna: "System layer" }
     ]
 };
 
 // ============================================
-// WHO IT'S FOR
+// ECONOMICS SECTION
+// ============================================
+export const ECONOMICS_B2B = {
+    headline: "The Economic Reality",
+    subheadline: "The economic alignment is explicit:",
+    points: [
+        "Fixed pilot investment",
+        "Outcome-driven evaluation",
+        "Direct linkage to avoided admissions, ER visits, and complication escalation"
+    ],
+    punchline: "If claims do not materially decline, Hanna has failed its purpose.",
+    strategicShift: {
+        headline: "The Strategic Shift",
+        text: "Insurers don't need more digital health products. They need a control surface before claims form.",
+        highlight: "Hanna is that surface."
+    }
+};
+
+// ============================================
+// WHO IT'S FOR (Kept from previous)
 // ============================================
 export const AUDIENCE_B2B = [
     {
@@ -165,48 +231,13 @@ export const AUDIENCE_B2B = [
 ];
 
 // ============================================
-// PILOT PROGRAM
+// CLOSING SECTION
 // ============================================
-export const PILOT_B2B = {
-    headline: "Prove the impact in 90 days",
-    features: [
-        "50–100 high-risk members",
-        "Full platform deployment",
-        "Nurse supervision included",
-        "Weekly outcome reporting"
-    ],
-    pricing: {
-        title: "Pilot scope",
-        description: ""
-    },
-    timeline: [],
-    cta: "Deploy the Safety Net",
-    scarcity: "Limited Q1 pilot capacity."
-};
-
-// ============================================
-// TEAM (Unused but kept for structure)
-// ============================================
-export const TEAM_B2B = {
-    headline: "Built by Healthcare + AI Experts",
-    members: [
-        {
-            name: "Farhan [Last Name]",
-            role: "Founder & CEO",
-            bio: "Ex-Google Deepmind (simulated), 10+ years in AI & Health Tech.",
-        },
-        {
-            name: "Dr. [Name]",
-            role: "Clinical Advisor",
-            bio: "Endocrinologist, Chief of Medicine at [Hospital].",
-        },
-        {
-            name: "Nurse [Name], RN",
-            role: "Clinical Operations",
-            bio: "15 years experience in ICU and home care.",
-        }
-    ],
-    backedBy: "Pre-seed stage, backed by founders"
+export const CLOSING_B2B = {
+    headline: "The future of insurance is not better claims processing.",
+    subheadline: "It is fewer claims.",
+    text: "Hanna makes that future operational.",
+    tagline: "Claim Prevention Infrastructure."
 };
 
 // ============================================

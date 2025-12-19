@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { AlertCircle } from 'lucide-react';
-import { IMPACT_B2B } from '../constants-b2b';
+import React, { useState } from 'react';
 import FadeIn from './animations/FadeIn';
 
 const RoiCalculator: React.FC = () => {
@@ -44,11 +42,11 @@ const RoiCalculator: React.FC = () => {
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <FadeIn>
-                        <h2 className="text-4xl lg:text-[40px] font-bold text-white mb-4 font-sans tracking-tight">
-                            The ROI for Insurers
+                        <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-white mb-4 font-sans tracking-tight">
+                            Interactive Saving Model
                         </h2>
                         <p className="text-lg text-slate-300 font-body">
-                            See how Hanna's preventive monitoring impacts your bottom line.
+                            Model the impact of Hanna's claim prevention infrastructure on your high-risk population.
                         </p>
                     </FadeIn>
                 </div>
@@ -101,7 +99,7 @@ const RoiCalculator: React.FC = () => {
 
                                 {/* Gross Savings */}
                                 <div className="space-y-1 group relative">
-                                    {/* Divider Logic for Desktop */}
+                                    {/* Divider for Desktop */}
                                     <div className="hidden md:block absolute left-0 top-2 bottom-2 w-px bg-slate-100"></div>
                                     <div className="hidden md:block absolute right-0 top-2 bottom-2 w-px bg-slate-100"></div>
 
@@ -110,7 +108,7 @@ const RoiCalculator: React.FC = () => {
                                         {preventableHospitalizations}
                                     </p>
                                     <p className="text-xs text-slate-400">
-                                        ~35% reduction rate
+                                        ~45% reduction rate
                                     </p>
                                 </div>
 
@@ -132,7 +130,7 @@ const RoiCalculator: React.FC = () => {
             </div>
 
             <div className="text-center mt-8 px-6 text-white/60 text-xs font-body max-w-2xl mx-auto italic">
-                {IMPACT_B2B.disclaimer}
+                Based on published clinical literature and early pilot benchmarks. Results vary by population and condition.
             </div>
 
         </section >
