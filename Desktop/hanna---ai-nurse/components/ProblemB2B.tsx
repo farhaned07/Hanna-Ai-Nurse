@@ -1,91 +1,93 @@
 import React from 'react';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PROBLEM_B2B } from '../constants-b2b';
+import { Clock, AlertTriangle, UserX, Activity } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 
 const ProblemB2B: React.FC = () => {
+    // Override icons for specific visual impact in this dark section
+    const problemIcons = [
+        <Clock className="w-6 h-6 text-red-400" />,
+        <AlertTriangle className="w-6 h-6 text-amber-400" />,
+        <UserX className="w-6 h-6 text-orange-400" />,
+        <Activity className="w-6 h-6 text-rose-400" />,
+    ];
+
     return (
-        <section className="py-32 bg-slate-50 relative overflow-hidden" id="problem">
-            {/* Light abstract bg */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-hana-primary/5 via-slate-50 to-slate-50"></div>
+        <section className="py-24 lg:py-32 bg-surface-subtle relative overflow-hidden text-text-primary" id="problem">
+            {/* Background Texture - subtle dotted grid */}
+            <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+
+            {/* Ambient Glow */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
-                {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <FadeIn delay={0.1}>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hana-accent mb-4 font-sans tracking-tight">
-                            {PROBLEM_B2B.headline}
-                        </h2>
-                        <p className="text-xl md:text-2xl text-hana-primary font-bold font-sans">
-                            {PROBLEM_B2B.subheadline}
-                        </p>
-                        <p className="text-slate-500 font-medium mt-6 uppercase tracking-widest text-sm">
-                            {PROBLEM_B2B.context}
-                        </p>
-                    </FadeIn>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-                {/* 5-Column Grid (Responsive wrapping) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
-                    {PROBLEM_B2B.points.map((point, index) => (
-                        <SpotlightCard key={index} point={point} index={index} />
-                    ))}
-                </div>
+                    {/* Left Column: The Anchor (Typography) */}
+                    <div className="relative">
+                        <FadeIn>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono font-bold tracking-widest uppercase mb-8">
+                                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                                CRITICAL SYSTEM FAILURE
+                            </div>
 
-                <div className="text-center mt-12">
-                    <FadeIn delay={0.6}>
-                        <p className="inline-block border-b-2 border-hana-accent pb-1 text-xl md:text-2xl font-bold text-hana-accent font-sans">
-                            {PROBLEM_B2B.summary}
-                        </p>
-                    </FadeIn>
+                            <h2 className="text-3xl md:text-4xl font-sans font-bold text-slate-300 mb-2">
+                                The Patient
+                            </h2>
+                            <div className="relative">
+                                <h1 className="text-[80px] leading-[0.9] md:text-[120px] md:leading-[0.85] font-bold font-sans tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500">
+                                    361<br />DAYS
+                                </h1>
+                                <div className="hidden md:block absolute -right-4 top-4 w-24 h-24 border-t-2 border-r-2 border-red-500/30 rounded-tr-3xl"></div>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-sans font-bold text-slate-300 mt-2 mb-8">
+                                Are Unmonitored.
+                            </h2>
+
+                            <p className="text-lg text-slate-400 font-body leading-relaxed max-w-md border-l-4 border-slate-700 pl-6">
+                                The average patient sees a doctor 4 times a year.
+                                For the other 361 days, they are alone with their condition.
+                                <strong className="text-white block mt-2">This is the "Blind Gap" where care fails.</strong>
+                            </p>
+                        </FadeIn>
+                    </div>
+
+                    {/* Right Column: The Pain Points (Alert Cards) */}
+                    <div className="space-y-4">
+                        {PROBLEM_B2B.points.slice(0, 4).map((point, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: index * 0.15, duration: 0.5 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                            >
+                                <div className="group relative p-6 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 backdrop-blur-sm">
+                                    {/* Hover glow effect */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                                    <div className="flex items-start gap-5">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-slate-800/50 flex items-center justify-center border border-slate-700 group-hover:border-slate-600 transition-colors">
+                                            {problemIcons[index] || <AlertTriangle className="w-5 h-5 text-amber-400" />}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-lg font-bold text-slate-100 font-sans mb-1 group-hover:text-white transition-colors">
+                                                {point.title.split('.')[0]}.
+                                            </h3>
+                                            <p className="text-sm text-slate-400 font-body leading-relaxed">
+                                                {point.title.split('.').slice(1).join('.').trim() || "Critical failure in care delivery."}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
                 </div>
             </div>
         </section>
-    );
-};
-
-const SpotlightCard: React.FC<{ point: any; index: number }> = ({ point, index }) => {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.5 }}
-            viewport={{ once: true }}
-            className="group relative border border-slate-200 bg-white overflow-hidden rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 h-full"
-            onMouseMove={handleMouseMove}
-        >
-            <motion.div
-                className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              350px circle at ${mouseX}px ${mouseY}px,
-              rgba(109, 157, 173, 0.1),
-              transparent 80%
-            )
-          `,
-                }}
-            />
-
-            <div className="p-6 h-full flex flex-col items-center text-center relative z-10">
-                <div className="w-12 h-12 mb-4 rounded-xl bg-red-50 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform duration-300">
-                    {point.icon}
-                </div>
-
-                <h3 className="text-lg font-bold text-slate-800 font-sans leading-tight">
-                    {point.title}
-                </h3>
-            </div>
-        </motion.div>
     );
 };
 

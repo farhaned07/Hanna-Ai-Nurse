@@ -1,45 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+@layer base {
+  :root {
+    --noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
 
 @layer utilities {
+  .noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    background-image: var(--noise-bg);
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+  }
+
+  /* Dark Glass (Primary for dark mode) */
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/50 shadow-xl transition-all duration-300;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300;
   }
 
   .glass-card {
-    @apply glass hover:bg-white/90 hover:shadow-hover hover:-translate-y-1;
+    @apply glass hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-1;
   }
 
-  .glass-dark {
-    @apply bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl;
+  /* Light Glass (for contrast elements on dark) */
+  .glass-light {
+    @apply bg-white/80 backdrop-blur-xl border border-white/50 shadow-xl;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-hana-primary to-white;
   }
 
-  .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-hana-primary to-purple-400;
+  .glow-accent {
+    box-shadow: 0 0 40px rgba(109, 157, 173, 0.3), 0 0 80px rgba(109, 157, 173, 0.1);
   }
 }
 
-/* Base Styles */
+/* ==========================================
+   BASE STYLES - DARK MODE APPLE AESTHETIC
+   ========================================== */
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 font-body;
+  @apply bg-surface text-text-primary font-body leading-loose;
+  /* Subtle ambient glow on dark background */
   background-image:
-    radial-gradient(at 0% 0%, rgba(139, 70, 255, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(109, 157, 173, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(139, 70, 255, 0.05) 0px, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(109, 157, 173, 0.05), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(13, 70, 95, 0.05), transparent 35%);
   background-attachment: fixed;
 }
 
@@ -49,82 +72,27 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-sans tracking-tight;
+  @apply font-sans tracking-tight text-text-primary;
 }
 
-/* Marquee Animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-/* Custom Scrollbar */
+/* Custom Scrollbar (Dark) */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+  @apply bg-white/20 rounded-full hover:bg-white/30 transition-colors;
 }
 
-/* Custom Animations */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
+/* Utilities for Dark Mode */
+.border-subtle {
+  @apply border border-border-subtle;
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 2.5s infinite linear;
+.text-subtle {
+  @apply text-text-secondary;
 }

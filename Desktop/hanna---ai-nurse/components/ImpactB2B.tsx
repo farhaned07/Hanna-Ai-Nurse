@@ -1,87 +1,76 @@
 import React from 'react';
-import { IMPACT_B2B } from '../constants-b2b';
+import { IMPACT_B2B, ECONOMICS_B2B } from '../constants-b2b';
 import FadeIn from './animations/FadeIn';
-import { Check, X } from 'lucide-react';
 
 const ImpactB2B: React.FC = () => {
     return (
-        <section className="py-32 bg-slate-50 relative">
-            <div className="container mx-auto px-6 max-w-[1280px]">
+        <section className="py-32 bg-surface-subtle text-text-primary relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
-                {/* Main Header */}
-                <div className="text-center mb-16 max-w-3xl mx-auto">
+            <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
+                {/* Section Header */}
+                <div className="text-center mb-20 max-w-3xl mx-auto">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-hana-accent mb-6 font-sans tracking-tight">
-                            {IMPACT_B2B.headline}
+                        <span className="text-hana-primary font-bold tracking-widest uppercase text-xs font-mono mb-4 block">The Proof</span>
+                        <h2 className="text-4xl lg:text-5xl font-bold text-text-primary font-sans leading-tight tracking-tight mb-6">
+                            Why This Works
                         </h2>
-                        <p className="text-xl text-hana-primary font-bold font-sans">
-                            {IMPACT_B2B.subheadline}
+                        <p className="text-xl text-text-secondary font-light leading-relaxed">
+                            The logic is unavoidable. The timing is right.
                         </p>
                     </FadeIn>
                 </div>
 
-                {/* Comparison Grid */}
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
-                    {/* Traditional */}
-                    <FadeIn delay={0.2} direction="right">
-                        <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm h-full">
-                            <h3 className="text-lg font-bold text-slate-400 mb-6 uppercase tracking-wider">
-                                {IMPACT_B2B.comparison.traditional.label}
-                            </h3>
-                            <ul className="space-y-4">
-                                {IMPACT_B2B.comparison.traditional.items.map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-500 font-medium">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </FadeIn>
-
-                    {/* Hanna */}
-                    <FadeIn delay={0.3} direction="left">
-                        <div className="bg-hana-accent text-white p-8 rounded-2xl shadow-xl h-full relative overflow-hidden flex flex-col justify-center">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-hana-primary/20 blur-[40px] rounded-full"></div>
-
-                            <h3 className="text-lg font-bold text-white/80 mb-6 uppercase tracking-wider relative z-10">
-                                Hanna Approach
-                            </h3>
-                            <p className="text-2xl font-bold leading-tight relative z-10">
-                                {IMPACT_B2B.comparison.hanna.label}
-                            </p>
-                            <p className="mt-4 text-hana-primary font-bold text-lg relative z-10">
-                                {IMPACT_B2B.comparison.hanna.highlight}
-                            </p>
-                        </div>
-                    </FadeIn>
-                </div>
-
-                {/* Strategy Section */}
-                <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-lg text-center">
-                    <FadeIn>
-                        <h3 className="text-2xl md:text-3xl font-bold text-hana-accent mb-6 font-sans">
-                            {IMPACT_B2B.strategy.headline}
-                        </h3>
-                        <p className="text-lg text-slate-600 mb-10 font-medium">
-                            {IMPACT_B2B.strategy.text}
-                        </p>
-
-                        <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 text-left max-w-2xl mx-auto mb-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                    {/* Left: Why This Works (from Impact) */}
+                    <div>
+                        <FadeIn delay={0.1}>
+                            <h3 className="text-xs font-bold text-hana-primary uppercase tracking-widest mb-8 font-mono">The Logic</h3>
+                        </FadeIn>
+                        <div className="space-y-5">
                             {IMPACT_B2B.strategy.reductions.map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 font-medium text-slate-700">
-                                    <Check className="w-5 h-5 text-hana-primary shrink-0" />
-                                    {item}
-                                </div>
+                                <FadeIn key={i} delay={0.1 + i * 0.1}>
+                                    <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                        <p className="text-base leading-relaxed text-text-secondary font-body">
+                                            {item}
+                                        </p>
+                                    </div>
+                                </FadeIn>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right: Why This Moment (from Economics) */}
+                    <div>
+                        <FadeIn delay={0.3}>
+                            <h3 className="text-xs font-bold text-hana-primary uppercase tracking-widest mb-8 font-mono">Why Now</h3>
+                        </FadeIn>
+                        <div className="space-y-5 mb-10">
+                            {ECONOMICS_B2B.points.map((point, i) => (
+                                <FadeIn key={i} delay={0.3 + i * 0.1}>
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-sm font-bold text-text-primary font-mono">{String(i + 1).padStart(2, '0')}</span>
+                                        </div>
+                                        <p className="text-lg text-text-primary font-semibold font-sans pt-1">
+                                            {point}
+                                        </p>
+                                    </div>
+                                </FadeIn>
                             ))}
                         </div>
 
-                        <div className="inline-block bg-hana-primary/10 px-6 py-3 rounded-full text-hana-primary font-bold text-sm uppercase tracking-wider">
-                            {IMPACT_B2B.strategy.quote}
-                        </div>
-                    </FadeIn>
+                        {/* Punchline Box */}
+                        <FadeIn delay={0.6}>
+                            <div className="bg-white text-surface p-8 rounded-2xl shadow-xl">
+                                <p className="text-xl font-bold font-sans leading-tight text-black">
+                                    "{IMPACT_B2B.strategy.quote}"
+                                </p>
+                            </div>
+                        </FadeIn>
+                    </div>
                 </div>
-
             </div>
         </section>
     );

@@ -1,43 +1,66 @@
 import React from 'react';
 import { COMPARISON_B2B } from '../constants-b2b';
 import FadeIn from './animations/FadeIn';
-import { Check, X } from 'lucide-react';
 
 const ComparisonB2B: React.FC = () => {
+    // Filter out the "Goal" row (it's a sales message, not a timeline step)
+    const timelineRows = COMPARISON_B2B.rows.filter(row => row.time !== "Goal");
+
     return (
-        <section className="py-32 bg-slate-50 relative border-t border-slate-200">
+        <section className="py-32 bg-surface relative">
             <div className="container mx-auto px-6 max-w-[1280px]">
-                <div className="text-center mb-16">
-                    <FadeIn>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-hana-accent font-sans">
-                            {COMPARISON_B2B.headline}
-                        </h2>
+                <div className="max-w-4xl mx-auto">
+                    {/* Header */}
+                    <div className="text-center mb-12">
+                        <FadeIn>
+                            <span className="text-hana-primary font-bold tracking-widest uppercase text-xs font-mono mb-4 block">Implementation</span>
+                            <h2 className="text-4xl lg:text-5xl font-bold text-text-primary font-sans tracking-tight">
+                                {COMPARISON_B2B.headline}
+                            </h2>
+                        </FadeIn>
+                    </div>
+
+                    {/* Timeline Table */}
+                    <FadeIn delay={0.2}>
+                        <div className="overflow-hidden rounded-2xl border border-border bg-surface-subtle shadow-lg">
+                            {/* Header Row */}
+                            <div className="grid grid-cols-12 bg-surface border-b border-border">
+                                <div className="col-span-3 p-6 text-xs font-bold text-text-tertiary uppercase tracking-widest font-mono">
+                                    Timeline
+                                </div>
+                                <div className="col-span-9 p-6 text-xs font-bold text-text-tertiary uppercase tracking-widest font-mono">
+                                    Activity
+                                </div>
+                            </div>
+
+                            {/* Data Rows */}
+                            <div className="divide-y divide-border">
+                                {timelineRows.map((row, i) => (
+                                    <div key={i} className="grid grid-cols-12 group hover:bg-white/5 transition-colors">
+                                        <div className="col-span-3 p-6 flex items-center">
+                                            <span className="text-lg font-bold text-text-primary font-sans">
+                                                {row.time}
+                                            </span>
+                                        </div>
+                                        <div className="col-span-9 p-6 flex items-center border-l border-border bg-hana-primary/5 group-hover:bg-hana-primary/10 transition-colors">
+                                            <p className="text-base text-text-secondary font-body leading-relaxed">
+                                                {row.activity}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </FadeIn>
-                </div>
 
-                <div className="max-w-4xl mx-auto overflow-hidden rounded-3xl border border-slate-200 shadow-xl bg-white">
-                    <div className="grid grid-cols-2 bg-slate-100 p-4 border-b border-slate-200">
-                        {COMPARISON_B2B.columns.map((col, i) => (
-                            <div key={i} className={`text-center font-bold text-lg uppercase tracking-wider py-2 ${col.accessor === 'hanna' ? 'text-hana-primary' : 'text-slate-500'}`}>
-                                {col.header}
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="divide-y divide-slate-100">
-                        {COMPARISON_B2B.rows.map((row: any, i) => (
-                            <div key={i} className="grid grid-cols-2 hover:bg-slate-50/50 transition-colors">
-                                <div className="p-6 text-center text-slate-500 font-medium flex items-center justify-center gap-3 md:text-lg">
-                                    <X className="w-5 h-5 text-red-200 shrink-0 hidden md:block" />
-                                    {row.others}
-                                </div>
-                                <div className="p-6 text-center text-hana-accent font-bold md:text-lg bg-hana-primary/5 flex items-center justify-center gap-3 border-l border-hana-primary/10">
-                                    <Check className="w-5 h-5 text-hana-primary shrink-0 hidden md:block" />
-                                    {row.hanna}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Partnership Note */}
+                    <FadeIn delay={0.4}>
+                        <div className="mt-8 text-center">
+                            <p className="text-text-secondary font-medium font-body">
+                                This is a partnership, not a sale.
+                            </p>
+                        </div>
+                    </FadeIn>
                 </div>
             </div>
         </section>

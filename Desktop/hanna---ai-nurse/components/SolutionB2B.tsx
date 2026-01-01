@@ -1,75 +1,86 @@
 import React from 'react';
 import { SOLUTION_B2B } from '../constants-b2b';
+import { MessageCircle, Activity, UserCheck, Database } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
-import { CheckCircle2 } from 'lucide-react';
 
 const SolutionB2B: React.FC = () => {
+    // Custom icons for the steps to ensure visual consistency
+    const stepIcons = [
+        <MessageCircle className="w-6 h-6 text-white" />,
+        <Activity className="w-6 h-6 text-white" />,
+        <UserCheck className="w-6 h-6 text-white" />,
+        <Database className="w-6 h-6 text-white" />,
+    ];
+
     return (
-        <section className="py-32 bg-white relative overflow-hidden" id="solution">
-            <div className="container mx-auto px-6 max-w-[1280px]">
-                {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-20">
-                    <FadeIn delay={0.1}>
-                        <h2 className="text-4xl lg:text-5xl font-bold text-hana-accent mb-6 font-sans tracking-tight">
+        <section className="py-24 lg:py-32 bg-surface-subtle relative overflow-hidden" id="solution">
+            {/* Background Decoration */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-hana-primary/5 rounded-full blur-[100px]"></div>
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-hana-accent/10 rounded-full blur-[100px]"></div>
+            </div>
+
+            <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
+                {/* Section Header */}
+                <div className="text-center mb-24 max-w-3xl mx-auto">
+                    <FadeIn>
+                        <span className="text-hana-primary font-bold tracking-widest uppercase text-xs font-mono mb-4 block">
+                            The Continuous Care Loop
+                        </span>
+                        <h2 className="text-4xl lg:text-5xl font-bold text-text-primary font-sans leading-tight tracking-tight mb-6">
                             {SOLUTION_B2B.headline}
                         </h2>
-                        <p className="text-xl text-slate-600 font-body leading-relaxed">
+                        <p className="text-xl text-text-secondary font-medium font-body leading-relaxed">
                             {SOLUTION_B2B.subheadline}
                         </p>
                     </FadeIn>
                 </div>
 
-                {/* Steps Flow */}
-                <div className="relative max-w-5xl mx-auto">
-                    {/* Connecting Line (Desktop) */}
-                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-hana-primary/20 -translate-x-1/2 rounded-full"></div>
+                {/* Horizontal Process Flow */}
+                <div className="relative">
+                    {/* The Connecting Lifeline (Desktop) */}
+                    <div className="hidden lg:block absolute top-[88px] left-0 w-full h-1 bg-gradient-to-r from-transparent via-hana-primary/30 to-transparent"></div>
 
-                    <div className="space-y-12 md:space-y-0">
-                        {SOLUTION_B2B.steps.map((step, index) => (
-                            <div key={index} className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 relative ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                        {SOLUTION_B2B.steps.slice(0, 4).map((step, index) => (
+                            <FadeIn key={index} delay={index * 0.1}>
+                                <div className="relative group text-center lg:text-left">
+                                    {/* Card Container */}
+                                    <div className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
 
-                                {/* Timeline Node */}
-                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex w-8 h-8 rounded-full bg-white border-4 border-hana-primary z-10 shadow-sm items-center justify-center">
-                                    <div className="w-2 h-2 rounded-full bg-hana-primary"></div>
-                                </div>
-
-                                {/* Content Side */}
-                                <div className={`flex-1 text-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                                    <FadeIn direction={index % 2 === 0 ? 'right' : 'left'} delay={index * 0.1}>
-                                        <div className="inline-flex p-3 rounded-full bg-hana-primary/5 text-hana-primary mb-4">
-                                            {step.icon}
+                                        {/* Icon Orb */}
+                                        <div className="relative z-10 mx-auto lg:mx-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-hana-primary to-hana-accent shadow-lg shadow-hana-primary/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                                            {stepIcons[index]}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-slate-800 font-sans mb-2">
+
+                                        {/* Step Number Background */}
+                                        <div className="absolute top-4 right-4 text-6xl font-black text-white/5 pointer-events-none select-none font-sans group-hover:text-hana-primary/10 transition-colors">
+                                            0{index + 1}
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-text-primary mb-3 font-sans relative z-10">
                                             {step.title}
                                         </h3>
-                                        {step.description && (
-                                            <p className="text-slate-500 font-medium font-body">
-                                                {step.description}
-                                            </p>
-                                        )}
-                                    </FadeIn>
+                                        <p className="text-text-secondary text-sm font-body leading-relaxed relative z-10">
+                                            {step.description}
+                                        </p>
+                                    </div>
                                 </div>
-
-                                {/* Empty Side (Mirror) */}
-                                <div className="flex-1 hidden md:block"></div>
-                            </div>
+                            </FadeIn>
                         ))}
                     </div>
                 </div>
 
-                {/* Outcome Footer */}
+                {/* Outcome Statement */}
                 <FadeIn delay={0.6}>
-                    <div className="mt-20 p-8 rounded-3xl bg-slate-50 border border-slate-100 text-center max-w-3xl mx-auto">
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
-                            {SOLUTION_B2B.outcome.map((item, i) => (
-                                <div key={i} className="flex items-center gap-3 font-bold text-hana-accent text-lg">
-                                    <CheckCircle2 className="w-6 h-6 text-hana-primary" />
-                                    {item}
-                                </div>
-                            ))}
-                        </div>
+                    <div className="mt-20 text-center">
+                        <p className="inline-flex items-center gap-2 text-lg font-medium text-text-primary bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10 shadow-sm">
+                            <Activity className="w-5 h-5 text-hana-primary" />
+                            {SOLUTION_B2B.outcome[0]}
+                        </p>
                     </div>
                 </FadeIn>
+
             </div>
         </section>
     );
