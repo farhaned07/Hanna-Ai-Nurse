@@ -36,7 +36,7 @@ const ProblemB2B: React.FC = () => {
                                 The Patient
                             </h2>
                             <div className="relative">
-                                <h1 className="text-[80px] leading-[0.9] md:text-[120px] md:leading-[0.85] font-bold font-sans tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500">
+                                <h1 className="text-[80px] leading-[0.9] md:text-[120px] md:leading-[0.85] font-bold font-sans tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-200 to-slate-500 animate-[text-shimmer_5s_ease-in-out_infinite_alternate] bg-[length:200%_auto]">
                                     361<br />DAYS
                                 </h1>
                                 <div className="hidden md:block absolute -right-4 top-4 w-24 h-24 border-t-2 border-r-2 border-red-500/30 rounded-tr-3xl"></div>
@@ -63,7 +63,9 @@ const ProblemB2B: React.FC = () => {
                                 transition={{ delay: index * 0.15, duration: 0.5 }}
                                 viewport={{ once: true, margin: "-50px" }}
                             >
-                                <div className="group relative p-6 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 backdrop-blur-sm">
+                                <div className="group relative p-6 rounded-xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.06] hover:border-white/20 transition-all duration-300 backdrop-blur-sm overflow-hidden">
+                                    {/* Noise Texture */}
+                                    <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
                                     {/* Hover glow effect */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 

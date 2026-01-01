@@ -16,9 +16,10 @@ const HeroB2B: React.FC = () => {
                 {/* Centered Content */}
                 <div className="text-center mb-10 md:mb-16 max-w-4xl mx-auto px-2">
                     <FadeIn delay={0.1}>
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 text-text-secondary text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-6 md:mb-8 backdrop-blur-md">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                            Production-Ready Q4 2025
+                        <div className="relative inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 text-text-secondary text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-6 md:mb-8 backdrop-blur-md overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse relative z-10"></span>
+                            <span className="relative z-10">Production-Ready Q4 2025</span>
                         </div>
                     </FadeIn>
 
@@ -38,9 +39,12 @@ const HeroB2B: React.FC = () => {
                         <div className="flex justify-center mb-8 md:mb-12">
                             <button
                                 onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="flex items-center justify-center gap-2 md:gap-3 bg-white text-black px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold transition-all hover:bg-hana-primary hover:text-white hover:shadow-glow hover:-translate-y-1 active:scale-95 group shadow-xl">
-                                See the Platform
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                className="relative flex items-center justify-center gap-2 md:gap-3 bg-white text-black px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold transition-all hover:bg-hana-primary hover:text-white hover:shadow-[0_0_40px_-10px_rgba(109,157,173,0.6)] hover:-translate-y-1 active:scale-95 group shadow-xl overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
+                                <span className="relative z-10 flex items-center gap-2">
+                                    See the Platform
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </span>
                             </button>
                         </div>
                     </FadeIn>
@@ -50,7 +54,7 @@ const HeroB2B: React.FC = () => {
                 <FadeIn delay={0.5} direction="up">
                     <div className="relative max-w-[1100px] mx-auto">
                         {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-hana-primary/20 via-transparent to-transparent blur-[80px] scale-110 opacity-50"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-hana-primary/30 via-hana-primary/5 to-transparent blur-[60px] scale-110 opacity-70"></div>
 
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-surface-subtle ring-1 ring-white/5">
                             <img

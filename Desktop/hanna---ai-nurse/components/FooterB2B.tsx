@@ -29,17 +29,35 @@ const FooterB2B: React.FC = () => {
                             <div>
                                 <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Product</h4>
                                 <ul className="space-y-4">
-                                    <li><a href="#solution" className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">Features</a></li>
-                                    <li><a href="#impact" className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">Impact</a></li>
-                                    <li><a href="#security" className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">Security</a></li>
+                                    <li><a href="#solution" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        Features
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
+                                    <li><a href="#impact" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        Impact
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
+                                    <li><a href="#security" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        Security
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Company</h4>
                                 <ul className="space-y-4">
-                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">Mission</a></li>
-                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">About</a></li>
-                                    <li><a href={`mailto:${FOOTER_B2B.social.email}`} className="text-text-secondary font-semibold hover:text-text-primary hover:translate-x-1 transition-all inline-block">Contact</a></li>
+                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        Mission
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
+                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        About
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
+                                    <li><a href={`mailto:${FOOTER_B2B.social.email}`} className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
+                                        Contact
+                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                                    </a></li>
                                 </ul>
                             </div>
                             <div>

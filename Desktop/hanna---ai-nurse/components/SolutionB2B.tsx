@@ -39,14 +39,14 @@ const SolutionB2B: React.FC = () => {
                 {/* Horizontal Process Flow */}
                 <div className="relative">
                     {/* The Connecting Lifeline (Desktop) */}
-                    <div className="hidden lg:block absolute top-[88px] left-0 w-full h-1 bg-gradient-to-r from-transparent via-hana-primary/30 to-transparent"></div>
+                    <div className="hidden lg:block absolute top-[88px] left-0 w-full h-1 bg-gradient-to-r from-transparent via-hana-primary/30 to-transparent animate-[shimmer_3s_infinite_linear] bg-[length:200%_auto]"></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
                         {SOLUTION_B2B.steps.slice(0, 4).map((step, index) => (
                             <FadeIn key={index} delay={index * 0.1}>
                                 <div className="relative group text-center lg:text-left">
                                     {/* Card Container */}
-                                    <div className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 transition-all duration-300">
+                                    <div className="h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-sm hover:shadow-brand hover:bg-white/[0.08] hover:border-hana-primary/30 hover:-translate-y-2 transition-all duration-300">
 
                                         {/* Icon Orb */}
                                         <div className="relative z-10 mx-auto lg:mx-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-hana-primary to-hana-accent shadow-lg shadow-hana-primary/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
