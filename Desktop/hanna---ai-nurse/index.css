@@ -30,7 +30,7 @@
   }
 
   .glass-card {
-    @apply glass hover:bg-white/90 hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+    @apply glass hover:bg-white/90 hover:shadow-brand transition-all duration-500 ease-spring hover:-translate-y-1;
   }
 
   /* Dark Glass (for contrast elements) */

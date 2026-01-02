@@ -14,7 +14,7 @@ const ProblemB2B: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 lg:py-32 bg-surface relative overflow-hidden text-text-primary" id="problem">
+        <section className="py-32 lg:py-40 bg-surface relative overflow-hidden text-text-primary" id="problem">
             {/* Background Texture - subtle dotted grid */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#0F172A 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
 
@@ -32,7 +32,7 @@ const ProblemB2B: React.FC = () => {
                                 CRITICAL SYSTEM FAILURE
                             </div>
 
-                            <h2 className="text-3xl md:text-4xl font-sans font-bold text-text-secondary mb-2">
+                            <h2 className="text-4xl md:text-5xl font-sans font-bold text-text-secondary mb-2">
                                 The Patient
                             </h2>
                             <div className="relative">
@@ -41,7 +41,7 @@ const ProblemB2B: React.FC = () => {
                                 </h1>
                                 <div className="hidden md:block absolute -right-4 top-4 w-24 h-24 border-t-2 border-r-2 border-hana-primary/30 rounded-tr-3xl"></div>
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-sans font-bold text-text-secondary mt-2 mb-8">
+                            <h2 className="text-4xl md:text-5xl font-sans font-bold text-text-secondary mt-2 mb-8">
                                 Are Unmonitored.
                             </h2>
 
@@ -63,7 +63,7 @@ const ProblemB2B: React.FC = () => {
                                 transition={{ delay: index * 0.15, duration: 0.5 }}
                                 viewport={{ once: true, margin: "-50px" }}
                             >
-                                <div className="group relative p-6 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden">
+                                <div className="group relative p-6 rounded-2xl bg-white border border-slate-200 hover:border-hana-primary/30 transition-all duration-500 ease-spring shadow-sm hover:shadow-brand hover:-translate-y-1 overflow-hidden">
                                     {/* Noise Texture */}
                                     <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
                                     {/* Hover glow effect */}

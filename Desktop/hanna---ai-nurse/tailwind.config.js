@@ -61,6 +61,9 @@ export default {
                 'wide': '0.025em',
                 'widest': '0.1em',
             },
+            transitionTimingFunction: {
+                'spring': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            },
             borderRadius: {
                 'sm': '4px',
                 DEFAULT: '8px',

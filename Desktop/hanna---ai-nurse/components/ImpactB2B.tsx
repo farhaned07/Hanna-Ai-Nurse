@@ -4,7 +4,7 @@ import FadeIn from './animations/FadeIn';
 
 const ImpactB2B: React.FC = () => {
     return (
-        <section className="py-32 bg-surface text-text-primary relative overflow-hidden">
+        <section className="py-32 lg:py-40 bg-surface text-text-primary relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0F172A_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
@@ -31,7 +31,7 @@ const ImpactB2B: React.FC = () => {
                         <div className="space-y-5">
                             {IMPACT_B2B.strategy.reductions.map((item, i) => (
                                 <FadeIn key={i} delay={0.1 + i * 0.1}>
-                                    <div className="bg-white border border-slate-200 p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
+                                    <div className="bg-white border border-slate-200 p-6 rounded-2xl hover:shadow-brand hover:border-hana-primary/30 hover:-translate-y-1 transition-all shadow-sm duration-500 ease-spring">
                                         <p className="text-base leading-relaxed text-text-secondary font-body">
                                             {item}
                                         </p>
@@ -63,7 +63,8 @@ const ImpactB2B: React.FC = () => {
 
                         {/* Punchline Box */}
                         <FadeIn delay={0.6}>
-                            <div className="bg-hana-accent text-white p-8 rounded-2xl shadow-xl">
+                            <div className="bg-hana-accent text-white p-8 rounded-[2rem] shadow-xl relative overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <p className="text-xl font-bold font-sans leading-tight text-white">
                                     "{IMPACT_B2B.strategy.quote}"
                                 </p>

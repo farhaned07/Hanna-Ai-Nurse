@@ -13,7 +13,7 @@ const SolutionB2B: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 lg:py-32 bg-surface-subtle relative overflow-hidden" id="solution">
+        <section className="py-32 lg:py-40 bg-surface-subtle relative overflow-hidden" id="solution">
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-hana-primary/5 rounded-full blur-[100px]"></div>
@@ -46,7 +46,7 @@ const SolutionB2B: React.FC = () => {
                             <FadeIn key={index} delay={index * 0.1}>
                                 <div className="relative group text-center lg:text-left">
                                     {/* Card Container */}
-                                    <div className="h-full bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-brand hover:border-hana-primary/30 hover:-translate-y-2 transition-all duration-300">
+                                    <div className="h-full bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-brand hover:border-hana-primary/30 hover:-translate-y-2 transition-all duration-500 ease-spring">
 
                                         {/* Icon Orb */}
                                         <div className="relative z-10 mx-auto lg:mx-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-hana-primary to-hana-accent shadow-lg shadow-hana-primary/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">

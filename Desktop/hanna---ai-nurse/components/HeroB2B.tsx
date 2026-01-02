@@ -2,15 +2,13 @@ import React from 'react';
 import { HERO_B2B } from '../constants-b2b';
 import { ArrowRight, Check } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
+import LiquidBackground from './animations/LiquidBackground';
 
 const HeroB2B: React.FC = () => {
     return (
         <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-surface">
-            {/* Subtle Ambient Glows */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-hana-primary/10 rounded-full blur-[150px]"></div>
-                <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-hana-accent/20 rounded-full blur-[150px]"></div>
-            </div>
+            {/* Animated Liquid Background */}
+            <LiquidBackground />
 
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
                 {/* Centered Content */}
@@ -30,7 +28,7 @@ const HeroB2B: React.FC = () => {
                     </FadeIn>
 
                     <FadeIn delay={0.3}>
-                        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto font-body font-normal mb-10 md:mb-14 px-4">
+                        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto font-body font-light mb-10 md:mb-14 px-4">
                             {HERO_B2B.subheadline}
                         </p>
                     </FadeIn>

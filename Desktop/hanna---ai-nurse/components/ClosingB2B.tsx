@@ -31,10 +31,13 @@ const ClosingB2B: React.FC = () => {
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
-                                className="bg-white text-black px-10 py-5 rounded-full text-lg font-bold hover:bg-slate-200 transition-all shadow-xl inline-flex items-center gap-3 group"
+                                className="relative overflow-hidden bg-white text-black px-10 py-5 rounded-full text-lg font-bold hover:bg-slate-50 transition-all shadow-xl inline-flex items-center gap-3 group"
                             >
-                                Schedule a Pilot Discussion
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-300/30 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
+                                <span className="relative z-10 flex items-center gap-2">
+                                    Schedule a Pilot Discussion
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </span>
                             </motion.button>
                         </div>
                     </div>

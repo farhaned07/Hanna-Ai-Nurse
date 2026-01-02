@@ -12,7 +12,7 @@ const LandingPageB2B: React.FC = () => {
         <div className="min-h-screen bg-surface font-sans text-text-primary selection:bg-hana-primary/30 selection:text-white">
             {/* Floating Navbar - Light Glass */}
             <nav className="fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center px-4 md:px-6 pointer-events-none">
-                <div className="bg-white/80 backdrop-blur-2xl border border-slate-200/50 rounded-full shadow-lg shadow-slate-900/5 px-6 py-3 md:px-8 flex items-center gap-12 max-w-4xl w-full justify-between transition-all duration-300 pointer-events-auto ring-1 ring-slate-100">
+                <div className="bg-white/90 backdrop-blur-3xl border border-white/60 rounded-full shadow-xl shadow-slate-900/5 px-6 py-3 md:px-8 flex items-center gap-12 max-w-4xl w-full justify-between transition-all duration-300 pointer-events-auto ring-1 ring-black/5">
                     <div className="flex items-center gap-2">
                         <img src="/hanna-logo.png" alt="Hanna" className="h-7 w-auto brightness-0" />
                         <span className="text-xl md:text-2xl font-bold tracking-tight text-text-primary flex items-center gap-0.5 font-sans">
