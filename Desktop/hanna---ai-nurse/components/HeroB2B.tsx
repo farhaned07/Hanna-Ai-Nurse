@@ -16,21 +16,21 @@ const HeroB2B: React.FC = () => {
                 {/* Centered Content */}
                 <div className="text-center mb-10 md:mb-16 max-w-4xl mx-auto px-2">
                     <FadeIn delay={0.1}>
-                        <div className="relative inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/5 border border-white/10 text-text-secondary text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-6 md:mb-8 backdrop-blur-md overflow-hidden group">
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse relative z-10"></span>
+                        <div className="relative inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-hana-light border border-hana-primary/20 text-text-secondary text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-6 md:mb-8 overflow-hidden group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-hana-primary/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+                            <span className="w-1.5 h-1.5 rounded-full bg-hana-primary animate-pulse relative z-10"></span>
                             <span className="relative z-10">Production-Ready Q4 2025</span>
                         </div>
                     </FadeIn>
 
                     <FadeIn delay={0.2}>
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] md:leading-[1.08] tracking-tight text-text-primary font-sans mb-5 md:mb-8">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tighter text-text-primary font-sans mb-6 md:mb-10 max-w-5xl mx-auto">
                             {HERO_B2B.headline}
                         </h1>
                     </FadeIn>
 
                     <FadeIn delay={0.3}>
-                        <p className="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed max-w-[55ch] mx-auto font-body font-normal mb-8 md:mb-10 px-2">
+                        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto font-body font-normal mb-10 md:mb-14 px-4">
                             {HERO_B2B.subheadline}
                         </p>
                     </FadeIn>
@@ -39,8 +39,8 @@ const HeroB2B: React.FC = () => {
                         <div className="flex justify-center mb-8 md:mb-12">
                             <button
                                 onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="relative flex items-center justify-center gap-2 md:gap-3 bg-white text-black px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold transition-all hover:bg-hana-primary hover:text-white hover:shadow-[0_0_40px_-10px_rgba(109,157,173,0.6)] hover:-translate-y-1 active:scale-95 group shadow-xl overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
+                                className="relative flex items-center justify-center gap-2 md:gap-3 bg-hana-accent text-white px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold transition-all hover:bg-hana-primary hover:shadow-brand hover:-translate-y-1 active:scale-95 group shadow-xl overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
                                 <span className="relative z-10 flex items-center gap-2">
                                     See the Platform
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -56,7 +56,7 @@ const HeroB2B: React.FC = () => {
                         {/* Glow Effect */}
                         <div className="absolute inset-0 bg-gradient-to-t from-hana-primary/30 via-hana-primary/5 to-transparent blur-[60px] scale-110 opacity-70"></div>
 
-                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-surface-subtle ring-1 ring-white/5">
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white ring-1 ring-slate-100">
                             <img
                                 src="/nurse-dashboard-hero.jpg"
                                 alt="Hanna Nurse Mission Control"
@@ -80,7 +80,7 @@ const HeroB2B: React.FC = () => {
                     <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-10 gap-y-3 mt-10 md:mt-16 text-text-secondary">
                         {HERO_B2B.socialProof.map((item, i) => (
                             <div key={i} className="flex items-center gap-2 text-xs md:text-sm font-medium font-mono uppercase tracking-wider">
-                                <Check className="w-4 h-4 text-green-400" />
+                                <Check className="w-4 h-4 text-hana-primary" />
                                 {item}
                             </div>
                         ))}

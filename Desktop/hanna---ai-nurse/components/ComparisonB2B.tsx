@@ -36,7 +36,7 @@ const ComparisonB2B: React.FC = () => {
                             {/* Data Rows */}
                             <div className="divide-y divide-border">
                                 {timelineRows.map((row, i) => (
-                                    <div key={i} className="grid grid-cols-12 group hover:bg-white/5 transition-colors">
+                                    <div key={i} className="grid grid-cols-12 group hover:bg-hana-light transition-colors">
                                         <div className="col-span-3 p-6 flex items-center">
                                             <span className="text-lg font-bold text-text-primary font-sans">
                                                 {row.time}

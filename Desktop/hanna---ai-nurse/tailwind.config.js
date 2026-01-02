@@ -9,45 +9,45 @@ export default {
         extend: {
             colors: {
                 // ========================================
-                // DARK MODE APPLE-LIKE PALETTE
+                // LIGHT MODE - TEAL + OFF-WHITE PALETTE
                 // ========================================
 
-                // Brand Identity - Refined for Dark Mode
+                // Brand Identity
                 'hana': {
-                    'primary': '#6d9dad',   // Electric Cyan - Main accent
+                    'primary': '#6d9dad',   // Muted Teal/Cyan - Main accent
                     'accent': '#0d465f',    // Deep Teal - Gradient anchor
                     'dark': '#082f40',      // Darkest brand color
-                    'light': '#1e3a4c',     // Subtle tint on dark
+                    'light': '#eef6f8',     // Very light tint
                 },
 
-                // Surfaces (The Core of Dark Mode)
+                // Surfaces (Light Mode)
                 'surface': {
-                    'DEFAULT': '#0a0a0a',   // Obsidian Black - Main page bg
-                    'subtle': '#111113',    // Carbon Gray - Cards, containers
-                    'raised': '#1c1c1e',    // Graphite - Hover states
-                    'dark': '#0a0a0a',      // Same as default for consistency
+                    'DEFAULT': '#F8FAFC',   // Off-White (Slate-50) - Main page bg
+                    'subtle': '#FFFFFF',    // Pure White - Cards, containers
+                    'raised': '#F1F5F9',    // Slate-100 - Hover states
+                    'dark': '#0F172A',      // Navy - For dark sections if needed
                 },
 
-                // Borders (Subtle, low contrast)
+                // Borders (Light, visible)
                 'border': {
-                    'DEFAULT': '#2c2c2e',   // Midnight Edge
-                    'subtle': '#1c1c1e',    // Very subtle
-                    'strong': '#3a3a3c',    // More visible
+                    'DEFAULT': '#E2E8F0',   // Slate-200
+                    'subtle': '#F1F5F9',    // Slate-100
+                    'strong': '#CBD5E1',    // Slate-300
                     'focus': '#6d9dad',     // Accent for focus rings
                 },
 
-                // Text (High contrast on dark)
+                // Text (Dark on light)
                 'text': {
-                    'primary': '#f5f5f7',   // Anti-Flash White
-                    'secondary': '#a1a1a6', // Silver
-                    'tertiary': '#6e6e73',  // Dim Gray
+                    'primary': '#0F172A',   // Navy
+                    'secondary': '#334155', // Slate-Body
+                    'tertiary': '#64748B',  // Slate-500
                 },
 
                 // Legacy / Direct Access
                 'hana-primary': '#6d9dad',
-                'hana-accent': '#f5f5f7',  // Changed from dark blue to white for headings
-                'slate-body': '#a1a1a6',
-                'cool-gray': '#111113',
+                'hana-accent': '#0d465f',   // Deep Teal for headings/accents
+                'slate-body': '#334155',
+                'cool-gray': '#F8FAFC',
             },
             fontFamily: {
                 sans: ['Outfit', 'sans-serif'],

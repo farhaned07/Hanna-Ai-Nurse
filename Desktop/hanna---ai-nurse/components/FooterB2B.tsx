@@ -6,11 +6,11 @@ const FooterB2B: React.FC = () => {
     return (
         <footer className="pb-6 px-4 md:px-6 bg-surface">
             <div className="container mx-auto max-w-[1400px]">
-                <div className="bg-surface-subtle rounded-[3rem] p-10 md:p-16 lg:p-20 shadow-sm border border-white/10">
+                <div className="bg-white rounded-[3rem] p-10 md:p-16 lg:p-20 shadow-lg border border-slate-200">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
                         {/* Brand Column - Large & Bold */}
                         <div className="lg:col-span-6 space-y-8">
-                            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center mb-6">
+                            <div className="w-10 h-10 bg-hana-light rounded-lg flex items-center justify-center mb-6 border border-hana-primary/20">
                                 <img src="/hanna-logo.png" alt="Logo" className="w-6 h-6 brightness-0" />
                             </div>
                             <h2 className="text-5xl md:text-7xl font-bold text-text-primary tracking-tighter">
@@ -63,7 +63,7 @@ const FooterB2B: React.FC = () => {
                             <div>
                                 <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
                                 <div className="flex gap-4">
-                                    <a href={`mailto:${FOOTER_B2B.social.email}`} className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <a href={`mailto:${FOOTER_B2B.social.email}`} className="w-10 h-10 bg-hana-accent text-white rounded-full flex items-center justify-center hover:scale-110 hover:bg-hana-primary transition-all">
                                         <Mail className="w-4 h-4" />
                                     </a>
                                 </div>
@@ -72,7 +72,7 @@ const FooterB2B: React.FC = () => {
                     </div>
 
                     {/* Bottom Row */}
-                    <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-slate-200 gap-4">
                         <p className="text-sm font-medium text-text-tertiary">
                             © {new Date().getFullYear()} Hanna AI. All rights reserved.
                         </p>

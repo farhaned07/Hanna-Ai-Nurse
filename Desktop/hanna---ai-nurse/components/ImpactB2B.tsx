@@ -4,9 +4,9 @@ import FadeIn from './animations/FadeIn';
 
 const ImpactB2B: React.FC = () => {
     return (
-        <section className="py-32 bg-surface-subtle text-text-primary relative overflow-hidden">
+        <section className="py-32 bg-surface text-text-primary relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#0F172A_1px,transparent_1px)] [background-size:24px_24px]"></div>
 
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
                 {/* Section Header */}
@@ -31,7 +31,7 @@ const ImpactB2B: React.FC = () => {
                         <div className="space-y-5">
                             {IMPACT_B2B.strategy.reductions.map((item, i) => (
                                 <FadeIn key={i} delay={0.1 + i * 0.1}>
-                                    <div className="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm">
+                                    <div className="bg-white border border-slate-200 p-6 rounded-xl hover:shadow-md transition-all shadow-sm">
                                         <p className="text-base leading-relaxed text-text-secondary font-body">
                                             {item}
                                         </p>
@@ -50,7 +50,7 @@ const ImpactB2B: React.FC = () => {
                             {ECONOMICS_B2B.points.map((point, i) => (
                                 <FadeIn key={i} delay={0.3 + i * 0.1}>
                                     <div className="flex items-start gap-4">
-                                        <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                                        <div className="w-8 h-8 rounded-lg bg-hana-light flex items-center justify-center flex-shrink-0 border border-hana-primary/20">
                                             <span className="text-sm font-bold text-text-primary font-mono">{String(i + 1).padStart(2, '0')}</span>
                                         </div>
                                         <p className="text-lg text-text-primary font-semibold font-sans pt-1">
@@ -63,8 +63,8 @@ const ImpactB2B: React.FC = () => {
 
                         {/* Punchline Box */}
                         <FadeIn delay={0.6}>
-                            <div className="bg-white text-surface p-8 rounded-2xl shadow-xl">
-                                <p className="text-xl font-bold font-sans leading-tight text-black">
+                            <div className="bg-hana-accent text-white p-8 rounded-2xl shadow-xl">
+                                <p className="text-xl font-bold font-sans leading-tight text-white">
                                     "{IMPACT_B2B.strategy.quote}"
                                 </p>
                             </div>
