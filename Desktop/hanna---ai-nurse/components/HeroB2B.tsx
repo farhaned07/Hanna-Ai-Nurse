@@ -1,89 +1,119 @@
 import React from 'react';
 import { HERO_B2B } from '../constants-b2b';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Activity, MessageCircle, AlertTriangle } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
-import LiquidBackground from './animations/LiquidBackground';
 
 const HeroB2B: React.FC = () => {
     return (
-        <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden bg-surface">
-            {/* Animated Liquid Background */}
-            <LiquidBackground />
+        <section className="relative pt-32 pb-48 lg:pt-48 overflow-hidden bg-gradient-to-br from-hana-dark via-hana-accent to-hana-primary/80 selection:bg-hana-primary/30">
+
+            {/* Background Effects */}
+            <div className="absolute inset-0 z-0">
+                {/* Spotlight */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-white/5 rounded-full blur-[150px] pointer-events-none"></div>
+                {/* Secondary glow */}
+                <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-hana-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+            </div>
 
             <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
+
                 {/* Centered Content */}
-                <div className="text-center mb-10 md:mb-16 max-w-4xl mx-auto px-2">
+                <div className="text-center max-w-6xl mx-auto px-2 mb-20">
                     <FadeIn delay={0.1}>
-                        <div className="relative inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-hana-light border border-hana-primary/20 text-text-secondary text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-6 md:mb-8 overflow-hidden group">
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-hana-primary/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
-                            <span className="w-1.5 h-1.5 rounded-full bg-hana-primary animate-pulse relative z-10"></span>
-                            <span className="relative z-10">Production-Ready Q4 2025</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md shadow-lg">
+                            <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse relative">
+                                <span className="absolute inset-0 rounded-full bg-white animate-ping opacity-75"></span>
+                            </span>
+                            AI Nurse Co-Pilot
                         </div>
                     </FadeIn>
 
                     <FadeIn delay={0.2}>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tighter text-text-primary font-sans mb-6 md:mb-10 max-w-5xl mx-auto">
-                            {HERO_B2B.headline}
-                        </h1>
+                        <div className="mb-16">
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.15] tracking-tight text-white font-sans drop-shadow-2xl">
+                                10x Nurse Capacity <span className="text-transparent bg-clip-text bg-gradient-to-r from-hana-light via-white to-hana-light">Through Supervised AI.</span>
+                            </h1>
+                        </div>
                     </FadeIn>
 
-                    <FadeIn delay={0.3}>
-                        <p className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto font-body font-light mb-10 md:mb-14 px-4">
+                    <FadeIn delay={0.6}>
+                        <p className="text-xl md:text-2xl text-white/70 leading-relaxed max-w-2xl mx-auto font-body font-medium mb-10 antialiased">
                             {HERO_B2B.subheadline}
                         </p>
                     </FadeIn>
 
-                    <FadeIn delay={0.4}>
-                        <div className="flex justify-center mb-8 md:mb-12">
+                    <FadeIn delay={0.7}>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <button
-                                onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="relative flex items-center justify-center gap-2 md:gap-3 bg-hana-accent text-white px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg font-bold transition-all hover:bg-hana-primary hover:shadow-brand hover:-translate-y-1 active:scale-95 group shadow-xl overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
-                                <span className="relative z-10 flex items-center gap-2">
-                                    See the Platform
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </span>
+                                onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
+                                className="bg-white text-slate-900 px-8 py-4 rounded-full text-base font-bold hover:bg-hana-light transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:scale-95 flex items-center gap-2 min-w-[200px] justify-center"
+                            >
+                                Start Your Pilot
+                            </button>
+                            <button
+                                onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-white/5 backdrop-blur-md text-white border border-white/10 px-8 py-4 rounded-full text-base font-bold hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2 min-w-[200px] justify-center group shadow-lg ring-1 ring-white/5"
+                            >
+                                Learn More
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
                     </FadeIn>
                 </div>
 
-                {/* Product Dashboard Showcase */}
+                {/* Dashboard Image with Floating UI Elements */}
                 <FadeIn delay={0.5} direction="up">
-                    <div className="relative max-w-[1100px] mx-auto">
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-hana-primary/30 via-hana-primary/5 to-transparent blur-[60px] scale-110 opacity-70"></div>
+                    <div className="relative max-w-5xl mx-auto mt-8 perspective-[2000px]">
 
-                        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white ring-1 ring-slate-100">
+                        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 bg-slate-800 transform rotate-x-12 transition-transform duration-700 hover:rotate-0 ring-1 ring-white/20">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-hana-primary/10 to-transparent pointer-events-none z-20"></div>
                             <img
-                                src="/nurse-dashboard-hero.jpg"
+                                src="/nurse-dashboard-hero.png"
                                 alt="Hanna Nurse Mission Control"
-                                className="w-full h-auto object-cover"
+                                className="w-full h-auto object-cover opacity-90"
                             />
+                        </div>
 
-                            {/* Live Indicator */}
-                            <div className="absolute top-6 right-6 bg-black/50 backdrop-blur-xl px-4 py-2 rounded-lg flex items-center gap-2.5 shadow-lg border border-white/10">
-                                <span className="relative flex h-2.5 w-2.5">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                                </span>
-                                <span className="text-white/90 text-[10px] font-bold uppercase tracking-widest font-mono">Live System</span>
+                        {/* Floating Element 1: Vitals Alert (Left) */}
+                        <div className="absolute -left-4 md:-left-12 top-1/3 z-30 animate-[float_4s_ease-in-out_infinite]">
+                            <div className="bg-slate-900/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[200px]">
+                                <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400">
+                                    <AlertTriangle className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="text-xs text-slate-400 font-bold uppercase">Alert</div>
+                                    <div className="text-sm text-white font-bold">BP Spike Detected</div>
+                                </div>
                             </div>
                         </div>
+
+                        {/* Floating Element 2: Vitals Analysis (Right) */}
+                        <div className="absolute -right-4 md:-right-12 bottom-1/4 z-30 animate-[float_5s_ease-in-out_infinite_1s]">
+                            <div className="bg-slate-900/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-[220px]">
+                                <div className="w-10 h-10 rounded-full bg-hana-primary/20 flex items-center justify-center text-hana-primary">
+                                    <Activity className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="text-xs text-slate-400 font-bold uppercase">Analysis</div>
+                                    <div className="text-sm text-white font-bold">Trending Normal</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Floating Element 3: Patient Chat (Top Right) */}
+                        <div className="absolute right-0 md:right-20 -top-12 z-20 animate-[float_6s_ease-in-out_infinite_0.5s]">
+                            <div className="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-sm shadow-xl max-w-[180px] text-xs font-medium border border-slate-200">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <MessageCircle className="w-3 h-3 text-hana-accent" />
+                                    <span className="font-bold text-[10px] text-slate-400">PATIENT REPLY</span>
+                                </div>
+                                "Feeling much better today, thanks!"
+                            </div>
+                        </div>
+
                     </div>
                 </FadeIn>
 
-                {/* Trust Indicators */}
-                <FadeIn delay={0.6}>
-                    <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-10 gap-y-3 mt-10 md:mt-16 text-text-secondary">
-                        {HERO_B2B.socialProof.map((item, i) => (
-                            <div key={i} className="flex items-center gap-2 text-xs md:text-sm font-medium font-mono uppercase tracking-wider">
-                                <Check className="w-4 h-4 text-hana-primary" />
-                                {item}
-                            </div>
-                        ))}
-                    </div>
-                </FadeIn>
             </div>
         </section>
     );

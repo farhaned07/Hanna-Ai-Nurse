@@ -1,89 +1,125 @@
 import React from 'react';
 import { SOLUTION_B2B } from '../constants-b2b';
-import { MessageCircle, Activity, UserCheck, Database } from 'lucide-react';
+import { MessageCircle, Activity, Bell, Zap, CheckCircle2 } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 
 const SolutionB2B: React.FC = () => {
-    // Custom icons for the steps to ensure visual consistency
-    const stepIcons = [
-        <MessageCircle className="w-6 h-6 text-white" />,
-        <Activity className="w-6 h-6 text-white" />,
-        <UserCheck className="w-6 h-6 text-white" />,
-        <Database className="w-6 h-6 text-white" />,
-    ];
-
     return (
-        <section className="py-32 lg:py-40 bg-surface-subtle relative overflow-hidden" id="solution">
-            {/* Background Decoration */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-hana-primary/5 rounded-full blur-[100px]"></div>
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-hana-accent/10 rounded-full blur-[100px]"></div>
-            </div>
-
-            <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
+        <section className="py-24 bg-white" id="solution">
+            <div className="container mx-auto px-6 max-w-[1280px]">
                 {/* Section Header */}
-                <div className="text-center mb-24 max-w-3xl mx-auto">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
                     <FadeIn>
-                        <span className="text-hana-primary font-bold tracking-widest uppercase text-xs font-mono mb-4 block">
-                            The Continuous Care Loop
-                        </span>
-                        <h2 className="text-4xl lg:text-5xl font-bold text-text-primary font-sans leading-tight tracking-tight mb-6">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 font-sans tracking-tight">
                             {SOLUTION_B2B.headline}
                         </h2>
-                        <p className="text-xl text-text-secondary font-medium font-body leading-relaxed">
-                            {SOLUTION_B2B.subheadline}
-                        </p>
                     </FadeIn>
                 </div>
 
-                {/* Horizontal Process Flow */}
-                <div className="relative">
-                    {/* The Connecting Lifeline (Desktop) */}
-                    <div className="hidden lg:block absolute top-[88px] left-0 w-full h-1 bg-gradient-to-r from-transparent via-hana-primary/30 to-transparent animate-[shimmer_3s_infinite_linear] bg-[length:200%_auto]"></div>
+                {/* 2x2 Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-                        {SOLUTION_B2B.steps.slice(0, 4).map((step, index) => (
-                            <FadeIn key={index} delay={index * 0.1}>
-                                <div className="relative group text-center lg:text-left">
-                                    {/* Card Container */}
-                                    <div className="h-full bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-brand hover:border-hana-primary/30 hover:-translate-y-2 transition-all duration-500 ease-spring">
-
-                                        {/* Icon Orb */}
-                                        <div className="relative z-10 mx-auto lg:mx-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-hana-primary to-hana-accent shadow-lg shadow-hana-primary/30 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                                            {stepIcons[index]}
-                                        </div>
-
-                                        {/* Step Number Background */}
-                                        <div className="absolute top-4 right-4 text-6xl font-black text-slate-100 pointer-events-none select-none font-sans group-hover:text-hana-primary/20 transition-colors">
-                                            0{index + 1}
-                                        </div>
-
-                                        <h3 className="text-xl font-bold text-text-primary mb-3 font-sans relative z-10">
-                                            {step.title}
-                                        </h3>
-                                        <p className="text-text-secondary text-sm font-body leading-relaxed relative z-10">
-                                            {step.description}
-                                        </p>
+                    {/* Card 1: Check-ins */}
+                    <FadeIn delay={0.1}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            <div className="mb-8 w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden flex flex-col gap-3">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <MessageCircle className="w-4 h-4" />
                                     </div>
+                                    <div className="bg-slate-100 h-2 w-20 rounded-full"></div>
                                 </div>
-                            </FadeIn>
-                        ))}
-                    </div>
+                                <div className="space-y-2 pl-10">
+                                    <div className="bg-slate-50 h-2 w-full rounded-full"></div>
+                                    <div className="bg-slate-50 h-2 w-2/3 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Daily patient check-ins
+                            </h3>
+                            <p className="text-slate-500 font-medium">
+                                (LINE, no app)
+                            </p>
+                        </div>
+                    </FadeIn>
+
+                    {/* Card 2: Vitals */}
+                    <FadeIn delay={0.2}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            <div className="mb-8 w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden">
+                                <div className="flex items-end justify-between gap-1 h-12">
+                                    <div className="w-full bg-slate-100 rounded-t-md h-[40%]"></div>
+                                    <div className="w-full bg-hana-primary/20 rounded-t-md h-[70%]"></div>
+                                    <div className="w-full bg-slate-100 rounded-t-md h-[50%]"></div>
+                                    <div className="w-full bg-slate-100 rounded-t-md h-[60%]"></div>
+                                    <div className="w-full bg-hana-primary rounded-t-md h-[80%] shadow-lg shadow-hana-primary/30"></div>
+                                </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Tracks vitals automatically
+                            </h3>
+                            <p className="text-slate-500 font-medium max-w-[200px]">
+                                Meds, symptoms, and trends
+                            </p>
+                        </div>
+                    </FadeIn>
+
+                    {/* Card 3: Alerts */}
+                    <FadeIn delay={0.3}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            <div className="mb-8 w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 flex-shrink-0 animate-pulse">
+                                    <Bell className="w-5 h-5" />
+                                </div>
+                                <div>
+                                    <div className="h-2 w-24 bg-slate-900 rounded-full mb-1.5"></div>
+                                    <div className="h-1.5 w-16 bg-slate-200 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Alerts nurses only when needed
+                            </h3>
+                            <p className="text-slate-500 font-medium">
+                                Filters out the noise
+                            </p>
+                        </div>
+                    </FadeIn>
+
+                    {/* Card 4: Context */}
+                    <FadeIn delay={0.4}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-10 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            <div className="mb-8 w-full max-w-[240px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden">
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-6 h-6 rounded-full bg-slate-200"></div>
+                                    <div className="h-2 w-20 bg-slate-200 rounded-full"></div>
+                                </div>
+                                <div className="p-2 bg-slate-50 rounded-lg border border-slate-100">
+                                    <div className="flex gap-1 mb-1">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+                                        <div className="h-1.5 w-full bg-slate-200 rounded-full"></div>
+                                    </div>
+                                    <div className="h-1.5 w-2/3 bg-slate-200 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Gives nurses full context
+                            </h3>
+                            <p className="text-slate-500 font-medium">
+                                Ready to act fast
+                            </p>
+                        </div>
+                    </FadeIn>
+
                 </div>
-
-                {/* Outcome Statement */}
-                <FadeIn delay={0.6}>
-                    <div className="mt-20 text-center">
-                        <p className="inline-flex items-center gap-2 text-lg font-medium text-text-primary bg-white px-6 py-3 rounded-full border border-slate-200 shadow-sm">
-                            <Activity className="w-5 h-5 text-hana-primary" />
-                            {SOLUTION_B2B.outcome[0]}
-                        </p>
-                    </div>
-                </FadeIn>
-
             </div>
         </section>
     );
 };
 
 export default SolutionB2B;
+
+

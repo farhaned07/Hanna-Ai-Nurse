@@ -1,47 +1,46 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { CLOSING_B2B } from '../constants-b2b';
 import { ArrowRight } from 'lucide-react';
+import FadeIn from './animations/FadeIn';
 
 const ClosingB2B: React.FC = () => {
     return (
-        <section className="py-12 px-4 md:px-6 bg-surface">
+        <section className="py-12 px-4 md:px-6 bg-surface pb-32" id="closing">
             <div className="container mx-auto max-w-[1280px]">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="relative bg-gradient-to-br from-hana-accent to-hana-dark rounded-[2.5rem] px-8 py-24 md:py-32 overflow-hidden text-center shadow-2xl border border-hana-accent/50"
-                >
-                    {/* Dot Grid Background */}
-                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:20px_20px]"></div>
+                <FadeIn>
+                    <div className="relative bg-gradient-to-br from-hana-dark via-hana-accent to-hana-primary/80 rounded-[2.5rem] px-8 py-24 md:py-32 overflow-hidden text-center shadow-2xl">
 
-                    <div className="relative z-10 max-w-3xl mx-auto space-y-8">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-sans tracking-tight leading-[1.1]">
-                            {CLOSING_B2B.tagline}
-                        </h2>
+                        {/* Subtle Gradient Orbs */}
+                        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-hana-primary/20 rounded-full blur-[100px] pointer-events-none"></div>
+                        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-white/5 rounded-full blur-[80px] pointer-events-none"></div>
 
-                        <p className="text-lg text-white/80 font-body leading-relaxed max-w-2xl mx-auto">
-                            If you're ready to help us prove this—not with your money, but with your patients and your feedback—let's build together.
-                        </p>
+                        <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+                            <FadeIn delay={0.2}>
+                                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white font-sans tracking-tight leading-[1.1] drop-shadow-sm">
+                                    {CLOSING_B2B.headline}
+                                </h2>
+                            </FadeIn>
 
-                        <div className="pt-4">
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
-                                className="relative overflow-hidden bg-white text-black px-10 py-5 rounded-full text-lg font-bold hover:bg-slate-50 transition-all shadow-xl inline-flex items-center gap-3 group"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-300/30 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1s_infinite]"></div>
-                                <span className="relative z-10 flex items-center gap-2">
-                                    Schedule a Pilot Discussion
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </span>
-                            </motion.button>
+                            <FadeIn delay={0.3}>
+                                <p className="text-lg md:text-xl text-white/80 font-medium leading-relaxed max-w-2xl mx-auto">
+                                    {CLOSING_B2B.subheadline}
+                                </p>
+                            </FadeIn>
+
+                            <div className="pt-6">
+                                <FadeIn delay={0.4}>
+                                    <button
+                                        onClick={() => window.location.href = 'mailto:farhan@hanna.care'}
+                                        className="bg-white text-hana-accent px-8 py-4 rounded-full text-base font-bold hover:bg-hana-light hover:scale-105 transition-all shadow-xl inline-flex items-center gap-2 group"
+                                    >
+                                        {CLOSING_B2B.text}
+                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </FadeIn>
+                            </div>
                         </div>
                     </div>
-                </motion.div>
+                </FadeIn>
             </div>
         </section>
     );

@@ -1,87 +1,122 @@
 import React from 'react';
 import { FOOTER_B2B } from '../constants-b2b';
-import { Mail } from 'lucide-react';
+import { Mail, ArrowUpRight } from 'lucide-react';
+import FadeIn from './animations/FadeIn';
 
 const FooterB2B: React.FC = () => {
     return (
-        <footer className="pb-6 px-4 md:px-6 bg-surface">
-            <div className="container mx-auto max-w-[1400px]">
-                <div className="bg-white rounded-[3rem] p-10 md:p-16 lg:p-20 shadow-lg border border-slate-200">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
-                        {/* Brand Column - Large & Bold */}
-                        <div className="lg:col-span-6 space-y-8">
-                            <div className="w-10 h-10 bg-hana-light rounded-lg flex items-center justify-center mb-6 border border-hana-primary/20">
-                                <img src="/hanna-logo.png" alt="Logo" className="w-6 h-6 brightness-0" />
-                            </div>
-                            <h2 className="text-5xl md:text-7xl font-bold text-text-primary tracking-tighter">
-                                hanna.
-                            </h2>
-                            <p className="text-xl text-text-secondary max-w-md font-medium leading-relaxed">
-                                Supervised care infrastructure for closing the gap between clinical visits.
-                            </p>
-                        </div>
+        <footer className="pb-8 px-4 md:px-6 bg-surface">
+            <div className="container mx-auto max-w-[1280px]">
+                <FadeIn>
+                    <div className="bg-gradient-to-br from-hana-dark via-hana-accent to-hana-primary/80 rounded-[2.5rem] p-10 md:p-16 lg:p-20 overflow-hidden relative">
 
-                        {/* Spacer */}
-                        <div className="lg:col-span-1"></div>
+                        {/* Subtle Gradient Orbs */}
+                        <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
+                        <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-hana-primary/20 rounded-full blur-[80px] pointer-events-none"></div>
 
-                        {/* Links Columns - Clean & Minimal */}
-                        <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-10">
-                            <div>
-                                <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Product</h4>
-                                <ul className="space-y-4">
-                                    <li><a href="#solution" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        Features
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                    <li><a href="#impact" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        Impact
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                    <li><a href="#security" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        Security
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Company</h4>
-                                <ul className="space-y-4">
-                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        Mission
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                    <li><a href="#" className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        About
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                    <li><a href={`mailto:${FOOTER_B2B.social.email}`} className="text-text-secondary font-semibold hover:text-text-primary transition-colors inline-block relative group">
-                                        Contact
-                                        <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-hana-primary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-                                    </a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="text-text-tertiary font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
-                                <div className="flex gap-4">
-                                    <a href={`mailto:${FOOTER_B2B.social.email}`} className="w-10 h-10 bg-hana-accent text-white rounded-full flex items-center justify-center hover:scale-110 hover:bg-hana-primary transition-all">
-                                        <Mail className="w-4 h-4" />
-                                    </a>
+                        <div className="relative z-10">
+                            {/* Main Content Grid */}
+                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-16">
+
+                                {/* Brand Column */}
+                                <div className="lg:col-span-6 space-y-6">
+                                    <FadeIn delay={0.1}>
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-bold uppercase tracking-widest mb-4">
+                                            <span className="w-2 h-2 rounded-full bg-white/80"></span>
+                                            AI Nurse Co-Pilot
+                                        </div>
+                                    </FadeIn>
+
+                                    <FadeIn delay={0.2}>
+                                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+                                            hanna<span className="text-white/60">.</span>
+                                        </h2>
+                                    </FadeIn>
+
+                                    <FadeIn delay={0.3}>
+                                        <p className="text-lg md:text-xl text-white/70 max-w-md font-medium leading-relaxed">
+                                            10x nurse capacity through supervised AI. Your nurses focus on exceptions. Hanna handles the rest.
+                                        </p>
+                                    </FadeIn>
+
+                                    <FadeIn delay={0.4}>
+                                        <a
+                                            href="mailto:farhan@hanna.care"
+                                            className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-white text-hana-accent rounded-full font-bold hover:bg-white/90 hover:scale-105 transition-all group"
+                                        >
+                                            Get in Touch
+                                            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                        </a>
+                                    </FadeIn>
+                                </div>
+
+                                {/* Links Columns */}
+                                <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-10 lg:pt-16">
+                                    <FadeIn delay={0.2}>
+                                        <div>
+                                            <h4 className="text-white/50 font-bold mb-6 text-xs uppercase tracking-widest">Product</h4>
+                                            <ul className="space-y-4">
+                                                <li><a href="#solution" className="text-white/80 font-medium hover:text-white transition-colors flex items-center gap-1 group">
+                                                    Solution
+                                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </a></li>
+                                                <li><a href="#impact" className="text-white/80 font-medium hover:text-white transition-colors flex items-center gap-1 group">
+                                                    Impact
+                                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </a></li>
+                                                <li><a href="#technology" className="text-white/80 font-medium hover:text-white transition-colors flex items-center gap-1 group">
+                                                    Technology
+                                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </FadeIn>
+
+                                    <FadeIn delay={0.3}>
+                                        <div>
+                                            <h4 className="text-white/50 font-bold mb-6 text-xs uppercase tracking-widest">Company</h4>
+                                            <ul className="space-y-4">
+                                                <li><a href="#" className="text-white/80 font-medium hover:text-white transition-colors flex items-center gap-1 group">
+                                                    About
+                                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </a></li>
+                                                <li><a href={`mailto:${FOOTER_B2B.social.email}`} className="text-white/80 font-medium hover:text-white transition-colors flex items-center gap-1 group">
+                                                    Contact
+                                                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                    </FadeIn>
+
+                                    <FadeIn delay={0.4}>
+                                        <div>
+                                            <h4 className="text-white/50 font-bold mb-6 text-xs uppercase tracking-widest">Connect</h4>
+                                            <a
+                                                href={`mailto:${FOOTER_B2B.social.email}`}
+                                                className="w-12 h-12 bg-white/10 border border-white/20 text-white rounded-xl flex items-center justify-center hover:bg-white/20 hover:scale-105 transition-all"
+                                            >
+                                                <Mail className="w-5 h-5" />
+                                            </a>
+                                        </div>
+                                    </FadeIn>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Bottom Row */}
-                    <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-slate-200 gap-4">
-                        <p className="text-sm font-medium text-text-tertiary">
-                            © {new Date().getFullYear()} Hanna AI. All rights reserved.
-                        </p>
-                        <div className="flex gap-6 text-sm font-bold text-text-secondary">
-                            <a href="#" className="hover:text-text-primary">Privacy Policy</a>
-                            <a href="#" className="hover:text-text-primary">Terms of Service</a>
+                            {/* Bottom Row */}
+                            <FadeIn delay={0.5}>
+                                <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
+                                    <p className="text-sm font-medium text-white/50">
+                                        © {new Date().getFullYear()} Hanna AI. All rights reserved.
+                                    </p>
+                                    <div className="flex gap-6 text-sm font-medium text-white/60">
+                                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                                    </div>
+                                </div>
+                            </FadeIn>
                         </div>
                     </div>
-                </div>
+                </FadeIn>
             </div>
         </footer>
     );

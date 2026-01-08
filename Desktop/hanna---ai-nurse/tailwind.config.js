@@ -50,9 +50,9 @@ export default {
                 'cool-gray': '#F8FAFC',
             },
             fontFamily: {
-                sans: ['Outfit', 'sans-serif'],
-                body: ['Inter', 'sans-serif'],
-                mono: ['JetBrains Mono', 'monospace'], // For technical details
+                sans: ['Poppins', 'sans-serif'],      // Headlines
+                body: ['Inter', 'sans-serif'],         // Body text
+                mono: ['JetBrains Mono', 'monospace'], // Technical details
             },
             letterSpacing: {
                 'tightest': '-0.04em',

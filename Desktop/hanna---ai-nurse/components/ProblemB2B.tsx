@@ -1,93 +1,102 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { PROBLEM_B2B } from '../constants-b2b';
-import { Clock, AlertTriangle, UserX, Activity } from 'lucide-react';
+import { Clock, AlertTriangle, Users } from 'lucide-react';
 import FadeIn from './animations/FadeIn';
 
 const ProblemB2B: React.FC = () => {
-    // Override icons for specific visual impact in this dark section
-    const problemIcons = [
-        <Clock className="w-6 h-6 text-red-400" />,
-        <AlertTriangle className="w-6 h-6 text-amber-400" />,
-        <UserX className="w-6 h-6 text-orange-400" />,
-        <Activity className="w-6 h-6 text-rose-400" />,
-    ];
-
     return (
-        <section className="py-32 lg:py-40 bg-surface relative overflow-hidden text-text-primary" id="problem">
-            {/* Background Texture - subtle dotted grid */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#0F172A 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
+        <section className="py-24 bg-white" id="problem">
+            <div className="container mx-auto px-6 max-w-[1280px]">
+                {/* Section Header */}
+                <div className="text-center mb-16 max-w-4xl mx-auto">
+                    <FadeIn>
+                        <span className="text-hana-primary font-bold tracking-widest uppercase text-xs font-mono mb-4 block">
+                            The Reality
+                        </span>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 font-sans tracking-tight mb-6 leading-tight">
+                            {PROBLEM_B2B.headline}
+                        </h2>
+                        <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
+                            {PROBLEM_B2B.subheadline}
+                        </p>
+                    </FadeIn>
+                </div>
 
-            {/* Ambient Glow */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-hana-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                {/* 3-Column Bento Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
 
-            <div className="container mx-auto px-6 max-w-[1280px] relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-                    {/* Left Column: The Anchor (Typography) */}
-                    <div className="relative">
-                        <FadeIn>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono font-bold tracking-widest uppercase mb-8">
-                                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                                CRITICAL SYSTEM FAILURE
-                            </div>
-
-                            <h2 className="text-4xl md:text-5xl font-sans font-bold text-text-secondary mb-2">
-                                The Patient
-                            </h2>
-                            <div className="relative">
-                                <h1 className="text-[80px] leading-[0.9] md:text-[120px] md:leading-[0.85] font-bold font-sans tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-hana-accent via-hana-primary to-slate-400 animate-[text-shimmer_5s_ease-in-out_infinite_alternate] bg-[length:200%_auto]">
-                                    361<br />DAYS
-                                </h1>
-                                <div className="hidden md:block absolute -right-4 top-4 w-24 h-24 border-t-2 border-r-2 border-hana-primary/30 rounded-tr-3xl"></div>
-                            </div>
-                            <h2 className="text-4xl md:text-5xl font-sans font-bold text-text-secondary mt-2 mb-8">
-                                Are Unmonitored.
-                            </h2>
-
-                            <p className="text-lg text-text-secondary font-body leading-relaxed max-w-md border-l-4 border-hana-primary/30 pl-6">
-                                The average patient sees a doctor 4 times a year.
-                                For the other 361 days, they are alone with their condition.
-                                <strong className="text-text-primary block mt-2">This is the "Blind Gap" where care fails.</strong>
-                            </p>
-                        </FadeIn>
-                    </div>
-
-                    {/* Right Column: The Pain Points (Alert Cards) */}
-                    <div className="space-y-4">
-                        {PROBLEM_B2B.points.slice(0, 4).map((point, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.15, duration: 0.5 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                            >
-                                <div className="group relative p-6 rounded-2xl bg-white border border-slate-200 hover:border-hana-primary/30 transition-all duration-500 ease-spring shadow-sm hover:shadow-brand hover:-translate-y-1 overflow-hidden">
-                                    {/* Noise Texture */}
-                                    <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-                                    {/* Hover glow effect */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-hana-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                                    <div className="flex items-start gap-5">
-                                        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-hana-light flex items-center justify-center border border-hana-primary/20 group-hover:border-hana-primary/30 transition-colors">
-                                            {problemIcons[index] || <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                                        </div>
-                                        <div>
-                                            <h3 className="text-lg font-bold text-text-primary font-sans mb-1 group-hover:text-hana-accent transition-colors">
-                                                {point.title.split('.')[0]}.
-                                            </h3>
-                                            <p className="text-sm text-text-secondary font-body leading-relaxed">
-                                                {point.title.split('.').slice(1).join('.').trim() || "Critical failure in care delivery."}
-                                            </p>
-                                        </div>
+                    {/* Card 1: Overworked */}
+                    <FadeIn delay={0.1}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            {/* Visual: Time clock overflowing */}
+                            <div className="mb-8 w-full aspect-square max-w-[180px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden flex items-center justify-center">
+                                <div className="relative w-24 h-24 rounded-full border-4 border-slate-100 flex items-center justify-center">
+                                    <div className="absolute inset-0 border-4 border-red-500 rounded-full border-t-transparent -rotate-45"></div>
+                                    <Clock className="w-8 h-8 text-red-500" />
+                                    <div className="absolute -right-2 -top-2 bg-red-100 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-200">
+                                        14h
                                     </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Nurses are overworked
+                            </h3>
+                        </div>
+                    </FadeIn>
+
+                    {/* Card 2: Cracks */}
+                    <FadeIn delay={0.2}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            {/* Visual: Missed alerts */}
+                            <div className="mb-8 w-full aspect-square max-w-[180px] bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden flex flex-col items-center justify-center gap-2">
+                                <div className="w-full bg-red-50 border border-red-100 rounded-lg p-2 flex items-center gap-2 opacity-50 scale-90">
+                                    <AlertTriangle className="w-4 h-4 text-red-400" />
+                                    <div className="h-1.5 w-16 bg-red-200 rounded-full"></div>
+                                </div>
+                                <div className="w-full bg-red-50 border border-red-100 rounded-lg p-2 flex items-center gap-2 relative z-10 shadow-sm">
+                                    <AlertTriangle className="w-4 h-4 text-red-500" />
+                                    <div className="h-1.5 w-20 bg-red-300 rounded-full"></div>
+                                </div>
+                                <div className="w-full bg-red-50 border border-red-100 rounded-lg p-2 flex items-center gap-2 opacity-50 scale-90">
+                                    <AlertTriangle className="w-4 h-4 text-red-400" />
+                                    <div className="h-1.5 w-12 bg-red-200 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Patients fall through cracks
+                            </h3>
+                        </div>
+                    </FadeIn>
+
+                    {/* Card 3: Scale */}
+                    <FadeIn delay={0.3}>
+                        <div className="bg-slate-50 rounded-[2.5rem] p-8 h-full flex flex-col items-center text-center group hover:bg-slate-100 transition-colors duration-500">
+                            {/* Visual: Hiring vs Demand */}
+                            <div className="mb-8 w-full aspect-square max-w-[180px] bg-white rounded-2xl p-6 shadow-sm border border-slate-100 relative overflow-hidden flex items-end justify-center gap-3">
+                                <div className="w-6 bg-slate-200 rounded-t-lg h-[40%] relative group-hover:h-[40%] transition-all"></div>
+                                <div className="w-6 bg-slate-200 rounded-t-lg h-[45%] relative group-hover:h-[45%] transition-all"></div>
+                                <div className="w-6 bg-red-500 rounded-t-lg h-[90%] relative shadow-lg shadow-red-500/30 group-hover:h-[95%] transition-all duration-500"></div>
+                            </div>
+
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                Can't scale fast enough
+                            </h3>
+                        </div>
+                    </FadeIn>
 
                 </div>
+
+                {/* Punchline */}
+                <FadeIn delay={0.4}>
+                    <div className="text-center">
+                        <div className="inline-block bg-slate-100 text-slate-900 px-8 py-4 rounded-full font-bold text-lg md:text-xl border border-slate-200 shadow-sm">
+                            {PROBLEM_B2B.summary}
+                        </div>
+                    </div>
+                </FadeIn>
+
             </div>
         </section>
     );

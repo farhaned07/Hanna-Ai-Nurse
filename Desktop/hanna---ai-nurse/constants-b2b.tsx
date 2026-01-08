@@ -8,8 +8,8 @@ import {
 // HERO SECTION
 // ============================================
 export const HERO_B2B = {
-    headline: "The Healthcare System Has a Design Flaw",
-    subheadline: "You see a doctor for 15 minutes. Then you disappear for 364 days. Your medication sits on the shelf. Your symptoms get worse. You end up in the ER. The hospital admits you. Everyone acts surprised. This isn't healthcare. It's firefighting.",
+    headline: "10x Nurse Capacity Through Supervised AI",
+    subheadline: "Your nurses focus on exceptions. Hanna handles the rest.",
     heroBullets: [
         "Hanna is supervised care infrastructure for closing the gap between clinical visits."
     ],
@@ -26,29 +26,21 @@ export const HERO_B2B = {
 // PROBLEM SECTION ("The Problem Is Real")
 // ============================================
 export const PROBLEM_B2B = {
-    headline: "The Problem Is Real",
-    subheadline: "Healthcare acts like patients only exist during appointments.",
+    headline: "Thailand is short 35,000 nurses. You can't hire your way out.",
+    subheadline: "Nurses are overworked. Patients fall through the cracks. You can't scale fast enough.",
     context: "The gap between visits is where healthcare fails.",
     points: [
         {
-            title: "Patients forget medications because nobody checks.",
+            title: "Nurses are overworked.",
             icon: <Clock className="w-6 h-6 text-red-500" />
         },
         {
-            title: "Complications develop silently. They become emergencies.",
+            title: "Patients fall through the cracks.",
             icon: <AlertTriangle className="w-6 h-6 text-red-500" />
         },
         {
-            title: "Nurses drown in administrative work so they can't actually care.",
-            icon: <UserCheck className="w-6 h-6 text-red-500" />
-        },
-        {
-            title: "The system optimizes for treating problems, not preventing them.",
-            icon: <Flame className="w-6 h-6 text-red-500" />
-        },
-        {
-            title: "The gap between visits is where healthcare fails.",
-            icon: <Layout className="w-6 h-6 text-red-500" />
+            title: "You can't scale fast enough.",
+            icon: <Users className="w-6 h-6 text-red-500" />
         }
     ],
     summary: "The gap between visits is where healthcare fails."
@@ -58,34 +50,28 @@ export const PROBLEM_B2B = {
 // SOLUTION SECTION ("The Solution" & "How It Actually Works")
 // ============================================
 export const SOLUTION_B2B = {
-    headline: "The Solution",
-    subheadline: "Constant engagement. Supervised by humans. Scaled by AI.",
-    // Mapping "How It Actually Works" to steps
+    headline: "Hanna multiplies your team's impact.",
+    subheadline: "",
     steps: [
         {
-            title: "Patient talks to Hanna",
-            description: "(via LINE, in Thai)",
+            title: "Daily patient check-ins",
+            description: "(LINE, no app)",
             icon: <MessageCircle className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Clinical team sees everything",
-            description: "(real-time dashboard)",
+            title: "Tracks vitals, meds, symptoms automatically",
+            description: "",
             icon: <Activity className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Nurses decide and act",
-            description: "(Hanna coordinates, never decides)",
+            title: "Alerts nurses only when action is needed",
+            description: "",
             icon: <UserCheck className="w-6 h-6 text-hana-primary" />
         },
         {
-            title: "Your systems stay yours",
-            description: "(EHR integration, you own the data)",
+            title: "Gives nurses full context to act fast",
+            description: "",
             icon: <ShieldCheck className="w-6 h-6 text-hana-primary" />
-        },
-        {
-            title: "Hanna becomes the system of engagement",
-            description: "between visits—without replacing your system of record.",
-            icon: <ArrowRight className="w-6 h-6 text-hana-primary" />
         }
     ],
     outcome: [
@@ -99,74 +85,84 @@ export const SOLUTION_B2B = {
 // IMPACT SECTION ("Why This Works (In Theory)")
 // ============================================
 export const IMPACT_B2B = {
-    headline: "Why This Works (In Theory)",
-    subheadline: "Our model shows:",
+    headline: "1 Nurse → 200 Patients. In Control. Proactive.",
+    subheadline: "No burnout. No compromises.",
     comparison: {
         traditional: {
-            label: "Traditional Healthcare",
+            label: "Before Hanna",
             items: [
-                "Patients disappear for 364 days",
-                "Silent complications",
-                "Admin overload",
-                "Firefighting"
+                "1 nurse → 20 patients",
+                "Overwhelmed",
+                "Reactive"
             ]
         },
         hanna: {
-            label: "Hanna Model",
-            highlight: "Prevention pays for engagement."
+            label: "With Hanna",
+            highlight: "1 nurse → 200 patients. In control. Proactive."
         }
     },
     strategy: {
         headline: "Why This Works",
-        text: "The logic is unavoidable.",
-        reductions: [
-            "Patient Engagement: Daily touchpoints create accountability. Early interventions catch problems before they become crises.",
-            "Clinical Leverage: Nurses inherit complete context. They escalate what matters. Admin work disappears.",
-            "Economic Logic: Healthcare cannot scale by adding staff. Hanna scales care without adding headcount.",
-            "Preventing one readmission pays for years of engagement. The math is unavoidable."
-        ],
-        quote: "Preventing one readmission pays for years of engagement."
+        text: "No burnout. No compromises.",
+        reductions: [],
+        quote: "No burnout. No compromises."
     }
+};
+
+// ============================================
+// ONEBRAIN INTELLIGENCE LAYER
+// ============================================
+export const ONE_BRAIN_B2B = {
+    headline: "Powered by OneBrain™ Intelligence.",
+    subheadline: "The engine that makes 10x capacity possible.",
+    features: [
+        {
+            title: "Contextual Awareness",
+            description: "Remembers every patient interaction, lab result, and vital history."
+        },
+        {
+            title: "Clinical Guardrails",
+            description: "Built-in safety protocols that escalate risks instantly."
+        },
+        {
+            title: "Adaptive Learning",
+            description: "Gets smarter with every nurse decision and feedback loop."
+        }
+    ]
 };
 
 // ============================================
 // TECHNOLOGY SECTION ("The Tech You Need to Know")
 // ============================================
+// ============================================
+// TECHNOLOGY SECTION ("The Tech You Need to Know")
+// ============================================
 export const TECHNOLOGY_B2B = {
-    headline: "The Tech You Need to Know",
-    subheadline: "Built for Trust. Built for Integration. Built for Scale.",
+    headline: "Built for Scale. Designed for Control.",
+    subheadline: "",
     pillars: [
         {
-            title: "Built for Trust",
-            items: [
-                "Licensed clinicians in the loop (always)",
-                "Thai language fluency (not translation software)",
-                "HIPAA/PDPA compliant from day one",
-                "Patient data never used for model training"
-            ],
+            title: "Supervised AI Governance",
+            items: ["AI follows clinical rules. Humans stay in control."],
             icon: <ShieldCheck className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Built for Integration",
-            items: [
-                "Works with your existing EHR",
-                "Deployed in weeks, not months",
-                "No vendor lock-in",
-                "Your data stays yours"
-            ],
-            icon: <Hospital className="w-10 h-10 text-hana-primary" />
+            title: "Continuous Out-of-Hospital Visibility",
+            items: ["See patient status between visits."],
+            icon: <Activity className="w-10 h-10 text-hana-primary" />
         },
         {
-            title: "Built for Scale",
-            items: [
-                "Starts small (one patient cohort)",
-                "Grows with you",
-                "Supervised infrastructure (not autonomous)"
-            ],
-            icon: <Activity className="w-10 h-10 text-hana-primary" />
+            title: "Exception-Only Care Orchestration",
+            items: ["Nurses act only when needed."],
+            icon: <UserCheck className="w-10 h-10 text-hana-primary" />
+        },
+        {
+            title: "Clinical-Grade Reporting & Auditability",
+            items: ["Clear reports. Full traceability."],
+            icon: <CheckCircle className="w-10 h-10 text-hana-primary" />
         }
     ],
-    footer: "Supervised infrastructure (not autonomous)."
+    footer: ""
 };
 
 // ============================================
@@ -191,19 +187,14 @@ export const COMPARISON_B2B = {
 // ECONOMICS SECTION mapped to "Why This Moment"
 // ============================================
 export const ECONOMICS_B2B = {
-    headline: "Why This Moment",
-    subheadline: "Healthcare in Southeast Asia is at a inflection point.",
-    points: [
-        "Chronic disease is exploding.",
-        "Hospital capacity is constrained.",
-        "Digital adoption is mainstream.",
-        "Nurses are burned out."
-    ],
-    punchline: "The tools exist now. The problem is urgent now. The economics work now. Hanna is built for now.",
+    headline: "Serve more patients without hiring more staff.",
+    subheadline: "",
+    points: [],
+    punchline: "",
     strategicShift: {
-        headline: "The Opportunity",
-        text: "The tools exist now. The problem is urgent now. The economics work now.",
-        highlight: "Hanna is built for now."
+        headline: "",
+        text: "",
+        highlight: ""
     }
 };
 
@@ -225,10 +216,10 @@ export const AUDIENCE_B2B = [
 // CLOSING SECTION ("The Long Game")
 // ============================================
 export const CLOSING_B2B = {
-    headline: "The Long Game",
-    subheadline: "Most healthtech startups optimize for adoption. We're optimizing for outcomes.",
-    text: "Most AI in healthcare promises magic. We're building supervised systems with humans in control. Most pilots disappear. We're building something that scales because it actually works. If you're ready to help us prove this—not with your money, but with your patients and your feedback—let's build together.",
-    tagline: "The gap between visits doesn't need to exist. We're going to close it."
+    headline: "Close the Gap.",
+    subheadline: "You don't need 100 more nurses for 100 more patients. You need Hanna.",
+    text: "Start Your Pilot",
+    tagline: ""
 };
 
 // ============================================
@@ -261,4 +252,52 @@ export const FOOTER_B2B = {
         email: "farhan@hanna.care"
     },
     legal: "© 2026 Hanna. Hanna is supervised care infrastructure. Not a licensed healthcare provider."
+};
+
+// ============================================
+// PILOT SECTION
+// ============================================
+export const PILOT_B2B = {
+    headline: "Partnership Pilot Program",
+    features: [
+        "Full access to Hanna platform",
+        "Weekly clinical review meetings",
+        "Custom integration support",
+        "Priority feature requests"
+    ],
+    pricing: {
+        title: "Pilot Partnership",
+        description: "We invest in your success. No upfront costs for selected partners."
+    },
+    timeline: [
+        { month: "Month 1", event: "Integration & Training" },
+        { month: "Month 2", event: "Soft Launch (Small Cohort)" },
+        { month: "Month 3", event: "Full Rollout & Review" }
+    ],
+    cta: "Apply for Pilot",
+    scarcity: "Limited spots for Q1 2026"
+};
+
+// ============================================
+// TEAM SECTION
+// ============================================
+export const TEAM_B2B = {
+    headline: "Bridging the gap between clinical excellence and technical innovation.",
+    members: [
+        {
+            name: "Dr. Farhan",
+            role: "Clinical Lead",
+            bio: "Experienced clinician focused on patient outcomes."
+        },
+        {
+            name: "Engineering Lead",
+            role: "Technology",
+            bio: "Building scalable, secure healthcare infrastructure."
+        },
+        {
+            name: "Operations Lead",
+            role: "Operations",
+            bio: "Ensuring smooth implementation and support."
+        }
+    ]
 };
