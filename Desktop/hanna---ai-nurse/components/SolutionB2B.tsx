@@ -58,10 +58,10 @@ const SolutionB2B: React.FC = () => {
                             </div>
 
                             <h3 className="text-xl font-bold text-slate-900 mb-2">
-                                Tracks vitals automatically
+                                Collects self-reported data
                             </h3>
-                            <p className="text-slate-500 font-medium max-w-[200px]">
-                                Meds, symptoms, and trends
+                            <p className="text-slate-500 font-medium">
+                                Vitals, meds, and symptoms
                             </p>
                         </div>
                     </FadeIn>

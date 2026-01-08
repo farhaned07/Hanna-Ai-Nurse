@@ -26,8 +26,8 @@ export const HERO_B2B = {
 // PROBLEM SECTION ("The Problem Is Real")
 // ============================================
 export const PROBLEM_B2B = {
-    headline: "Thailand is short 35,000 nurses. You can't hire your way out.",
-    subheadline: "Nurses are overworked. Patients fall through the cracks. You can't scale fast enough.",
+    headline: "Thailand is short 35,000 nurses.",
+    subheadline: "You can't hire your way out.",
     context: "The gap between visits is where healthcare fails.",
     points: [
         {
