@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPageB2B from './components/LandingPageB2B';
-import FeaturesPage from './components/FeaturesPage';
+import ScribeLanding from './components/ScribeLanding';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
 
@@ -9,13 +8,10 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* B2B Page as Main Home */}
-        <Route path="/" element={<LandingPageB2B />} />
+        {/* New Hanna Landing Page */}
+        <Route path="/" element={<ScribeLanding />} />
 
-        {/* Features */}
-        <Route path="/features" element={<FeaturesPage />} />
-
-        {/* Legal & Details */}
+        {/* Legal */}
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
