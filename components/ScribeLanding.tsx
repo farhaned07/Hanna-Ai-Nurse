@@ -1,319 +1,460 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Mic, Fingerprint, Zap, Globe, Shield, ArrowRight, Activity, Command } from 'lucide-react';
-
-// Custom Hook for Mouse Position
-function useMousePosition() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    useEffect(() => {
-        const updateMousePosition = (ev: MouseEvent) => setMousePosition({ x: ev.clientX, y: ev.clientY });
-        window.addEventListener('mousemove', updateMousePosition);
-        return () => window.removeEventListener('mousemove', updateMousePosition);
-    }, []);
-    return mousePosition;
-}
+import React, { useEffect, useRef } from 'react';
 
 const ScribeLanding: React.FC = () => {
-    const { scrollYProgress } = useScroll();
-    const mousePosition = useMousePosition();
-    const heroRef = useRef<HTMLDivElement>(null);
+    const observerRef = useRef<IntersectionObserver | null>(null);
 
-    // Scroll Transforms
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-    const heroScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.9]);
-
-    // Parallax Text
-    const textY1 = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
-    const textY2 = useTransform(scrollYProgress, [0, 0.3], [0, -200]);
-
-    // Audio Visualizer Simulation
-    const [loudness, setLoudness] = useState<number[]>(Array(10).fill(10));
     useEffect(() => {
-        const interval = setInterval(() => {
-            setLoudness(prev => prev.map(() => Math.floor(Math.random() * 40) + 10));
-        }, 150);
-        return () => clearInterval(interval);
+        observerRef.current = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-visible');
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observerRef.current?.observe(el);
+        });
+
+        return () => observerRef.current?.disconnect();
     }, []);
 
     return (
-        <div className="bg-[#050505] text-white font-sans min-h-screen selection:bg-emerald-500/30 overflow-x-hidden">
+        <div style={{ fontFamily: "'Inter', system-ui, sans-serif", background: '#FAFAFA', color: '#1A1A1A' }}>
 
-            {/* Dynamic Cursor Glow */}
-            <div
-                className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
-                style={{
-                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(48, 209, 88, 0.08), transparent 40%)`
-                }}
-            />
-
-            {/* Modern Floating Nav */}
-            <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl px-6 py-4 rounded-full bg-white/5 backdrop-blur-2xl border border-white/10 flex justify-between items-center shadow-2xl">
-                <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-emerald-400 to-cyan-400" />
-                    <span className="font-bold tracking-tight">Hanna Scribe</span>
-                </div>
-                <div className="flex items-center gap-6 text-sm font-medium">
-                    <a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a>
-                    <a href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</a>
-                    <a href="/scribe" className="px-4 py-2 rounded-full bg-white text-black hover:scale-105 transition-transform">Get Started</a>
+            {/* ═══════ NAV ═══════ */}
+            <nav style={{
+                position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+                background: 'rgba(250, 250, 250, 0.85)', backdropFilter: 'blur(20px)',
+                borderBottom: '1px solid rgba(0,0,0,0.06)',
+            }}>
+                <div style={{
+                    maxWidth: 1200, margin: '0 auto', padding: '14px 24px',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                        <img src="/hanna-logo.png" alt="Hanna" style={{ width: 32, height: 32, borderRadius: 8 }} />
+                        <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: '-0.5px' }}>
+                            Hanna <span style={{ fontWeight: 400, color: '#888', fontSize: 14 }}>Care Intelligence</span>
+                        </span>
+                    </div>
+                    <a
+                        href="#pricing"
+                        style={{
+                            padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600,
+                            background: '#1A1A1A', color: '#fff', textDecoration: 'none',
+                            transition: 'transform 0.15s, box-shadow 0.15s',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                    >
+                        Try Free
+                    </a>
                 </div>
             </nav>
 
-            {/* ═══════ HERO: CINEMATIC ═══════ */}
-            <motion.section
-                ref={heroRef}
-                style={{ opacity: heroOpacity, scale: heroScale }}
-                className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 origin-top"
-            >
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay z-0"></div>
-
-                {/* Massive Typography */}
-                <div className="relative z-10 text-center max-w-5xl mx-auto flex flex-col items-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
-                        className="px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-bold tracking-widest uppercase mb-8 flex items-center gap-2"
-                    >
-                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        Vocal AI Engine
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
-                        className="text-[clamp(3rem,8vw,7rem)] font-black leading-[0.9] tracking-tighter mb-8"
-                    >
-                        Speak freely.<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 animate-shimmer bg-[length:200%_auto]">
-                            Chart instantly.
-                        </span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.8 }}
-                        className="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mb-12"
-                    >
-                        The #1 cause of burnout is paperwork. Hanna Scribe turns your natural patient conversation into a structured SOAP note in seconds.
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1 }}
-                        className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-                    >
-                        <a href="/scribe" className="px-8 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:shadow-[0_0_40px_rgba(48,209,88,0.4)] hover:scale-105 transition-all flex items-center justify-center gap-2 group">
-                            Try It Risk-Free <ArrowRight className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </motion.div>
-                </div>
-
-                {/* Floating Glass Component (The "Product" Shot) */}
-                <motion.div
-                    initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.5, delay: 1.2, type: 'spring' }}
-                    className="mt-20 relative z-20 w-full max-w-4xl perspective-1000"
-                >
-                    <div className="relative rounded-3xl bg-white/5 backdrop-blur-3xl border border-white/10 p-8 shadow-[0_0_100px_rgba(48,209,88,0.1)] overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50"></div>
-
-                        <div className="flex flex-col md:flex-row gap-8 items-center">
-                            {/* Fake Audio Visualizer */}
-                            <div className="flex-1 flex flex-col items-center justify-center gap-6 py-8 border-r border-white/10 border-dashed hidden md:flex">
-                                <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center shadow-[0_0_40px_rgba(48,209,88,0.3)]">
-                                    <Mic className="text-emerald-400 w-8 h-8" />
-                                </div>
-                                <div className="flex items-center gap-1 h-12">
-                                    {loudness.map((h, i) => (
-                                        <motion.div key={i} animate={{ height: h }} className="w-1.5 bg-emerald-400 rounded-full" />
-                                    ))}
-                                </div>
-                                <p className="text-emerald-400 font-mono text-sm uppercase tracking-widest">Listening...</p>
-                            </div>
-
-                            {/* Fake Generated Note */}
-                            <div className="flex-[2] w-full">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                                        <Activity className="text-cyan-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-lg">SOAP Note Generation</h3>
-                                        <p className="text-xs text-gray-500 font-mono">Real-time processing</p>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-4">
-                                    <div className="p-4 rounded-2xl bg-black/40 border border-white/5">
-                                        <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-2 block">Subjective</span>
-                                        <p className="text-gray-300 text-sm leading-relaxed">Patient reports a 3-day history of fatigue and dull headache. Denies nausea, fever, or recent travel.</p>
-                                    </div>
-                                    <div className="p-4 rounded-2xl bg-black/40 border border-white/5 opacity-50 blur-[1px]">
-                                        <span className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-2 block">Objective</span>
-                                        <div className="bg-white/10 h-3 w-3/4 rounded mb-2"></div>
-                                        <div className="bg-white/10 h-3 w-1/2 rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
+            {/* ═══════ HERO ═══════ */}
+            <section style={{
+                minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: '120px 24px 80px', textAlign: 'center',
+            }}>
+                <div style={{ maxWidth: 800 }}>
+                    <div className="animate-on-scroll" style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)' }}>
+                        <p style={{ fontSize: 14, fontWeight: 600, color: '#30D158', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 20 }}>
+                            Clinical Documentation AI
+                        </p>
+                        <h1 style={{ fontSize: 'clamp(40px, 7vw, 72px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-2px', marginBottom: 20 }}>
+                            Doctor speaks.<br />
+                            <span style={{ color: '#30D158' }}>AI writes.</span>
+                        </h1>
+                        <p style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666', lineHeight: 1.6, maxWidth: 540, margin: '0 auto 40px' }}>
+                            Clinical notes generated in seconds, not hours. SOAP notes, progress notes, and more — from your voice.
+                        </p>
+                        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <a
+                                href="/scribe/app"
+                                style={{
+                                    padding: '16px 36px', borderRadius: 12, fontSize: 16, fontWeight: 700,
+                                    background: '#1A1A1A', color: '#fff', textDecoration: 'none',
+                                    transition: 'all 0.2s',
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                            >
+                                Try Free — No Credit Card
+                            </a>
+                            <a
+                                href="#how-it-works"
+                                style={{
+                                    padding: '16px 36px', borderRadius: 12, fontSize: 16, fontWeight: 600,
+                                    background: 'transparent', color: '#1A1A1A', textDecoration: 'none',
+                                    border: '1.5px solid #E0E0E0', transition: 'all 0.2s',
+                                }}
+                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1A1A1A'; }}
+                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E0E0E0'; }}
+                            >
+                                See How It Works
+                            </a>
                         </div>
                     </div>
-                </motion.div>
-            </motion.section>
-
-            {/* ═══════ BENTO BOX FEATURES ═══════ */}
-            <section id="features" className="py-32 px-6 relative z-10 bg-[#020202]">
-                <div className="max-w-7xl mx-auto">
-                    <motion.div style={{ y: textY1 }} className="mb-20">
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-                            Designed for speed.<br />
-                            <span className="text-gray-500">Built for accuracy.</span>
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-                        {/* Box 1: Large Span */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                            className="md:col-span-2 rounded-[2.5rem] bg-gradient-to-br from-[#111] to-[#0A0A0A] border border-white/5 p-10 relative overflow-hidden group"
-                        >
-                            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] group-hover:bg-emerald-500/20 transition-all duration-700"></div>
-                            <div className="relative z-10 h-full flex flex-col justify-between">
-                                <div>
-                                    <Globe className="w-10 h-10 text-emerald-400 mb-6" />
-                                    <h3 className="text-3xl font-bold mb-4">Bilingual Intelligence.</h3>
-                                    <p className="text-gray-400 text-lg max-w-md">Speak in Thai, switch to English medical terms, code switch back. Hanna understands it all perfectly and generates notes in your preferred language.</p>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Box 2: Tall */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }}
-                            className="md:row-span-2 rounded-[2.5rem] bg-gradient-to-b from-[#111] to-[#050505] border border-white/5 p-10 relative overflow-hidden group flex flex-col items-center text-center justify-center"
-                        >
-                            <div className="absolute inset-0 bg-cyan-500/5 group-hover:bg-cyan-500/10 transition-colors"></div>
-                            <Activity className="w-16 h-16 text-cyan-400 mb-8" />
-                            <h3 className="text-3xl font-bold mb-4">Custom Templates.</h3>
-                            <p className="text-gray-400 text-lg">SOAP. Progress. Pre-op. Discharge. Whatever format your hospital uses, Scribe adapts to your workflow, not the other way around.</p>
-
-                            <div className="mt-12 w-full space-y-3">
-                                <div className="h-12 w-full rounded-xl border border-dashed border-cyan-500/30 flex items-center justify-center text-cyan-500/50">SOAP Matrix</div>
-                                <div className="h-12 w-full rounded-xl border border-dashed border-cyan-500/30 flex items-center justify-center text-cyan-500/50">ER Admission</div>
-                            </div>
-                        </motion.div>
-
-                        {/* Box 3: Small */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                            className="rounded-[2.5rem] bg-[#111] border border-white/5 p-10 relative overflow-hidden group"
-                        >
-                            <Command className="w-8 h-8 text-white mb-6" />
-                            <h3 className="text-xl font-bold mb-2">Voice Commands.</h3>
-                            <p className="text-gray-400 text-sm">"Make it concise", "Add fever to subjective". Edit with just your voice.</p>
-                        </motion.div>
-
-                        {/* Box 4: Small */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                            className="rounded-[2.5rem] bg-[#111] border border-white/5 p-10 relative overflow-hidden group"
-                        >
-                            <Shield className="w-8 h-8 text-white mb-6" />
-                            <h3 className="text-xl font-bold mb-2">Supervised AI.</h3>
-                            <p className="text-gray-400 text-sm">You review every note before it saves. AI assists, but you pilot.</p>
-                        </motion.div>
+                    <div className="animate-on-scroll" style={{ marginTop: 60, opacity: 0, transform: 'translateY(40px)', transition: 'all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s' }}>
+                        <img
+                            src="/hero-scribe.png"
+                            alt="Doctor using Hanna Scribe"
+                            style={{ width: '100%', maxWidth: 420, margin: '0 auto', borderRadius: 24 }}
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* ═══════ PRICING (HIGH CONTRAST) ═══════ */}
-            <section id="pricing" className="py-32 px-6 bg-[#000] relative">
-                <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                <div className="max-w-7xl mx-auto">
-
-                    <motion.div style={{ y: textY2 }} className="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6">
-                            Pay for value.<br />Not <span className="text-emerald-400">complexity.</span>
+            {/* ═══════ PAIN POINTS ═══════ */}
+            <section style={{ padding: '80px 24px', background: '#fff' }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
+                            The problem is <span style={{ color: '#FF453A' }}>real</span>
                         </h2>
-                        <p className="text-xl text-gray-500">Unbelievably simple pricing designed to get you back to your patients instantly.</p>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-                        {/* Free */}
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="rounded-[2.5rem] bg-white/5 border border-white/10 p-10 backdrop-blur-sm"
-                        >
-                            <h3 className="text-2xl font-bold mb-2">Free Pilot</h3>
-                            <p className="text-gray-400 mb-8">Perfect to test the magic.</p>
-                            <div className="mb-8">
-                                <span className="text-5xl font-black">฿0</span>
-                            </div>
-                            <ul className="space-y-4 mb-10 text-gray-300">
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white"></div> 10 Notes / Month
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white"></div> Standard SOAP Template
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white"></div> Thai & English Dictionary
-                                </li>
-                            </ul>
-                            <a href="/scribe" className="block w-full py-4 text-center rounded-2xl bg-white/10 text-white font-bold hover:bg-white/20 transition-colors">
-                                Start For Free
-                            </a>
-                        </motion.div>
-
-                        {/* Pro */}
-                        <motion.div
-                            whileHover={{ y: -5 }}
-                            className="rounded-[2.5rem] bg-gradient-to-b from-[#1a2e25] to-[#0a1410] border border-emerald-500/30 p-10 relative isolate overflow-hidden"
-                        >
-                            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-emerald-500/20 rounded-full blur-[80px] -z-10"></div>
-
-                            <div className="absolute top-6 right-6 bg-emerald-500 text-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                Pro Choice
-                            </div>
-
-                            <h3 className="text-2xl font-bold mb-2 text-white">Scribe Unlimited</h3>
-                            <p className="text-emerald-500/70 mb-8">For the solo clinician.</p>
-                            <div className="mb-8">
-                                <span className="text-5xl font-black text-white">฿1,990</span>
-                                <span className="text-gray-400 ml-2">/mo</span>
-                            </div>
-                            <ul className="space-y-4 mb-10 text-gray-200">
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> <span className="font-bold">Unlimited Notes</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> All Premium Templates
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> AI Voice Commands
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> PDF Export & Handover
-                                </li>
-                            </ul>
-                            <a href="/scribe" className="block w-full py-4 text-center rounded-2xl bg-emerald-500 text-black font-extrabold hover:bg-emerald-400 shadow-[0_0_30px_rgba(48,209,88,0.3)] transition-all">
-                                Get Unlimited
-                            </a>
-                        </motion.div>
-
+                        <p style={{ fontSize: 18, color: '#888' }}>Documentation is the #1 cause of physician burnout</p>
                     </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+                        {[
+                            { emoji: '😩', stat: '3 hours', desc: 'lost daily on documentation', sub: 'That\'s 15 hours/week — almost 2 full workdays' },
+                            { emoji: '⏱️', stat: '5–8 fewer', desc: 'patients seen per day', sub: 'Every hour charting is an hour not treating' },
+                            { emoji: '💰', stat: '฿15,000', desc: 'in lost revenue daily', sub: 'Per clinic — that\'s ฿450,000/month left on the table' },
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="animate-on-scroll"
+                                style={{
+                                    padding: 32, borderRadius: 20,
+                                    background: '#FAFAFA', border: '1px solid #F0F0F0',
+                                    textAlign: 'center', opacity: 0, transform: 'translateY(20px)',
+                                    transition: `all 0.6s ease ${i * 0.1}s`,
+                                }}
+                            >
+                                <div style={{ fontSize: 40, marginBottom: 12 }}>{item.emoji}</div>
+                                <div style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-1px', marginBottom: 4 }}>{item.stat}</div>
+                                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{item.desc}</div>
+                                <div style={{ fontSize: 14, color: '#999' }}>{item.sub}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ HOW IT WORKS ═══════ */}
+            <section id="how-it-works" style={{ padding: '100px 24px' }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
+                            Simple as <span style={{ color: '#30D158' }}>1, 2, 3</span>
+                        </h2>
+                        <p style={{ fontSize: 18, color: '#888' }}>Your first SOAP note in under 60 seconds</p>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 32 }}>
+                        {[
+                            { step: '1', icon: '🎙️', title: 'Tap & Record', desc: 'Open the app, tap record, and speak during your consultation as you normally would.', color: '#3478F6' },
+                            { step: '2', icon: '⚡', title: 'AI Generates', desc: 'In seconds, Hanna generates a structured SOAP note from your conversation.', color: '#30D158' },
+                            { step: '3', icon: '📋', title: 'Review & Export', desc: 'Edit if needed, finalize, and export as PDF or copy to your system.', color: '#FF9F0A' },
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="animate-on-scroll"
+                                style={{
+                                    padding: 36, borderRadius: 24,
+                                    background: '#fff', border: '1px solid #F0F0F0',
+                                    boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+                                    opacity: 0, transform: 'translateY(20px)',
+                                    transition: `all 0.6s ease ${i * 0.15}s`,
+                                }}
+                            >
+                                <div style={{
+                                    width: 48, height: 48, borderRadius: 14,
+                                    background: `${item.color}15`, display: 'flex', alignItems: 'center',
+                                    justifyContent: 'center', fontSize: 24, marginBottom: 20,
+                                }}>
+                                    {item.icon}
+                                </div>
+                                <div style={{
+                                    fontSize: 12, fontWeight: 700, color: item.color,
+                                    letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8,
+                                }}>
+                                    Step {item.step}
+                                </div>
+                                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, letterSpacing: '-0.3px' }}>{item.title}</h3>
+                                <p style={{ fontSize: 15, color: '#888', lineHeight: 1.6 }}>{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ FEATURES ═══════ */}
+            <section style={{ padding: '80px 24px', background: '#fff' }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
+                            Built for <span style={{ color: '#30D158' }}>clinicians</span>
+                        </h2>
+                        <p style={{ fontSize: 18, color: '#888' }}>Everything you need, nothing you don't</p>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+                        {[
+                            { icon: '📝', title: 'Multiple Templates', desc: 'SOAP, Progress Notes, Free Text — choose your format for each consult.' },
+                            { icon: '🌏', title: 'Thai & English', desc: 'Transcription and notes in Thai, English, or mixed — handles medical terminology.' },
+                            { icon: '🤖', title: 'AI Commands', desc: '"Make it shorter", "Add differential diagnosis" — edit notes with natural language.' },
+                            { icon: '🔄', title: 'Shift Handover', desc: 'Auto-generated shift summaries with patient statuses for seamless handoff.' },
+                            { icon: '📱', title: 'Works on Your Phone', desc: 'No installation needed. PWA works on any phone, tablet, or desktop browser.' },
+                            { icon: '🔒', title: 'Supervised AI', desc: 'Every note is reviewed by the clinician. AI assists, never replaces your judgment.' },
+                        ].map((item, i) => (
+                            <div
+                                key={i}
+                                className="animate-on-scroll"
+                                style={{
+                                    padding: 28, borderRadius: 18,
+                                    background: '#FAFAFA', border: '1px solid #F0F0F0',
+                                    opacity: 0, transform: 'translateY(16px)',
+                                    transition: `all 0.5s ease ${(i % 3) * 0.1}s`,
+                                }}
+                            >
+                                <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
+                                <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 6, letterSpacing: '-0.2px' }}>{item.title}</h3>
+                                <p style={{ fontSize: 14, color: '#888', lineHeight: 1.5 }}>{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ VISION ═══════ */}
+            <section style={{ padding: '100px 24px', background: 'linear-gradient(180deg, #FAFAFA 0%, #F0F4F0 100%)' }}>
+                <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
+                    <div className="animate-on-scroll" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                        <p style={{ fontSize: 14, fontWeight: 600, color: '#30D158', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
+                            The Bigger Picture
+                        </p>
+                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
+                            Scribe is just the <span style={{ color: '#30D158' }}>beginning</span>
+                        </h2>
+                        <p style={{ fontSize: 18, color: '#888', lineHeight: 1.6, marginBottom: 48 }}>
+                            From consultation to recovery — one continuous thread of care.
+                        </p>
+                    </div>
+                    <div className="animate-on-scroll" style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', alignItems: 'center', marginBottom: 48, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease 0.15s' }}>
+                        {[
+                            { icon: '🎙️', label: 'Document', active: true },
+                            { icon: '→', label: '' },
+                            { icon: '📋', label: 'Care Plan', active: false },
+                            { icon: '→', label: '' },
+                            { icon: '📱', label: 'Follow-up', active: false },
+                        ].map((item, i) => (
+                            item.label === '' ? (
+                                <span key={i} style={{ fontSize: 24, color: '#CCC' }}>→</span>
+                            ) : (
+                                <div
+                                    key={i}
+                                    style={{
+                                        padding: '20px 28px', borderRadius: 16,
+                                        background: item.active ? '#fff' : '#fff',
+                                        border: item.active ? '2px solid #30D158' : '1px solid #E0E0E0',
+                                        boxShadow: item.active ? '0 4px 16px rgba(48, 209, 88, 0.15)' : 'none',
+                                        textAlign: 'center', minWidth: 120,
+                                    }}
+                                >
+                                    <div style={{ fontSize: 28, marginBottom: 6 }}>{item.icon}</div>
+                                    <div style={{ fontSize: 14, fontWeight: 600, color: item.active ? '#30D158' : '#888' }}>
+                                        {item.label}
+                                        {item.active && <div style={{ fontSize: 11, color: '#30D158', marginTop: 2 }}>Available now</div>}
+                                        {!item.active && <div style={{ fontSize: 11, color: '#CCC', marginTop: 2 }}>Coming soon</div>}
+                                    </div>
+                                </div>
+                            )
+                        ))}
+                    </div>
+                    <div className="animate-on-scroll" style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease 0.3s' }}>
+                        {[
+                            'Auto care plans from notes',
+                            'Patient follow-up via LINE',
+                            'Medication adherence tracking',
+                        ].map((text, i) => (
+                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14, color: '#888' }}>
+                                <span style={{ color: '#CCC' }}>○</span> {text}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ TRUST ═══════ */}
+            <section style={{ padding: '80px 24px', background: '#fff' }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div className="animate-on-scroll" style={{
+                        display: 'flex', alignItems: 'center', gap: 48, flexWrap: 'wrap', justifyContent: 'center',
+                        opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease',
+                    }}>
+                        <img src="/illust-trust.png" alt="Supervised AI" style={{ width: '100%', maxWidth: 300, borderRadius: 24 }} />
+                        <div style={{ maxWidth: 440 }}>
+                            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-0.8px', marginBottom: 16 }}>
+                                Supervised AI.<br />
+                                <span style={{ color: '#30D158' }}>You decide.</span>
+                            </h2>
+                            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.7, marginBottom: 20 }}>
+                                Hanna doesn't replace clinicians — it makes them faster. Every note is reviewed and approved by you before it's finalized. AI assists, never acts alone.
+                            </p>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                                {[
+                                    'AI writes → you review & confirm',
+                                    'AI flags risk → alerts your team, never acts alone',
+                                    'Full audit trail for every note',
+                                ].map((text, i) => (
+                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14 }}>
+                                        <span style={{ color: '#30D158', fontWeight: 700 }}>✓</span>
+                                        <span style={{ color: '#555' }}>{text}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════ PRICING ═══════ */}
+            <section id="pricing" style={{ padding: '100px 24px' }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
+                            Simple, transparent <span style={{ color: '#30D158' }}>pricing</span>
+                        </h2>
+                        <p style={{ fontSize: 18, color: '#888' }}>Start free. Upgrade when you're ready.</p>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+                        {[
+                            {
+                                name: 'Free', price: '฿0', period: '/month', desc: 'Try Scribe risk-free',
+                                features: ['10 notes/month', 'SOAP template', 'Thai & English', 'Works on phone'],
+                                cta: 'Start Free', ctaBg: '#F0F0F0', ctaColor: '#1A1A1A', popular: false,
+                            },
+                            {
+                                name: 'Pro', price: '฿1,990', period: '/person/mo', desc: 'For solo practitioners',
+                                features: ['Unlimited notes', 'All templates', 'AI commands', 'PDF export', 'Shift handover', 'LINE support'],
+                                cta: 'Start Pro', ctaBg: '#1A1A1A', ctaColor: '#fff', popular: true,
+                            },
+                            {
+                                name: 'Clinic', price: '฿4,990', period: '/month', desc: 'For your whole team (≤5)',
+                                features: ['Everything in Pro', 'Up to 5 team members', 'Team invite links', 'Shared note access', 'Usage analytics', 'Dedicated support'],
+                                cta: 'Start Clinic', ctaBg: '#F0F0F0', ctaColor: '#1A1A1A', popular: false,
+                            },
+                        ].map((plan, i) => (
+                            <div
+                                key={i}
+                                className="animate-on-scroll"
+                                style={{
+                                    padding: 32, borderRadius: 24, position: 'relative',
+                                    background: '#fff', border: plan.popular ? '2px solid #30D158' : '1px solid #F0F0F0',
+                                    boxShadow: plan.popular ? '0 8px 32px rgba(48, 209, 88, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+                                    opacity: 0, transform: 'translateY(20px)',
+                                    transition: `all 0.6s ease ${i * 0.1}s`,
+                                }}
+                            >
+                                {plan.popular && (
+                                    <div style={{
+                                        position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
+                                        background: '#30D158', color: '#fff', padding: '4px 16px', borderRadius: 20,
+                                        fontSize: 12, fontWeight: 700, letterSpacing: '0.05em',
+                                    }}>
+                                        POPULAR
+                                    </div>
+                                )}
+                                <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
+                                <p style={{ fontSize: 13, color: '#999', marginBottom: 16 }}>{plan.desc}</p>
+                                <div style={{ marginBottom: 24 }}>
+                                    <span style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-1px' }}>{plan.price}</span>
+                                    <span style={{ fontSize: 14, color: '#999' }}>{plan.period}</span>
+                                </div>
+                                <ul style={{ listStyle: 'none', padding: 0, marginBottom: 28 }}>
+                                    {plan.features.map((f, j) => (
+                                        <li key={j} style={{ fontSize: 14, color: '#666', padding: '6px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
+                                            <span style={{ color: '#30D158' }}>✓</span> {f}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a
+                                    href="/scribe/app"
+                                    style={{
+                                        display: 'block', textAlign: 'center',
+                                        padding: '14px 0', borderRadius: 12, fontSize: 15, fontWeight: 700,
+                                        background: plan.ctaBg, color: plan.ctaColor, textDecoration: 'none',
+                                        transition: 'all 0.2s', border: plan.popular ? 'none' : '1px solid #E0E0E0',
+                                    }}
+                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                                >
+                                    {plan.cta}
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+                    <p style={{ textAlign: 'center', marginTop: 28, fontSize: 14, color: '#999' }}>
+                        Hospital? <strong>฿49,900/month</strong> for up to 50 clinicians. <a href="mailto:hello@hanna.care" style={{ color: '#30D158', fontWeight: 600, textDecoration: 'none' }}>Contact us →</a>
+                    </p>
+                </div>
+            </section>
+
+            {/* ═══════ FINAL CTA ═══════ */}
+            <section style={{
+                padding: '100px 24px', textAlign: 'center',
+                background: 'linear-gradient(180deg, #FAFAFA 0%, #F0FAF2 100%)',
+            }}>
+                <div className="animate-on-scroll" style={{ maxWidth: 600, margin: '0 auto', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
+                    <h2 style={{ fontSize: 'clamp(28px, 5vw, 44px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
+                        Start documenting <span style={{ color: '#30D158' }}>smarter</span>
+                    </h2>
+                    <p style={{ fontSize: 18, color: '#888', lineHeight: 1.6, marginBottom: 36 }}>
+                        Your first 10 notes are free. No credit card. No installation. Works on your phone.
+                    </p>
+                    <a
+                        href="/scribe/app"
+                        style={{
+                            display: 'inline-block', padding: '18px 48px', borderRadius: 14,
+                            fontSize: 18, fontWeight: 700, background: '#1A1A1A', color: '#fff',
+                            textDecoration: 'none', transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.15)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+                    >
+                        Try Hanna Scribe Free →
+                    </a>
                 </div>
             </section>
 
             {/* ═══════ FOOTER ═══════ */}
-            <footer className="py-12 px-6 border-t border-white/5 bg-black">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
-                    <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 rounded-full bg-white/20" />
-                        <span className="font-bold text-gray-300 tracking-tight">Hanna Care Intelligence</span>
+            <footer style={{
+                padding: '40px 24px', background: '#1A1A1A', color: '#888',
+                textAlign: 'center', fontSize: 14,
+            }}>
+                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 20, flexWrap: 'wrap' }}>
+                        <a href="/privacy" style={{ color: '#888', textDecoration: 'none' }}>Privacy</a>
+                        <a href="/terms" style={{ color: '#888', textDecoration: 'none' }}>Terms</a>
+                        <a href="mailto:hello@hanna.care" style={{ color: '#888', textDecoration: 'none' }}>hello@hanna.care</a>
                     </div>
-                    <div className="flex gap-8">
-                        <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
-                        <a href="/terms" className="hover:text-white transition-colors">Terms</a>
-                        <a href="mailto:hello@hanna.care" className="hover:text-white transition-colors">Contact</a>
-                    </div>
+                    <p style={{ color: '#555' }}>© 2025 Hanna Care Intelligence. All rights reserved.</p>
                 </div>
             </footer>
+
+            {/* ═══════ SCROLL ANIMATION CSS ═══════ */}
+            <style>{`
+        .animate-on-scroll { will-change: opacity, transform; }
+        .animate-visible { opacity: 1 !important; transform: translateY(0) !important; }
+        @media (max-width: 768px) {
+          nav > div { padding: 12px 16px !important; }
+        }
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+      `}</style>
         </div>
     );
 };
