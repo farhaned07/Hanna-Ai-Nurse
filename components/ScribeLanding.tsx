@@ -42,7 +42,7 @@ const ScribeLanding: React.FC = () => {
                         </span>
                     </div>
                     <a
-                        href="#pricing"
+                        href="/scribe/app"
                         style={{
                             padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600,
                             background: '#1A1A1A', color: '#fff', textDecoration: 'none',
