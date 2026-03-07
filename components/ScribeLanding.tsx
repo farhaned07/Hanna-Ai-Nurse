@@ -42,7 +42,7 @@ const ScribeLanding: React.FC = () => {
                         </span>
                     </div>
                     <a
-                        href="/scribe/app"
+                        href="https://app.hanna.care"
                         style={{
                             padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600,
                             background: '#1A1A1A', color: '#fff', textDecoration: 'none',
@@ -75,7 +75,7 @@ const ScribeLanding: React.FC = () => {
                         </p>
                         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                             <a
-                                href="/scribe/app"
+                                href="https://app.hanna.care"
                                 style={{
                                     padding: '16px 36px', borderRadius: 12, fontSize: 16, fontWeight: 700,
                                     background: '#1A1A1A', color: '#fff', textDecoration: 'none',
@@ -382,7 +382,7 @@ const ScribeLanding: React.FC = () => {
                                     ))}
                                 </ul>
                                 <a
-                                    href="/scribe/app"
+                                    href="https://app.hanna.care"
                                     style={{
                                         display: 'block', textAlign: 'center',
                                         padding: '14px 0', borderRadius: 12, fontSize: 15, fontWeight: 700,
@@ -416,7 +416,7 @@ const ScribeLanding: React.FC = () => {
                         Your first 10 notes are free. No credit card. No installation. Works on your phone.
                     </p>
                     <a
-                        href="/scribe/app"
+                        href="https://app.hanna.care"
                         style={{
                             display: 'inline-block', padding: '18px 48px', borderRadius: 14,
                             fontSize: 18, fontWeight: 700, background: '#1A1A1A', color: '#fff',
