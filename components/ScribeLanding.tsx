@@ -1,462 +1,85 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Activity, ArrowRight, BarChart3, Brain, CheckCircle2, ClipboardCheck, FileText, HeartPulse, LineChart, MessageCircle, Mic2, ShieldCheck, Sparkles, Stethoscope, Users } from 'lucide-react';
+
+const fadeUp = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } };
+
+const nav = [['Platform', '#platform'], ['Workflow', '#workflow'], ['Pilot', '#pilot'], ['Scribe', '#scribe'], ['Trust', '#trust']];
+const pillars = [
+  ['For doctors', 'Voice-first Scribe captures the visit and creates structured documentation.', Stethoscope],
+  ['For patients', 'LINE check-ins use buttons, text, and voice-friendly replies. No new app.', MessageCircle],
+  ['For nurses', 'A daily exception queue shows who needs attention today.', Users],
+  ['For leadership', 'Reports show check-ins, risk flags, nurse actions, and continuity.', BarChart3],
+];
+const workflow = [
+  ['Capture', 'Doctor speaks. Hanna writes.', 'The consultation becomes a structured clinical note.', Mic2],
+  ['Continue', 'The note becomes follow-up.', 'Hanna creates a follow-up plan and reaches patients through LINE.', ClipboardCheck],
+  ['Detect', 'OneBrain watches for drift.', 'Vitals, adherence, symptoms, and silence become a risk signal.', Brain],
+  ['Escalate', 'Nurses see who needs attention.', 'The command center prioritizes cases that need human review.', HeartPulse],
+];
+const includes = ['Hanna Scribe for clinical capture', 'Follow-up plan generation from notes', 'LINE patient check-ins and reminders', 'Voice-friendly patient responses', 'OneBrain risk scoring', 'Nurse command center', 'Weekly operational reports', '90-day outcome summary'];
+const trust = [
+  ['Supervised AI', 'Hanna supports licensed staff. Clinicians remain in control.', ShieldCheck],
+  ['Exception management', 'Routine signals are organized so nurses can focus on high-need patients.', Activity],
+  ['Outcome visibility', 'Reports make follow-up activity, actions, and continuity visible.', LineChart],
+];
 
 const ScribeLanding: React.FC = () => {
-    const observerRef = useRef<IntersectionObserver | null>(null);
-
-    useEffect(() => {
-        observerRef.current = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-visible');
-                    }
-                });
-            },
-            { threshold: 0.15 }
-        );
-
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-            observerRef.current?.observe(el);
-        });
-
-        return () => observerRef.current?.disconnect();
-    }, []);
-
-    return (
-        <div style={{ fontFamily: "'Inter', system-ui, sans-serif", background: '#FAFAFA', color: '#1A1A1A' }}>
-
-            {/* ═══════ NAV ═══════ */}
-            <nav style={{
-                position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-                background: 'rgba(250, 250, 250, 0.85)', backdropFilter: 'blur(20px)',
-                borderBottom: '1px solid rgba(0,0,0,0.06)',
-            }}>
-                <div style={{
-                    maxWidth: 1200, margin: '0 auto', padding: '14px 24px',
-                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                        <img src="/hanna-logo.png" alt="Hanna" style={{ width: 32, height: 32, borderRadius: 8 }} />
-                        <span style={{ fontWeight: 700, fontSize: 18, letterSpacing: '-0.5px' }}>
-                            Hanna <span style={{ fontWeight: 400, color: '#888', fontSize: 14 }}>Care Intelligence</span>
-                        </span>
-                    </div>
-                    <a
-                        href="https://app.hanna.care"
-                        style={{
-                            padding: '10px 24px', borderRadius: 10, fontSize: 14, fontWeight: 600,
-                            background: '#1A1A1A', color: '#fff', textDecoration: 'none',
-                            transition: 'transform 0.15s, box-shadow 0.15s',
-                        }}
-                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-                    >
-                        Try Free
-                    </a>
-                </div>
-            </nav>
-
-            {/* ═══════ HERO ═══════ */}
-            <section style={{
-                minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                padding: '120px 24px 80px', textAlign: 'center',
-            }}>
-                <div style={{ maxWidth: 800 }}>
-                    <div className="animate-on-scroll" style={{ opacity: 0, transform: 'translateY(30px)', transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)' }}>
-                        <p style={{ fontSize: 14, fontWeight: 600, color: '#30D158', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 20 }}>
-                            Clinical Documentation AI
-                        </p>
-                        <h1 style={{ fontSize: 'clamp(40px, 7vw, 72px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-2px', marginBottom: 20 }}>
-                            Doctor speaks.<br />
-                            <span style={{ color: '#30D158' }}>AI writes.</span>
-                        </h1>
-                        <p style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', color: '#666', lineHeight: 1.6, maxWidth: 540, margin: '0 auto 40px' }}>
-                            Clinical notes generated in seconds, not hours. SOAP notes, progress notes, and more — from your voice.
-                        </p>
-                        <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-                            <a
-                                href="https://app.hanna.care"
-                                style={{
-                                    padding: '16px 36px', borderRadius: 12, fontSize: 16, fontWeight: 700,
-                                    background: '#1A1A1A', color: '#fff', textDecoration: 'none',
-                                    transition: 'all 0.2s',
-                                }}
-                                onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.15)'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-                            >
-                                Try Free — No Credit Card
-                            </a>
-                            <a
-                                href="#how-it-works"
-                                style={{
-                                    padding: '16px 36px', borderRadius: 12, fontSize: 16, fontWeight: 600,
-                                    background: 'transparent', color: '#1A1A1A', textDecoration: 'none',
-                                    border: '1.5px solid #E0E0E0', transition: 'all 0.2s',
-                                }}
-                                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1A1A1A'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E0E0E0'; }}
-                            >
-                                See How It Works
-                            </a>
-                        </div>
-                    </div>
-                    <div className="animate-on-scroll" style={{ marginTop: 60, opacity: 0, transform: 'translateY(40px)', transition: 'all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s' }}>
-                        <img
-                            src="/hero-scribe.png"
-                            alt="Doctor using Hanna Scribe"
-                            style={{ width: '100%', maxWidth: 420, margin: '0 auto', borderRadius: 24 }}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ PAIN POINTS ═══════ */}
-            <section style={{ padding: '80px 24px', background: '#fff' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
-                            The problem is <span style={{ color: '#FF453A' }}>real</span>
-                        </h2>
-                        <p style={{ fontSize: 18, color: '#888' }}>Documentation is the #1 cause of physician burnout</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-                        {[
-                            { emoji: '😩', stat: '3 hours', desc: 'lost daily on documentation', sub: 'That\'s 15 hours/week — almost 2 full workdays' },
-                            { emoji: '⏱️', stat: '5–8 fewer', desc: 'patients seen per day', sub: 'Every hour charting is an hour not treating' },
-                            { emoji: '💰', stat: '฿15,000', desc: 'in lost revenue daily', sub: 'Per clinic — that\'s ฿450,000/month left on the table' },
-                        ].map((item, i) => (
-                            <div
-                                key={i}
-                                className="animate-on-scroll"
-                                style={{
-                                    padding: 32, borderRadius: 20,
-                                    background: '#FAFAFA', border: '1px solid #F0F0F0',
-                                    textAlign: 'center', opacity: 0, transform: 'translateY(20px)',
-                                    transition: `all 0.6s ease ${i * 0.1}s`,
-                                }}
-                            >
-                                <div style={{ fontSize: 40, marginBottom: 12 }}>{item.emoji}</div>
-                                <div style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-1px', marginBottom: 4 }}>{item.stat}</div>
-                                <div style={{ fontSize: 16, fontWeight: 600, marginBottom: 8 }}>{item.desc}</div>
-                                <div style={{ fontSize: 14, color: '#999' }}>{item.sub}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ HOW IT WORKS ═══════ */}
-            <section id="how-it-works" style={{ padding: '100px 24px' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
-                            Simple as <span style={{ color: '#30D158' }}>1, 2, 3</span>
-                        </h2>
-                        <p style={{ fontSize: 18, color: '#888' }}>Your first SOAP note in under 60 seconds</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 32 }}>
-                        {[
-                            { step: '1', icon: '🎙️', title: 'Tap & Record', desc: 'Open the app, tap record, and speak during your consultation as you normally would.', color: '#3478F6' },
-                            { step: '2', icon: '⚡', title: 'AI Generates', desc: 'In seconds, Hanna generates a structured SOAP note from your conversation.', color: '#30D158' },
-                            { step: '3', icon: '📋', title: 'Review & Export', desc: 'Edit if needed, finalize, and export as PDF or copy to your system.', color: '#FF9F0A' },
-                        ].map((item, i) => (
-                            <div
-                                key={i}
-                                className="animate-on-scroll"
-                                style={{
-                                    padding: 36, borderRadius: 24,
-                                    background: '#fff', border: '1px solid #F0F0F0',
-                                    boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-                                    opacity: 0, transform: 'translateY(20px)',
-                                    transition: `all 0.6s ease ${i * 0.15}s`,
-                                }}
-                            >
-                                <div style={{
-                                    width: 48, height: 48, borderRadius: 14,
-                                    background: `${item.color}15`, display: 'flex', alignItems: 'center',
-                                    justifyContent: 'center', fontSize: 24, marginBottom: 20,
-                                }}>
-                                    {item.icon}
-                                </div>
-                                <div style={{
-                                    fontSize: 12, fontWeight: 700, color: item.color,
-                                    letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 8,
-                                }}>
-                                    Step {item.step}
-                                </div>
-                                <h3 style={{ fontSize: 22, fontWeight: 700, marginBottom: 8, letterSpacing: '-0.3px' }}>{item.title}</h3>
-                                <p style={{ fontSize: 15, color: '#888', lineHeight: 1.6 }}>{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ FEATURES ═══════ */}
-            <section style={{ padding: '80px 24px', background: '#fff' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
-                            Built for <span style={{ color: '#30D158' }}>clinicians</span>
-                        </h2>
-                        <p style={{ fontSize: 18, color: '#888' }}>Everything you need, nothing you don't</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-                        {[
-                            { icon: '📝', title: 'Multiple Templates', desc: 'SOAP, Progress Notes, Free Text — choose your format for each consult.' },
-                            { icon: '🌏', title: 'Thai & English', desc: 'Transcription and notes in Thai, English, or mixed — handles medical terminology.' },
-                            { icon: '🤖', title: 'AI Commands', desc: '"Make it shorter", "Add differential diagnosis" — edit notes with natural language.' },
-                            { icon: '🔄', title: 'Shift Handover', desc: 'Auto-generated shift summaries with patient statuses for seamless handoff.' },
-                            { icon: '📱', title: 'Works on Your Phone', desc: 'No installation needed. PWA works on any phone, tablet, or desktop browser.' },
-                            { icon: '🔒', title: 'Supervised AI', desc: 'Every note is reviewed by the clinician. AI assists, never replaces your judgment.' },
-                        ].map((item, i) => (
-                            <div
-                                key={i}
-                                className="animate-on-scroll"
-                                style={{
-                                    padding: 28, borderRadius: 18,
-                                    background: '#FAFAFA', border: '1px solid #F0F0F0',
-                                    opacity: 0, transform: 'translateY(16px)',
-                                    transition: `all 0.5s ease ${(i % 3) * 0.1}s`,
-                                }}
-                            >
-                                <div style={{ fontSize: 28, marginBottom: 12 }}>{item.icon}</div>
-                                <h3 style={{ fontSize: 17, fontWeight: 700, marginBottom: 6, letterSpacing: '-0.2px' }}>{item.title}</h3>
-                                <p style={{ fontSize: 14, color: '#888', lineHeight: 1.5 }}>{item.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ VISION ═══════ */}
-            <section style={{ padding: '100px 24px', background: 'linear-gradient(180deg, #FAFAFA 0%, #F0F4F0 100%)' }}>
-                <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-                    <div className="animate-on-scroll" style={{ opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                        <p style={{ fontSize: 14, fontWeight: 600, color: '#30D158', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
-                            The Bigger Picture
-                        </p>
-                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
-                            Scribe is just the <span style={{ color: '#30D158' }}>beginning</span>
-                        </h2>
-                        <p style={{ fontSize: 18, color: '#888', lineHeight: 1.6, marginBottom: 48 }}>
-                            From consultation to recovery — one continuous thread of care.
-                        </p>
-                    </div>
-                    <div className="animate-on-scroll" style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap', alignItems: 'center', marginBottom: 48, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease 0.15s' }}>
-                        {[
-                            { icon: '🎙️', label: 'Document', active: true },
-                            { icon: '→', label: '' },
-                            { icon: '📋', label: 'Care Plan', active: false },
-                            { icon: '→', label: '' },
-                            { icon: '📱', label: 'Follow-up', active: false },
-                        ].map((item, i) => (
-                            item.label === '' ? (
-                                <span key={i} style={{ fontSize: 24, color: '#CCC' }}>→</span>
-                            ) : (
-                                <div
-                                    key={i}
-                                    style={{
-                                        padding: '20px 28px', borderRadius: 16,
-                                        background: item.active ? '#fff' : '#fff',
-                                        border: item.active ? '2px solid #30D158' : '1px solid #E0E0E0',
-                                        boxShadow: item.active ? '0 4px 16px rgba(48, 209, 88, 0.15)' : 'none',
-                                        textAlign: 'center', minWidth: 120,
-                                    }}
-                                >
-                                    <div style={{ fontSize: 28, marginBottom: 6 }}>{item.icon}</div>
-                                    <div style={{ fontSize: 14, fontWeight: 600, color: item.active ? '#30D158' : '#888' }}>
-                                        {item.label}
-                                        {item.active && <div style={{ fontSize: 11, color: '#30D158', marginTop: 2 }}>Available now</div>}
-                                        {!item.active && <div style={{ fontSize: 11, color: '#CCC', marginTop: 2 }}>Coming soon</div>}
-                                    </div>
-                                </div>
-                            )
-                        ))}
-                    </div>
-                    <div className="animate-on-scroll" style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease 0.3s' }}>
-                        {[
-                            'Auto care plans from notes',
-                            'Patient follow-up via LINE',
-                            'Medication adherence tracking',
-                        ].map((text, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14, color: '#888' }}>
-                                <span style={{ color: '#CCC' }}>○</span> {text}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ TRUST ═══════ */}
-            <section style={{ padding: '80px 24px', background: '#fff' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div className="animate-on-scroll" style={{
-                        display: 'flex', alignItems: 'center', gap: 48, flexWrap: 'wrap', justifyContent: 'center',
-                        opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease',
-                    }}>
-                        <img src="/illust-trust.png" alt="Supervised AI" style={{ width: '100%', maxWidth: 300, borderRadius: 24 }} />
-                        <div style={{ maxWidth: 440 }}>
-                            <h2 style={{ fontSize: 32, fontWeight: 800, letterSpacing: '-0.8px', marginBottom: 16 }}>
-                                Supervised AI.<br />
-                                <span style={{ color: '#30D158' }}>You decide.</span>
-                            </h2>
-                            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.7, marginBottom: 20 }}>
-                                Hanna doesn't replace clinicians — it makes them faster. Every note is reviewed and approved by you before it's finalized. AI assists, never acts alone.
-                            </p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                                {[
-                                    'AI writes → you review & confirm',
-                                    'AI flags risk → alerts your team, never acts alone',
-                                    'Full audit trail for every note',
-                                ].map((text, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14 }}>
-                                        <span style={{ color: '#30D158', fontWeight: 700 }}>✓</span>
-                                        <span style={{ color: '#555' }}>{text}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════ PRICING ═══════ */}
-            <section id="pricing" style={{ padding: '100px 24px' }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div className="animate-on-scroll" style={{ textAlign: 'center', marginBottom: 60, opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                        <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 12 }}>
-                            Simple, transparent <span style={{ color: '#30D158' }}>pricing</span>
-                        </h2>
-                        <p style={{ fontSize: 18, color: '#888' }}>Start free. Upgrade when you're ready.</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
-                        {[
-                            {
-                                name: 'Free', price: '฿0', period: '/month', desc: 'Try Scribe risk-free',
-                                features: ['10 notes/month', 'SOAP template', 'Thai & English', 'Works on phone'],
-                                cta: 'Start Free', ctaBg: '#F0F0F0', ctaColor: '#1A1A1A', popular: false,
-                            },
-                            {
-                                name: 'Pro', price: '฿1,990', period: '/person/mo', desc: 'For solo practitioners',
-                                features: ['Unlimited notes', 'All templates', 'AI commands', 'PDF export', 'Shift handover', 'LINE support'],
-                                cta: 'Start Pro', ctaBg: '#1A1A1A', ctaColor: '#fff', popular: true,
-                            },
-                            {
-                                name: 'Clinic', price: '฿4,990', period: '/month', desc: 'For your whole team (≤5)',
-                                features: ['Everything in Pro', 'Up to 5 team members', 'Team invite links', 'Shared note access', 'Usage analytics', 'Dedicated support'],
-                                cta: 'Start Clinic', ctaBg: '#F0F0F0', ctaColor: '#1A1A1A', popular: false,
-                            },
-                        ].map((plan, i) => (
-                            <div
-                                key={i}
-                                className="animate-on-scroll"
-                                style={{
-                                    padding: 32, borderRadius: 24, position: 'relative',
-                                    background: '#fff', border: plan.popular ? '2px solid #30D158' : '1px solid #F0F0F0',
-                                    boxShadow: plan.popular ? '0 8px 32px rgba(48, 209, 88, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
-                                    opacity: 0, transform: 'translateY(20px)',
-                                    transition: `all 0.6s ease ${i * 0.1}s`,
-                                }}
-                            >
-                                {plan.popular && (
-                                    <div style={{
-                                        position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)',
-                                        background: '#30D158', color: '#fff', padding: '4px 16px', borderRadius: 20,
-                                        fontSize: 12, fontWeight: 700, letterSpacing: '0.05em',
-                                    }}>
-                                        POPULAR
-                                    </div>
-                                )}
-                                <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 4 }}>{plan.name}</h3>
-                                <p style={{ fontSize: 13, color: '#999', marginBottom: 16 }}>{plan.desc}</p>
-                                <div style={{ marginBottom: 24 }}>
-                                    <span style={{ fontSize: 36, fontWeight: 800, letterSpacing: '-1px' }}>{plan.price}</span>
-                                    <span style={{ fontSize: 14, color: '#999' }}>{plan.period}</span>
-                                </div>
-                                <ul style={{ listStyle: 'none', padding: 0, marginBottom: 28 }}>
-                                    {plan.features.map((f, j) => (
-                                        <li key={j} style={{ fontSize: 14, color: '#666', padding: '6px 0', display: 'flex', alignItems: 'center', gap: 8 }}>
-                                            <span style={{ color: '#30D158' }}>✓</span> {f}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <a
-                                    href="https://app.hanna.care"
-                                    style={{
-                                        display: 'block', textAlign: 'center',
-                                        padding: '14px 0', borderRadius: 12, fontSize: 15, fontWeight: 700,
-                                        background: plan.ctaBg, color: plan.ctaColor, textDecoration: 'none',
-                                        transition: 'all 0.2s', border: plan.popular ? 'none' : '1px solid #E0E0E0',
-                                    }}
-                                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; }}
-                                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
-                                >
-                                    {plan.cta}
-                                </a>
-                            </div>
-                        ))}
-                    </div>
-                    <p style={{ textAlign: 'center', marginTop: 28, fontSize: 14, color: '#999' }}>
-                        Hospital? <strong>฿49,900/month</strong> for up to 50 clinicians. <a href="mailto:hello@hanna.care" style={{ color: '#30D158', fontWeight: 600, textDecoration: 'none' }}>Contact us →</a>
-                    </p>
-                </div>
-            </section>
-
-            {/* ═══════ FINAL CTA ═══════ */}
-            <section style={{
-                padding: '100px 24px', textAlign: 'center',
-                background: 'linear-gradient(180deg, #FAFAFA 0%, #F0FAF2 100%)',
-            }}>
-                <div className="animate-on-scroll" style={{ maxWidth: 600, margin: '0 auto', opacity: 0, transform: 'translateY(20px)', transition: 'all 0.6s ease' }}>
-                    <h2 style={{ fontSize: 'clamp(28px, 5vw, 44px)', fontWeight: 800, letterSpacing: '-1px', marginBottom: 16 }}>
-                        Start documenting <span style={{ color: '#30D158' }}>smarter</span>
-                    </h2>
-                    <p style={{ fontSize: 18, color: '#888', lineHeight: 1.6, marginBottom: 36 }}>
-                        Your first 10 notes are free. No credit card. No installation. Works on your phone.
-                    </p>
-                    <a
-                        href="https://app.hanna.care"
-                        style={{
-                            display: 'inline-block', padding: '18px 48px', borderRadius: 14,
-                            fontSize: 18, fontWeight: 700, background: '#1A1A1A', color: '#fff',
-                            textDecoration: 'none', transition: 'all 0.2s',
-                        }}
-                        onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.15)'; }}
-                        onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
-                    >
-                        Try Hanna Scribe Free →
-                    </a>
-                </div>
-            </section>
-
-            {/* ═══════ FOOTER ═══════ */}
-            <footer style={{
-                padding: '40px 24px', background: '#1A1A1A', color: '#888',
-                textAlign: 'center', fontSize: 14,
-            }}>
-                <div style={{ maxWidth: 1000, margin: '0 auto' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 20, flexWrap: 'wrap' }}>
-                        <a href="/privacy" style={{ color: '#888', textDecoration: 'none' }}>Privacy</a>
-                        <a href="/terms" style={{ color: '#888', textDecoration: 'none' }}>Terms</a>
-                        <a href="mailto:hello@hanna.care" style={{ color: '#888', textDecoration: 'none' }}>hello@hanna.care</a>
-                    </div>
-                    <p style={{ color: '#555' }}>© 2025 Hanna Care Intelligence. All rights reserved.</p>
-                </div>
-            </footer>
-
-            {/* ═══════ SCROLL ANIMATION CSS ═══════ */}
-            <style>{`
-        .animate-on-scroll { will-change: opacity, transform; }
-        .animate-visible { opacity: 1 !important; transform: translateY(0) !important; }
-        @media (max-width: 768px) {
-          nav > div { padding: 12px 16px !important; }
-        }
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-      `}</style>
+  return (
+    <main className="min-h-screen overflow-hidden bg-[#f5f7fb] text-slate-950">
+      <Background />
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/75 backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a href="#top" className="flex items-center gap-3" aria-label="Hanna home">
+            <img src="/hanna-logo.png" alt="Hanna" className="h-9 w-9 rounded-xl shadow-sm" />
+            <div className="leading-tight"><p className="text-base font-semibold tracking-tight">Hanna</p><p className="text-xs font-medium text-slate-500">Care Intelligence</p></div>
+          </a>
+          <div className="hidden items-center gap-7 lg:flex">{nav.map(([label, href]) => <a key={label} href={href} className="text-sm font-medium text-slate-600 transition hover:text-slate-950">{label}</a>)}</div>
+          <a href="mailto:hello@hanna.care?subject=Hanna%2090-Day%20Pilot" className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-950/10 transition hover:-translate-y-0.5 hover:shadow-xl">Book pilot</a>
         </div>
-    );
+      </nav>
+
+      <section id="top" className="relative z-10 px-5 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-40">
+        <motion.div className="mx-auto max-w-7xl" initial="hidden" animate="visible" variants={stagger}>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <motion.div variants={fadeUp} transition={{ duration: 0.7, ease: 'easeOut' }}>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-xl"><Sparkles className="h-4 w-4 text-emerald-500" />After-visit follow-up infrastructure for chronic care clinics</div>
+              <h1 className="max-w-5xl text-5xl font-semibold tracking-[-0.055em] text-slate-950 sm:text-6xl lg:text-7xl">Know which patients need attention today.</h1>
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl">Hanna helps hospitals turn every chronic care visit into supervised follow-up through AI documentation, LINE check-ins, risk scoring, and nurse-led escalation.</p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <a href="mailto:hello@hanna.care?subject=Hanna%2090-Day%20Chronic%20Care%20Pilot" className="group inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-7 py-4 text-base font-semibold text-white shadow-2xl shadow-slate-950/15 transition hover:-translate-y-1">Book a 90-day pilot <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></a>
+                <a href="https://app.hanna.care" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/75 px-7 py-4 text-base font-semibold text-slate-900 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white">Try Hanna Scribe</a>
+              </div>
+              <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+                {['500 patients per clinic pilot', '<24h target action window', '90-day proof period'].map((item) => <div key={item} className="rounded-3xl border border-white/70 bg-white/75 p-5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur-xl">{item}</div>)}
+              </div>
+            </motion.div>
+            <CommandCenter />
+          </div>
+        </motion.div>
+      </section>
+
+      <section id="platform" className="relative z-10 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><SectionTitle eyebrow="The platform" title="One care loop, not another hospital app." body="Hanna connects documentation, follow-up, risk detection, nurse action, and outcome reporting into one workflow after the patient leaves the clinic." /><CardGrid items={pillars} /></div></section>
+      <section id="workflow" className="relative z-10 px-5 py-20 lg:px-8"><Workflow /></section>
+      <section id="pilot" className="relative z-10 px-5 py-20 lg:px-8"><Pilot /></section>
+      <section id="scribe" className="relative z-10 px-5 py-20 lg:px-8"><ScribeSection /></section>
+      <section id="trust" className="relative z-10 px-5 py-20 lg:px-8"><div className="mx-auto max-w-7xl"><SectionTitle eyebrow="Trust posture" title="Built to support care teams, not replace them." /><CardGrid items={trust} /></div></section>
+      <FinalCta />
+      <Footer />
+    </main>
+  );
 };
+
+function Background() { return <div className="pointer-events-none fixed inset-0 z-0"><div className="absolute -left-24 -top-28 h-[420px] w-[420px] rounded-full bg-cyan-200/40 blur-3xl" /><div className="absolute -right-28 top-[18%] h-[520px] w-[520px] rounded-full bg-blue-200/40 blur-3xl" /><div className="absolute bottom-[-15%] left-[25%] h-[460px] w-[460px] rounded-full bg-emerald-100/60 blur-3xl" /></div>; }
+function CommandCenter() { return <motion.div variants={fadeUp} transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }} className="relative"><div className="absolute inset-0 rotate-3 rounded-[2.5rem] bg-gradient-to-br from-cyan-200 to-emerald-200 blur-2xl" /><div className="relative rounded-[2.5rem] border border-white/70 bg-white/80 p-4 shadow-2xl shadow-slate-950/10 backdrop-blur-2xl"><div className="rounded-[2rem] bg-slate-950 p-5 text-white"><div className="mb-6 flex items-center justify-between"><div><p className="text-sm text-white/50">Nurse Command Center</p><p className="text-xl font-semibold tracking-tight">Today's attention queue</p></div><div className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-300">Live</div></div>{[['Somchai P.', 'Glucose rising, missed medication', 'Critical'], ['Malee K.', 'No check-in for 72 hours', 'High'], ['Anan S.', 'Dizziness reported by voice', 'Review']].map(([n, r, l]) => <div key={n} className="mb-3 rounded-2xl border border-white/10 bg-white/[0.08] p-4"><div className="flex items-center justify-between gap-4"><div><p className="font-semibold">{n}</p><p className="text-sm text-white/50">{r}</p></div><span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">{l}</span></div></div>)}<div className="mt-6 rounded-2xl bg-white p-4 text-slate-950"><p className="text-sm font-medium text-slate-500">Care capacity signal</p><p className="mt-1 text-2xl font-semibold tracking-tight">AI organizes routine signals. Nurses handle exceptions.</p></div></div></div></motion.div>; }
+function SectionTitle({ eyebrow, title, body }: { eyebrow: string; title: string; body?: string }) { return <motion.div className="mx-auto max-w-3xl text-center" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeUp} transition={{ duration: 0.7 }}><p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">{eyebrow}</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{title}</h2>{body && <p className="mt-5 text-lg leading-8 text-slate-600">{body}</p>}</motion.div>; }
+function CardGrid({ items }: { items: Array<[string, string, React.ElementType]> }) { return <motion.div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger}>{items.map(([title, body, Icon]) => <FeatureCard key={title} title={title} body={body} Icon={Icon} />)}</motion.div>; }
+function FeatureCard({ title, body, Icon }: { title: string; body: string; Icon: React.ElementType }) { return <motion.div variants={fadeUp} transition={{ duration: 0.55 }} className="rounded-[2rem] border border-white/80 bg-white/75 p-6 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-950/5"><div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-white"><Icon className="h-5 w-5" /></div><h3 className="text-xl font-semibold tracking-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{body}</p></motion.div>; }
+function Workflow() { return <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-slate-950 px-6 py-16 text-white shadow-2xl shadow-slate-950/20 sm:px-10 lg:px-14"><div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]"><div><p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Workflow</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Capture. Continue. Escalate. Prove.</h2><p className="mt-5 text-lg leading-8 text-white/60">Voice-first where it removes friction. Dashboard-first where teams need control. Report-first where leadership needs proof.</p></div><div className="grid gap-4 md:grid-cols-2">{workflow.map(([e, t, b, Icon]) => <div key={String(t)} className="rounded-[1.75rem] border border-white/10 bg-white/[0.06] p-6"><Icon className="mb-5 h-9 w-9 rounded-2xl bg-white p-2 text-slate-950" /><p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">{String(e)}</p><h3 className="mt-3 text-xl font-semibold tracking-tight">{String(t)}</h3><p className="mt-3 text-sm leading-6 text-white/60">{String(b)}</p></div>)}</div></div></div>; }
+function Pilot() { return <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center"><div><p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">The offer</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Start with one clinic. Prove the loop in 90 days.</h2><p className="mt-5 text-lg leading-8 text-slate-600">A focused pilot for diabetes, hypertension, and NCD clinics that need more follow-up capacity without hiring a new care team.</p></div><div className="rounded-[2.25rem] border border-white/80 bg-white/80 p-7 shadow-2xl shadow-slate-950/10 backdrop-blur-xl"><div className="border-b border-slate-200 pb-6"><p className="text-sm font-semibold text-slate-500">Hanna 90-Day Chronic Care Follow-up Pilot</p><p className="mt-3 text-5xl font-semibold tracking-[-0.05em]">฿60,000</p><p className="mt-1 text-sm font-medium text-slate-500">per month, 3-month pilot. ฿180,000 total.</p></div><div className="mt-7 grid gap-3 sm:grid-cols-2">{includes.map((item) => <div key={item} className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" /><span className="text-sm font-medium leading-6 text-slate-700">{item}</span></div>)}</div><div className="mt-7 rounded-2xl bg-emerald-50 p-5 text-sm leading-6 text-emerald-950">After the pilot: ฿50,000/month per clinic annually, up to 500 monitored patients. Overage: ฿100/patient/month.</div></div></div>; }
+function ScribeSection() { return <div className="mx-auto max-w-7xl rounded-[2.5rem] border border-white/80 bg-white/75 p-7 shadow-xl shadow-slate-950/5 backdrop-blur-xl lg:p-10"><div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"><div><div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-white"><FileText className="h-6 w-6" /></div><p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">Scribe remains the wedge</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Start with documentation. End with care continuity.</h2><p className="mt-5 text-lg leading-8 text-slate-600">Hanna Scribe is the easiest way to enter the clinical workflow and create the data needed for supervised follow-up.</p><a href="https://app.hanna.care" className="mt-8 inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5">Open Scribe <ArrowRight className="h-4 w-4" /></a></div><div className="grid gap-4 sm:grid-cols-2">{pillars.slice(0, 4).map(([title, body, Icon]) => <FeatureCard key={String(title)} title={String(title)} body={String(body)} Icon={Icon as React.ElementType} />)}</div></div></div>; }
+function FinalCta() { return <section className="relative z-10 px-5 py-20 lg:px-8"><div className="mx-auto max-w-5xl text-center"><h2 className="text-4xl font-semibold tracking-[-0.045em] sm:text-6xl">More follow-up capacity. Less nurse burden.</h2><p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600">Hanna is built for hospitals that need daily patient visibility after the visit, without asking already-stretched care teams to do more manual work.</p><div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><a href="mailto:hello@hanna.care?subject=Book%20Hanna%2090-Day%20Pilot" className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-8 py-4 text-base font-semibold text-white shadow-2xl shadow-slate-950/15 transition hover:-translate-y-1">Book the pilot <ArrowRight className="h-4 w-4" /></a><a href="mailto:hello@hanna.care?subject=Request%20Hanna%20Demo" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/75 px-8 py-4 text-base font-semibold text-slate-900 shadow-sm backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white">Request demo</a></div></div></section>; }
+function Footer() { return <footer className="relative z-10 border-t border-slate-200/80 bg-white/70 px-5 py-10 backdrop-blur-xl lg:px-8"><div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm text-slate-500 md:flex-row md:items-center md:justify-between"><div className="flex items-center gap-3"><img src="/hanna-logo.png" alt="Hanna" className="h-8 w-8 rounded-lg" /><span>© 2026 Hanna Care Intelligence</span></div><div className="flex gap-6"><a href="/privacy" className="transition hover:text-slate-950">Privacy</a><a href="/terms" className="transition hover:text-slate-950">Terms</a><a href="mailto:hello@hanna.care" className="transition hover:text-slate-950">hello@hanna.care</a></div></div></footer>; }
 
 export default ScribeLanding;
